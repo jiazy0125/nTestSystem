@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nTestSystem.Desktop", "nTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37BE7F16-A51F-48BB-ADD3-EF93E3AEAB0E}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		Note.docx = Note.docx
+		Untitled 2.vi = Untitled 2.vi
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nTestSystem.DataHelper", "nTestSystem.DataHelper\nTestSystem.DataHelper.csproj", "{2FF64225-1366-44D9-9EF1-6332E2988C84}"

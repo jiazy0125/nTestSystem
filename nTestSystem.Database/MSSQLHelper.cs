@@ -225,9 +225,10 @@ namespace nTestSystem.DatabaseHelper
                 tran = cn.BeginTransaction();
                 base.BeginTransaction();
             }
-            catch
+            catch(Exception exp)
             {
                 IsInTransaction = false;
+                throw exp;
             }
         }
 
@@ -239,9 +240,10 @@ namespace nTestSystem.DatabaseHelper
                 Close();
                 base.Commit();
             }
-            catch
+            catch(Exception exp)
             {
                 Rollback();
+                throw exp;
             }
         }
 

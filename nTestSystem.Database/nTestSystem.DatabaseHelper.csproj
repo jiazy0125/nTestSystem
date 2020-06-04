@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{59F81643-D146-44CC-A6B4-EFA2319E23B0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>nTestSystem.Database</RootNamespace>
-    <AssemblyName>nTestSystem.Database</AssemblyName>
+    <RootNamespace>nTestSystem.DatabaseHelper</RootNamespace>
+    <AssemblyName>nTestSystem.DatabaseHelper</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,11 +55,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseHelper.cs" />
-    <Compile Include="ConditionalExpression.cs" />
-    <Compile Include="DbFactory.cs" />
-    <Compile Include="IDatabaseHelper.cs" />
-    <Compile Include="ISqlExpression.cs" />
+    <Compile Include="Class\BaseHelper.cs" />
+    <Compile Include="Class\ConditionalExpression.cs" />
+    <Compile Include="Class\DbFactory.cs" />
+    <Compile Include="Class\SqlExpressionExtensions.cs" />
+    <Compile Include="Interface\IDatabaseHelper.cs" />
+    <Compile Include="Interface\ISqlCommand.cs" />
+    <Compile Include="Interface\ISqlExpression.cs" />
     <Compile Include="MSSQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -74,7 +76,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SqlExpression.cs" />
+    <Compile Include="Class\SqlExpression.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

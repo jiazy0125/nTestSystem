@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using nTestSystem.Framework.Commons;
 
-namespace nTestSystem.Database
+namespace nTestSystem.DatabaseHelper
 {
-	public class ConditionalExpression<T> : ISqlExpression
+	public class ConditionalExpression<T> : ISqlCommand, ISqlExpression
     {
         public string Command { get; private set; }
         public List<SqlParameter> Parameters { get; private set; }
@@ -23,24 +23,21 @@ namespace nTestSystem.Database
             return Command;
         }
         /// <summary>
-        /// 条件连接语句,and
+        /// 条件连接语句，And
         /// </summary>
         /// <returns></returns>
         public ConditionalExpression<T> And()
         {
-
             Command += "and ";
 
             return this;
-
-
         }
         /// <summary>
-        /// 单字段操作函数,Between条件语句
+        /// Between条件语句
         /// </summary>
-        /// <param name="column"></param>
-        /// <param name="minValue"></param>
-        /// <param name="maxValue"></param>
+        /// <param name="column">字段索引</param>
+        /// <param name="minValue">区间下限值</param>
+        /// <param name="maxValue">区间上限值</param>
         /// <returns></returns>
         public ConditionalExpression<T> Between(int column, object minValue, object maxValue)
         {
@@ -51,15 +48,14 @@ namespace nTestSystem.Database
             Parameters.Add(new SqlParameter(min, minValue));
             Parameters.Add(new SqlParameter(max, maxValue));
 
-            return this; ;
-
+            return this;
 
         }
         /// <summary>
-        /// 单字段操作函数,等于条件语句
+        /// 单个字段等于条件语句
         /// </summary>
-        /// <param name="column"></param>
-        /// <param name="value"></param>
+        /// <param name="column">字段索引</param>
+        /// <param name="value">条件值</param>
         /// <returns></returns>
         public ConditionalExpression<T> Eq(int column, object value)
         {
@@ -71,6 +67,12 @@ namespace nTestSystem.Database
             return this;
 
         }
+        /// <summary>
+        /// 单个字段等于条件语句
+        /// </summary>
+        /// <param name="column">字段名称</param>
+        /// <param name="value">条件值</param>
+        /// <returns></returns>
         public ConditionalExpression<T> Eq(string column, object value)
         {
             var paraName = this.CreateParaID();
@@ -80,7 +82,13 @@ namespace nTestSystem.Database
 
         }
 
-
+        /// <summary>
+        /// 多个字段等于条件语句
+        /// </summary>
+        /// <param name="columns">字段索引值集合</param>
+        /// <param name="data">数据</param>
+        /// <param name="conn">相等条件连接方式</param>
+        /// <returns></returns>
         public ConditionalExpression<T> Eq(int[] columns, T data, Connection conn = Connection.And)
         {
             Command += this.MultiEqualCondition(columns, data, Parameters, conn);
@@ -88,26 +96,11 @@ namespace nTestSystem.Database
             return this;
         }
 
-
-
-
         /// <summary>
-        /// 单字段操作函数,字段相等条件语句
+        /// in条件语句
         /// </summary>
-        /// <param name="field1"></param>
-        /// <param name="field2"></param>
-        /// <returns></returns>
-        public ConditionalExpression<T> EqColumn(int column1, int column2)
-        {
-            Command += $"{this.Column<T>(column1)} = {this.Column<T>(column2)} ";
-            return this;
-
-        }
-        /// <summary>
-        /// 单字段操作函数,In条件语句
-        /// </summary>
-        /// <param name="field"></param>
-        /// <param name="values"></param>
+        /// <param name="column">字段索引</param>
+        /// <param name="values">条件值集合</param>
         /// <returns></returns>
         public ConditionalExpression<T> In(int column, object[] values)
         {
@@ -119,10 +112,10 @@ namespace nTestSystem.Database
             return this;
         }
         /// <summary>
-        /// 单字段操作函数,In条件语句
+        /// in条件语句
         /// </summary>
-        /// <param name="field"></param>
-        /// <param name="values"></param>
+        /// <param name="column">字段索引</param>
+        /// <param name="sql">条件语句</param>
         /// <returns></returns>
         public ConditionalExpression<T> In(int column, SqlExpression sql)
         {
@@ -130,12 +123,13 @@ namespace nTestSystem.Database
             Parameters.AddRange(sql.Parameters);
             return this;
         }
+
         /// <summary>
-        /// 单字段操作函数,Like条件语句
+        /// Like条件语句
         /// </summary>
-        /// <param name="field"></param>
-        /// <param name="value"></param>
-        /// <param name="like"></param>
+        /// <param name="column">字段索引</param>
+        /// <param name="value">条件值</param>
+        /// <param name="like">符合like条件的位置</param>
         /// <returns></returns>
         public ConditionalExpression<T> Like(int column, string value, SqlLike like)
         {
@@ -164,8 +158,8 @@ namespace nTestSystem.Database
         /// <summary>
         /// 单字段操作函数,Like条件语句
         /// </summary>
-        /// <param name="column"></param>
-        /// <param name="value"></param>
+        /// <param name="column">字段索引</param>
+        /// <param name="value">条件值</param>
         /// <returns></returns>
         public ConditionalExpression<T> Like(int column, string value)
         {
@@ -183,20 +177,36 @@ namespace nTestSystem.Database
             Command += "or ";
             return this;
         }
-
+        /// <summary>
+        /// SQL排序条件
+        /// </summary>
+        /// <param name="columns">需要进行排序的字段索引</param>
+        /// <param name="seq">排序方式</param>
+        /// <returns></returns>
         public ConditionalExpression<T> OrderBy(int[] columns, Sequence seq)
         {
             Command += $"order by {this.ColumnConnection<T>(columns)} {seq}";
 
             return this;
         }
-
+        /// <summary>
+        /// 重写操作符&
+        /// </summary>
+        /// <param name="cexp1">条件表达式1</param>
+        /// <param name="cexp2">条件表达式2</param>
+        /// <returns></returns>
         public static ConditionalExpression<T> operator &(ConditionalExpression<T> cexp1, ConditionalExpression<T> cexp2)
         {
             cexp1.Command += $" and {cexp2.Command} ";
             cexp1.Parameters.AddRange(cexp2.Parameters);
             return cexp1;
         }
+        /// <summary>
+        /// 重写操作符|
+        /// </summary>
+        /// <param name="cexp1">条件表达式1</param>
+        /// <param name="cexp2">条件表达式2</param>
+        /// <returns></returns>
         public static ConditionalExpression<T> operator |(ConditionalExpression<T> cexp1, ConditionalExpression<T> cexp2)
         {
             cexp1.Command += $" or {cexp2.Command} ";

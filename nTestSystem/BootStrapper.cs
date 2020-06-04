@@ -10,7 +10,7 @@ using Prism.Unity;
 namespace nTestSystem
 {
 	[Obsolete]
-	class BootStrapper: UnityBootstrapper
+	class Bootstrapper: UnityBootstrapper
     {
 
         protected override DependencyObject CreateShell()

@@ -15,7 +15,7 @@ namespace nTestSystem.DatabaseHelper
         {
             var className = ConfigurationManager.AppSettings["DBHelperName"];
             var np = MethodBase.GetCurrentMethod().DeclaringType.Namespace;
-            var fullName = np + className;
+            var fullName = $"{ np }.{ className }";
             var result = (IDatabaseHelper)Assembly.Load(np).CreateInstance(fullName);
             return result;
         }

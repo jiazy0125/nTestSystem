@@ -83,6 +83,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\nTestSystem.Database\nTestSystem.DatabaseHelper.csproj">
+      <Project>{59f81643-d146-44cc-a6b4-efa2319e23b0}</Project>
+      <Name>nTestSystem.DatabaseHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\nTestSystem.Framework\nTestSystem.Framework.csproj">
       <Project>{31046853-b5b2-457d-9aee-5df597c1b8de}</Project>
       <Name>nTestSystem.Framework</Name>

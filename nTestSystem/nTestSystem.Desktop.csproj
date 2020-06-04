@@ -96,7 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BootStrapper.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
@@ -119,6 +119,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,6 +136,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nTestSystem.Database\nTestSystem.DatabaseHelper.csproj">
+      <Project>{59f81643-d146-44cc-a6b4-efa2319e23b0}</Project>
+      <Name>nTestSystem.DatabaseHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\nTestSystem.DataHelper\nTestSystem.DataHelper.csproj">
+      <Project>{2ff64225-1366-44d9-9ef1-6332e2988c84}</Project>
+      <Name>nTestSystem.DataHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\nTestSystem.Framework\nTestSystem.Framework.csproj">
+      <Project>{31046853-b5b2-457d-9aee-5df597c1b8de}</Project>
+      <Name>nTestSystem.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

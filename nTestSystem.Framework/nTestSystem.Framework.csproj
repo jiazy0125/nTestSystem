@@ -57,6 +57,7 @@
     <Compile Include="Attributes\SystemAttribute.cs" />
     <Compile Include="Commons\EnumerationDefinition.cs" />
     <Compile Include="Commons\Result.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,7 +87,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Converters\" />
     <Folder Include="Database\" />
-    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

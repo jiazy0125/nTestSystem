@@ -46,17 +46,19 @@ namespace nTestSystem.Framework.Attributes
 
 
 
-	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+	[AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
 	public class ColumnAttribute : Attribute
 	{
-		public ColumnAttribute(string name, int index)
+		public ColumnAttribute(int index)
 		{
-			Name = name;
+			//Name = name;
 			Flag = (ColumnFlags)(index >= 0 ? 1 << index : 0);
 		}
-		public string Name { get; }
+		//public string Name { get; }
 
 		public ColumnFlags Flag { get; }
+
+		public bool IsInDatabase { get; set; }
 
 	}
 

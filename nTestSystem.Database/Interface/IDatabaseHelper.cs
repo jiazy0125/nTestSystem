@@ -50,6 +50,7 @@ namespace nTestSystem.DatabaseHelper
         /// <summary>
         /// 结束事务将所有存储中的仓储对象中位提交的修改保存至物理存储中
         /// </summary>
+        /// <returns>事务执行是否成功</returns>
         void Commit();
         /// <summary>
         /// 回滚操作，抛弃所有未提交的修改，并重置事物模式
