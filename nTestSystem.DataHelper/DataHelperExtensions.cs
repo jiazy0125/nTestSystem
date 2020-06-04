@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Reflection;
@@ -53,19 +54,18 @@ namespace nTestSystem.DataHelper
 			}		
 		}
 		/// <summary>
-		/// 向数据库中插入数据
+		/// 向数据库中插入数据、更新数据、删除数据
 		/// </summary>
 		/// <param name="dataHelper"></param>
 		/// <param name="sql">SQL语句表达式</param>
 		/// <returns>返回受影响的行数</returns>
 		public static Result<int> SaveData(this IDataHelper dataHelper, ISqlCommand sql)
 		{
-			return default;
-		
-		
+			var res = DbFactory.Execute().ExecuteNonQuery(sql.Command, CommandType.Text, sql.Parameters?.ToArray());
+			return Result<int>.Success(data: res);			
 		}
 		/// <summary>
-		/// 向数据库中插入多条数据，采用事务模式
+		/// 向数据库中插入多条数据、更新多条数据、删除多条数据,采用事务模式
 		/// </summary>
 		/// <param name="dataHelper"></param>
 		/// <param name="sqls">SQL语句集合</param>
@@ -91,19 +91,5 @@ namespace nTestSystem.DataHelper
 			}
 			
 		}
-
-		public static Result<int> UpdateData(this IDataHelper dataHelper, ISqlCommand sql)
-		{
-			return default;
-		}
-
-
-		public static Result<int> DeleteData(this IDataHelper dataHelper, ISqlCommand sql)
-		{
-
-			return default;
-		
-		}
-
 	}
 }
