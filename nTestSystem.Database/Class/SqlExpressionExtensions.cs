@@ -61,7 +61,7 @@ namespace nTestSystem.DatabaseHelper
                     //只处理被标记为Column特性的属性
                     var attr = property?.GetCustomAttribute<ColumnAttribute>();
 
-                    if ((attr?.Flag | column.ToFlag()) != 0 && attr != null)
+                    if ((attr?.Flag & column.ToFlag()) != 0 && attr != null)
                         return property.Name;
                 }
                 catch { }
@@ -76,14 +76,7 @@ namespace nTestSystem.DatabaseHelper
         /// <returns></returns>
         public static string CreateParaID(this ISqlExpression sql)
         {
-            //return $"@{Guid.NewGuid():N}";
-
-            long i = 1;
-            foreach (byte b in Guid.NewGuid().ToByteArray())
-            {
-                i *= (b + 1);
-            }
-            return $"@{string.Format("{0:x}", i - DateTime.Now.Ticks)}";
+            return $"@{Guid.NewGuid().Guid16()}";
         }
 
         /// <summary>

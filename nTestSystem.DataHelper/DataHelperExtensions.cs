@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using nTestSystem.DatabaseHelper;
-using nTestSystem.Framework.Attributes;
 using nTestSystem.Framework.Commons;
-using nTestSystem.Framework.Extensions;
 
 
 namespace nTestSystem.DataHelper
 {
+	/// <summary>
+	/// IDataHelper方法扩展
+	/// </summary>
 	public static class DataHelperExtensions
 	{
-
 		/// <summary>
 		/// 从数据库中获取数据
 		/// </summary>
@@ -45,12 +41,12 @@ namespace nTestSystem.DataHelper
 						lt.Add(model);
 					}
 				}
-				return Result<List<T>>.Success(data:lt);
+				return Result<List<T>>.Success(data: lt);
 			}
 			catch (Exception e)
 			{
 				return Result<List<T>>.Error(e.Message);
-			}		
+			}
 		}
 		/// <summary>
 		/// 向数据库中插入、更新、删除数据
@@ -60,18 +56,24 @@ namespace nTestSystem.DataHelper
 		/// <returns>返回受影响的行数</returns>
 		public static Result<int> SaveData(this IDataHelper dataHelper, ISqlCommand sql)
 		{
-			var res = DbFactory.Execute().ExecuteNonQuery(sql.Command, CommandType.Text, sql.Parameters?.ToArray());
+			try
+			{
+				var res = DbFactory.Execute().ExecuteNonQuery(sql.Command, CommandType.Text, sql.Parameters?.ToArray());
 
-			return default;
-		
-		
+				return Result<int>.Success(data: res);
+			}
+			catch (Exception exp)
+			{
+				return Result<int>.Error(exp.Message);			
+			}
+
 		}
 		/// <summary>
 		/// 向数据库中插入多条数据、更新多条数据、删除多条数据，采用事务模式
 		/// </summary>
 		/// <param name="dataHelper"></param>
 		/// <param name="sqls">SQL语句集合</param>
-		/// <returns>返回受影响的行数</returns>
+		/// <returns>失败后返回异常</returns>
 		public static Result<Exception> SaveData(this IDataHelper dataHelper, IEnumerable<ISqlCommand> sqls)
 		{
 			try
@@ -91,8 +93,7 @@ namespace nTestSystem.DataHelper
 			{
 				return Result<Exception>.Error(exp.Message, exp);
 			}
-			
-		}
 
+		}
 	}
 }

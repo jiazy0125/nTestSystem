@@ -57,6 +57,7 @@
     <Compile Include="Attributes\SystemAttribute.cs" />
     <Compile Include="Commons\EnumerationDefinition.cs" />
     <Compile Include="Commons\Result.cs" />
+    <Compile Include="Extensions\GuidExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
