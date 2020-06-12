@@ -57,6 +57,7 @@
     <Compile Include="Attributes\SystemAttribute.cs" />
     <Compile Include="Commons\EnumerationDefinition.cs" />
     <Compile Include="Commons\Result.cs" />
+    <Compile Include="Controls\IconButton.cs" />
     <Compile Include="Controls\NormalButton.cs" />
     <Compile Include="Controls\SystemButton.cs" />
     <Compile Include="Controls\SystemCloseButton.cs" />

@@ -89,7 +89,7 @@
                             x:Name="Content"
                             Width="12"
                             Height="12"
-                            Data="F1M0,0L0,9 9,9 9,0 0,0 0,3 8,3 8,8 1,8 1,3z"
+                            Data="M204.8 256a51.2 51.2 0 0 0-51.2 51.2v409.6a51.2 51.2 0 0 0 51.2 51.2h614.4a51.2 51.2 0 0 0 51.2-51.2V307.2a51.2 51.2 0 0 0-51.2-51.2H204.8z m0-51.2h614.4a102.4 102.4 0 0 1 102.4 102.4v409.6a102.4 102.4 0 0 1-102.4 102.4H204.8a102.4 102.4 0 0 1-102.4-102.4V307.2a102.4 102.4 0 0 1 102.4-102.4z"
                             Fill="{Binding SystemButtonForeground, RelativeSource={RelativeSource TemplatedParent}}"
                             Stretch="Fill"
                             UseLayoutRounding="True" />
@@ -197,6 +197,45 @@
 						</Trigger>
 						<Trigger Property="IsEnabled" Value="False">
 							<Setter Property="Opacity" Value="0.5" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!--#endregion-->
+	<!--#region 分页按钮-->
+	<Style x:Key="PageButton" TargetType="{x:Type controls:IconButton}">
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="Width" Value="28" />
+		<Setter Property="Height" Value="22" />
+		<Setter Property="BorderThickness" Value="1,1,1,1" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:IconButton}">
+					<Border
+                        x:Name="Bg"
+                        Background="{StaticResource TransparentColor}"
+                        BorderBrush="#A82828"
+                        BorderThickness="1"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        UseLayoutRounding="True">
+						<ContentPresenter
+                            x:Name="Content"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsEnabled" Value="True" />
+								<Condition Property="IsPressed" Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="Bg" Property="Background" Value="{StaticResource ThemeColor3}" />
+						</MultiTrigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Content" Property="Opacity" Value="0.4" />
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
