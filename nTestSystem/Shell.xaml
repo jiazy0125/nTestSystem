@@ -3,10 +3,95 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:nTestSystem"
+		xmlns:ctrls="clr-namespace:nTestSystem.Framework.Controls;assembly=nTestSystem.Framework"
+		xmlns:adu="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+		xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
+		xmlns:prism="http://www.codeplex.com/prism"
         mc:Ignorable="d"
-        Title="Shell" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Shell" Height="450" Width="800"
+		ResizeMode="CanResizeWithGrip"
+		AllowsTransparency="True"
+		WindowStyle="None"
+		MouseLeftButtonDown="Window_MouseLeftButtonDown" 
+		TextOptions.TextFormattingMode="Display"
+		WindowStartupLocation="CenterScreen" Background="Transparent">
+	<Window.Effect>
+		<DropShadowEffect BlurRadius="40" Opacity="0.4" ShadowDepth="0"/>
+	</Window.Effect>
+	<Grid>
+		<Grid.Background>
+			<ImageBrush ImageSource="Images/Background/Background.jpg" Stretch="UniformToFill"></ImageBrush>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="35"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
+
+		<Grid Background="{DynamicResource ThemeColor}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="190" />
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+
+			<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,16,0" Grid.Column="2">
+				<ctrls:NormalButton Margin="10,0,15,0"
+                    Background="{StaticResource TransparentColor}"
+                    BorderThickness="0"
+                    Cursor="Hand">
+					<WrapPanel>
+						<Ellipse Width="25" Height="25">
+							<Ellipse.Fill>
+								<ImageBrush ImageSource="Images/head.jpg" RenderOptions.BitmapScalingMode="Fant" />
+							</Ellipse.Fill>
+						</Ellipse>
+						<TextBlock
+                            Margin="5,0,0,0"
+                            VerticalAlignment="Center"
+                            Foreground="White"
+                            Text="Zhanyong Jia" />
+						<Path
+                            Width="10"
+                            Height="10"
+                            Margin="15,0,0,0"
+                            Data="{StaticResource Icon_MenuDown}"
+                            Fill="White"
+                            Stretch="Uniform" />
+					</WrapPanel>
+				</ctrls:NormalButton>
+				<ctrls:SystemButton Margin="10,0,0,0" Cursor="Hand"
+									SystemButtonForeground="#EEC1C1"
+									SystemButtonHoverColor="Transparent"
+									SystemButtonHoverForeground="White"
+									SystemButtonSize="26"
+									Icon="{StaticResource Icon_Skin}" />
+				<ctrls:SystemButton Margin="10,0,0,0" Cursor="Hand"
+									SystemButtonForeground="#EEC1C1"
+									SystemButtonHoverColor="Transparent"
+									SystemButtonHoverForeground="White"
+									SystemButtonSize="26"
+									Icon="{StaticResource Icon_Setting}" />
+				<Border Width="1" Height="22" Margin="14,0,10,0" Background="#A82828" />
+				<ctrls:SystemMinButton Cursor="Hand"
+									   SystemButtonForeground="#EEC1C1"
+									   SystemButtonHoverColor="Transparent"
+									   SystemButtonHoverForeground="White"
+									   SystemButtonSize="22"
+									   Icon="{StaticResource Icon_Min}"/>
+
+				<ctrls:SystemMaxButton Cursor="Hand" 
+									   SystemButtonForeground="#EEC1C1"
+									   SystemButtonHoverColor="Transparent"
+									   SystemButtonHoverForeground="White"
+									   SystemButtonSize="24"
+									   Icon="{StaticResource Icon_Close}"/>
+				<ctrls:SystemCloseButton Cursor="Hand"
+										 SystemButtonForeground="#EEC1C1"
+										 SystemButtonHoverColor="Transparent"
+										 SystemButtonHoverForeground="Orange"
+										 SystemButtonSize="22"/>
+			</StackPanel>
+		</Grid>
+	</Grid>
 </Window>

@@ -57,6 +57,11 @@
     <Compile Include="Attributes\SystemAttribute.cs" />
     <Compile Include="Commons\EnumerationDefinition.cs" />
     <Compile Include="Commons\Result.cs" />
+    <Compile Include="Controls\NormalButton.cs" />
+    <Compile Include="Controls\SystemButton.cs" />
+    <Compile Include="Controls\SystemCloseButton.cs" />
+    <Compile Include="Controls\SystemMaxButton.cs" />
+    <Compile Include="Controls\SystemMinButton.cs" />
     <Compile Include="Extensions\GuidExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -76,6 +81,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\iconfont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,7 +93,20 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Converters\" />
-    <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Path.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

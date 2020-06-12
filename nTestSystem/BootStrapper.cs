@@ -35,7 +35,7 @@ namespace nTestSystem
             base.ConfigureModuleCatalog();
             //注册模块
             ModuleCatalog moduleCatalog = (ModuleCatalog)ModuleCatalog;
-            //moduleCatalog.AddModule(typeof(HelloWorldModule.HelloWorldModule));
+            moduleCatalog.AddModule(typeof(SignIn.SignInModule));
         }
     }
 }
