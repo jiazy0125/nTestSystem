@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using Prism.Regions;
 
 namespace nTestSystem.SignIn
 {
+
 	public class SignInModule : IModule
 	{
 		public void OnInitialized(IContainerProvider containerProvider)
@@ -19,7 +21,8 @@ namespace nTestSystem.SignIn
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-
+			containerRegistry.RegisterForNavigation<Views.SignInView>();
+			ConfigurationManager.AppSettings
 		}
 	}
 }

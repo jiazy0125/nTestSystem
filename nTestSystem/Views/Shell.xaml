@@ -8,8 +8,8 @@
 				   xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
 				   xmlns:prism="http://www.codeplex.com/prism"
 				   mc:Ignorable="d"
-				   Icon="Images/logo.png"
-				   Title="nTest System Ver1.0.0.1" MinHeight="600" MinWidth="1024"
+				   Icon="/Images/logo.png"
+				   Title="{DynamicResource Title}" MinHeight="600" MinWidth="1024"
 				   Height="600" Width="1024"
 				   WindowShadowColor="#888888"
 				   WindowShadowOpacity="0.4"
@@ -19,7 +19,7 @@
 				   prism:ViewModelLocator.AutoWireViewModel="True">
 	<Grid>
 		<Grid.Background>
-			<ImageBrush ImageSource="Images/Background/Background.jpg" Stretch="UniformToFill"></ImageBrush>
+			<ImageBrush ImageSource="/Images/Background/Background.jpg" Stretch="UniformToFill"></ImageBrush>
 		</Grid.Background>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>
@@ -29,7 +29,7 @@
 
 		<Grid Background="{DynamicResource ThemeColor}">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="190" />
+				<ColumnDefinition Width="auto" />
 				<ColumnDefinition Width="*"/>
 				<ColumnDefinition Width="auto"/>
 			</Grid.ColumnDefinitions>
@@ -45,7 +45,7 @@
 					<Path
                         Width="22"
                         Height="22"
-                        Data="{StaticResource Icon_WYY}"
+                        Data="{StaticResource Icon_Title}"
                         Fill="{StaticResource ThemeColor2}"
                         Stretch="Uniform" />
 				</Border>
@@ -54,17 +54,17 @@
                     VerticalAlignment="Center"
                     FontSize="17"
                     Foreground="White"
-                    Text="N Test System" />
+                    Text="{DynamicResource Title1}" />
 			</WrapPanel>
 			<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,16,0" Grid.Column="2">
 				<ctrls:NormalButton Margin="10,0,15,0"
-                    Background="{StaticResource TransparentColor}"
+                    Background="{DynamicResource TransparentColor}"
                     BorderThickness="0"
                     Cursor="Hand">
 					<WrapPanel>
 						<Ellipse Width="25" Height="25">
 							<Ellipse.Fill>
-								<ImageBrush ImageSource="Images/head.jpg" RenderOptions.BitmapScalingMode="Fant" />
+								<ImageBrush ImageSource="/Images/head.jpg" RenderOptions.BitmapScalingMode="Fant" />
 							</Ellipse.Fill>
 						</Ellipse>
 						<TextBlock
@@ -119,10 +119,8 @@
 				<ColumnDefinition Width="200" MinWidth="200"/>
 				<ColumnDefinition Width="*" MinWidth="800"/>
 			</Grid.ColumnDefinitions>
-			<Button Content="{Binding Label1}">
-				
-			</Button>
-			<ItemsControl Grid.Column="1" prism:RegionManager.RegionName="SignInRegion"/>
+			<Button Command="{Binding Load}" CommandParameter="SignInView"/>
+			<ItemsControl Grid.Column="1" prism:RegionManager.RegionName="ItemRegion"/>
 		</Grid>
 		<Border
             Grid.Row="2"

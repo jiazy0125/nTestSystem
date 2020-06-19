@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:nTestSystem">
-	<sys:String x:Key="Label1">测试标签1</sys:String>
+	<sys:String x:Key="Title">nTest System ver1.0.0.1</sys:String>
+	<sys:String x:Key="Title1">nTest System</sys:String>
 	<ImageSource x:Key="Icon1">C:\Users\zhanyj\source\repos\nTestSystem\nTestSystem\bin\Debug\Images\head.jpg
 	</ImageSource>
 </ResourceDictionary>
