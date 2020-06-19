@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:nTestSystem.Framework.Styles">
+	<!--#region 这是一个自定义ResizeGrip-->
+	<Style x:Key="nTestResizeGrip" TargetType="ResizeGrip">
+		<Setter Property="Foreground" Value="Black" />
+		<Setter Property="HorizontalAlignment" Value="Right" />
+		<Setter Property="VerticalAlignment" Value="Bottom" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Path
+                        Width="12"
+                        Height="12"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Data="M131.22073 135.75645 h -4.40972 v -4.40972 h 4.40972 v 4.40972 m 0 -8.81945 h -4.40972 v -4.40972 h 4.40972 v 4.40972 m -8.81944 8.81945 h -4.40972 v -4.40972 h 4.40972 v 4.40972 m 0 -8.81945 h -4.40972 v -4.40972 h 4.40972 v 4.40972 m -8.81944 8.81945 h -4.40973 v -4.40972 h 4.40973 v 4.40972 m 17.63888 -17.63889 h -4.40972 v -4.40972 h 4.40972 z"
+						Fill="{TemplateBinding Foreground}"
+                        RenderOptions.BitmapScalingMode="Fant"
+                        Stretch="Uniform">
+						<Path.LayoutTransform>
+							<TransformGroup>
+								<RotateTransform Angle="-45" />
+							</TransformGroup>
+						</Path.LayoutTransform>
+					</Path>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!--#endregion-->
+
+</ResourceDictionary>

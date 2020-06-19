@@ -2,13 +2,13 @@
 using System.Windows;
 using System.Windows.Input;
 using nTestSystem.DataHelper;
-
 namespace nTestSystem
 {
 	/// <summary>
 	/// Shell.xaml 的交互逻辑
+
 	/// </summary>
-	public partial class Shell : Window
+	public partial class Shell
     {
         public Shell()
         {

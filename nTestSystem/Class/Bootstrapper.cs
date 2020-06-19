@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Prism.Modularity;
+using Prism.Regions;
 using Prism.Unity;
 
 namespace nTestSystem
@@ -29,13 +30,20 @@ namespace nTestSystem
 			Application.Current.MainWindow.Show();
         }
 
-        
-        protected override void ConfigureModuleCatalog()
-        {
-            base.ConfigureModuleCatalog();
-            //注册模块
-            ModuleCatalog moduleCatalog = (ModuleCatalog)ModuleCatalog;
-            moduleCatalog.AddModule(typeof(SignIn.SignInModule));
-        }
-    }
+
+		//protected override void ConfigureModuleCatalog()
+		//{
+		//	base.ConfigureModuleCatalog();
+		//	//注册模块
+		//	ModuleCatalog moduleCatalog = (ModuleCatalog)ModuleCatalog;
+		//	moduleCatalog.AddModule(typeof(SignIn.SignInModule));
+
+		//}
+		protected override IModuleCatalog CreateModuleCatalog()
+		{
+			return new ConfigurationModuleCatalog(); //目录创建于配置文件
+
+		}
+
+	}
 }

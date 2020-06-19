@@ -19,6 +19,10 @@
 				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/ButtonStyle.xaml"/>
 				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/Path.xaml"/>
 				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/Theme.xaml"/>
+				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/ResizeGrip.xaml"/>
+
+
+				<ResourceDictionary Source="zh-cn.xaml"/>
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</Application.Resources>

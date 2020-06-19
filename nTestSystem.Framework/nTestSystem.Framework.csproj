@@ -59,6 +59,7 @@
     <Compile Include="Commons\Result.cs" />
     <Compile Include="Controls\IconButton.cs" />
     <Compile Include="Controls\NormalButton.cs" />
+    <Compile Include="Controls\NTestWindow.cs" />
     <Compile Include="Controls\SystemButton.cs" />
     <Compile Include="Controls\SystemCloseButton.cs" />
     <Compile Include="Controls\SystemMaxButton.cs" />
@@ -78,6 +79,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Win\DesktopAPI.cs" />
+    <Compile Include="Win\Native.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -97,6 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\NTestWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ResizeGrip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

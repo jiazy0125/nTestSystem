@@ -13,7 +13,7 @@ namespace nTestSystem.DatabaseHelper
         //IDatabaseHelper实例创建
         public static IDatabaseHelper Execute()
         {
-            var className = ConfigurationManager.AppSettings["DBHelperName"];
+            var className = ConfigurationManager.AppSettings["DBHelperName"]; 
             var np = MethodBase.GetCurrentMethod().DeclaringType.Namespace;
             var fullName = $"{ np }.{ className }";
             var result = (IDatabaseHelper)Assembly.Load(np).CreateInstance(fullName);
