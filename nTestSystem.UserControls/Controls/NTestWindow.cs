@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,12 +8,12 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using nTestSystem.Framework.Win;
-using SystemCommands = nTestSystem.Framework.Win.SystemCommands;
+using nTestSystem.UserControls.Win;
+using SystemCommands = nTestSystem.UserControls.Win.SystemCommands;
 
-namespace nTestSystem.Framework.Controls
+namespace nTestSystem.UserControls.Controls
 {
-	 public partial class NTestWindow :Window
+	public partial class NTestWindow :Window
 	{
         #region 初始化
         public NTestWindow()
@@ -45,7 +42,7 @@ namespace nTestSystem.Framework.Controls
         /// </summary>
         private void InitializeWindowStyle()
         {
-            ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.Framework;component/Styles/NTestWindowStyle.xaml", UriKind.Relative) };
+            ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.UserControls;component/Styles/NTestWindowStyle.xaml", UriKind.Relative) };
             Resources.MergedDictionaries.Add(dic);
             Style = (Style)dic["NTestWindow"];
 

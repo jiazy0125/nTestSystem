@@ -16,11 +16,8 @@
 
 
 
-				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/ButtonStyle.xaml"/>
-				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/Path.xaml"/>
-				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/Theme.xaml"/>
-				<ResourceDictionary Source="pack://application:,,,/nTestSystem.Framework;component/Styles/ResizeGrip.xaml"/>
-
+				<!--引用底层Framework主题-->
+				<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Themes.xaml"/>
 
 				<ResourceDictionary Source="zh-cn.xaml"/>
 			</ResourceDictionary.MergedDictionaries>

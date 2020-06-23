@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace nTestSystem.Framework.Controls
+namespace nTestSystem.UserControls.Controls
 {
 	public class SystemButton: Button
 	{

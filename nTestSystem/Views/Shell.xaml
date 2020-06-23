@@ -3,9 +3,11 @@
 				   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 				   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-				   xmlns:ctrls="clr-namespace:nTestSystem.Framework.Controls;assembly=nTestSystem.Framework"
+				   xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
 				   xmlns:adu="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+				   xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
 				   xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
+				   xmlns:local="clr-namespace:nTestSystem.Models"
 				   xmlns:prism="http://www.codeplex.com/prism"
 				   mc:Ignorable="d"
 				   Icon="/Images/logo.png"
@@ -119,7 +121,25 @@
 				<ColumnDefinition Width="200" MinWidth="200"/>
 				<ColumnDefinition Width="*" MinWidth="800"/>
 			</Grid.ColumnDefinitions>
-			<Button Command="{Binding Load}" CommandParameter="SignInView"/>
+			<Grid Background="{StaticResource LeftGridColor}">
+				<ScrollViewer Style="{StaticResource ScrollviewerStyle}">
+					<StackPanel>
+						<Expander Header="{DynamicResource Expander1}" IsExpanded="True">
+							<StackPanel x:Name="Expander1">
+								<ctrls:ImageRadioButton
+                                    Content="发现音乐"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_FindMusic}" IsEnabled="True"/>
+								<ctrls:ImageRadioButton
+                                    Content="发现音乐"
+                                    GroupName="Menu"
+                                    Image="{StaticResource Icon_FindMusic}"/>
+							</StackPanel>
+						</Expander>
+						<Expander Header="{DynamicResource Expander2}" x:Name="Expander2" IsExpanded="True"/>
+					</StackPanel>
+				</ScrollViewer>
+			</Grid>
 			<ItemsControl Grid.Column="1" prism:RegionManager.RegionName="ItemRegion"/>
 		</Grid>
 		<Border

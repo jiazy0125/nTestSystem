@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace nTestSystem.Framework.Controls
+namespace nTestSystem.UserControls.Controls
 {
 	public class SystemMinButton: SystemButton
 	{

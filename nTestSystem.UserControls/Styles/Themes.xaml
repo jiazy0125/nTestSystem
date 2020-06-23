@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Colors.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ButtonStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Expander.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/NTestWindowStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Path.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/RadioButton.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ResizeGrip.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ScrollViewer.xaml"/>
+
+		
+	</ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

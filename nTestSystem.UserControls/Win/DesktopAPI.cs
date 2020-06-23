@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nTestSystem.Framework.Win
+namespace nTestSystem.UserControls.Win
 {
 	class DesktopAPI
 	{

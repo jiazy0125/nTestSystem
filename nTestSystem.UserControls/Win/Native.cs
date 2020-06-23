@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nTestSystem.Framework.Win
+namespace nTestSystem.UserControls.Win
 {
     public enum HitTest : int
     {

@@ -22,7 +22,7 @@ namespace nTestSystem.SignIn
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<Views.SignInView>();
-			ConfigurationManager.AppSettings
+			ConfigurationManager.GetSection("");
 		}
 	}
 }
