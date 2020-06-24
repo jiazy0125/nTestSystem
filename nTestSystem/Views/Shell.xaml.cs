@@ -3,6 +3,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using nTestSystem.DataHelper;
+using nTestSystem.UserControls.Controls;
+using nTestSystem.UserControls.Views;
+using nTestSystem.UserControls.ViewModels;
+using System.Management.Instrumentation;
+using Prism.Events;
+
 namespace nTestSystem
 {
 	/// <summary>
@@ -14,19 +20,8 @@ namespace nTestSystem
         public Shell()
         {
             InitializeComponent();
-			dd();
+			
         }
-
-		private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-			DragMove();
-
-		}
-		private void dd()
-		{
-
-		}
-
 	}
 
 }

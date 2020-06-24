@@ -1,57 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using nTestSystem.Framework.Configurations;
 using System.Collections.ObjectModel;
 using nTestSystem.Models;
+using nTestSystem.UserControls.EventAggregator;
+using Prism.Events;
+using Prism.Ioc;
+using nTestSystem.UserControls.ViewModels;
+using nTestSystem.UserControls.Views;
+using System.Windows.Media;
+using System;
+using System.Windows;
 
 namespace nTestSystem
 {
 	class ShellViewModel:BindableBase
 	{
-		private readonly IRegionManager _regionManager;
+		private readonly IRegionManager _rm;
+		private readonly IEventAggregator _ea;
+		private readonly IContainerExtension _ce;
 		public string Label1 { get; set; } = "Test1";
 
-		public ObservableCollection<TreeViewItemModel> SlideMenus { get; } = new ObservableCollection<TreeViewItemModel>();
-
-		public DelegateCommand<string> Load { get; set; }
-		public ShellViewModel(IRegionManager regionManager)
+		public DelegateCommand<object> Load { get; set; }
+		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IContainerExtension container)
 		{
-			_regionManager = regionManager;
-			Load = new DelegateCommand<string>(Navigate);
-			LoadMenus();
+			_ea = ea;
+			_ce = container;
+			_rm = regionManager;
+			_ea.GetEvent<MessageSentEvent>().Subscribe(Navigate);
 		}
+		public void View_Loaded(object sender, EventArgs e)
+		{
+			LoadSlideMenus();
+		}
+
 
 		private void Navigate(string navigatePath)
 		{
 			if (navigatePath != null)
-				_regionManager.RequestNavigate("ItemRegion", navigatePath);
-
-
-
-
-
+				_rm.RequestNavigate("ItemRegion", navigatePath);
 
 		}
 
-		private void LoadMenus()
+		//动态添加Slidemenu
+		private void AddViewItem(string regionName, string viewName, string content, Geometry image)
 		{
-			if (ConfigurationManager.GetSection("menu-en") is SlideMenuSection config)
+			var view = _ce.Resolve<ImageRadioButton>();
+			IRegion region = _rm.Regions[regionName];
+			var vm = new ImageRadioButtonViewModel(_ea)
+			{
+				GroupName = "Menu",
+				Content = content,
+				ViewName = viewName,
+				Image = image,
+				IsChecked = false,
+			};
+			view.DataContext = vm;
+			region.Add(view);
+		}
+
+		//从appcongfig中读取SlideMenu列表
+		private void LoadSlideMenus()
+		{
+			if (System.Configuration.ConfigurationManager.GetSection("menu-en") is SlideMenuSection config)
 			{
 				foreach (SlideMenuElement temp in config.SlideMenus)
 				{
-					SlideMenus.Add(new TreeViewItemModel() { Header=temp.MenuName, Icon= temp.Icon});
+					AddViewItem(temp.RegionName, temp.ViewName, temp.MenuName, temp.Icon);
 				}
 			}
-
-
 		}
+
 	}
 }

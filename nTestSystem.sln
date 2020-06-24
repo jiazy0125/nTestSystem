@@ -11,7 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nTestSystem.Desktop", "nTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37BE7F16-A51F-48BB-ADD3-EF93E3AEAB0E}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
 		bookmarks.html = bookmarks.html
 		Note.docx = Note.docx
 	EndProjectSection

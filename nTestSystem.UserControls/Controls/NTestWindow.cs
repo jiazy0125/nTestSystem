@@ -10,6 +10,8 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using nTestSystem.UserControls.Win;
 using SystemCommands = nTestSystem.UserControls.Win.SystemCommands;
+using nTestSystem.UserControls.EventAggregator;
+using Prism.Events;
 
 namespace nTestSystem.UserControls.Controls
 {
@@ -25,22 +27,24 @@ namespace nTestSystem.UserControls.Controls
             StateChanged += MainWindow_StateChanged;
 			MouseLeftButtonDown += MainWindow_MouseLeftButtonDown;
         }
-        #endregion
 
-        #region 窗口模式
-        /// <summary>
-        /// 慢慢显示的动画
-        /// </summary>
-        ///Storyboard StoryboardSlowShow;
-        /// <summary>
-        /// 慢慢隐藏的动画
-        /// </summary>
-        //Storyboard StoryboardSlowHide;
+		
+		#endregion
 
-        /// <summary>
-        /// 加载双层窗口的样式
-        /// </summary>
-        private void InitializeWindowStyle()
+		#region 窗口模式
+		/// <summary>
+		/// 慢慢显示的动画
+		/// </summary>
+		///Storyboard StoryboardSlowShow;
+		/// <summary>
+		/// 慢慢隐藏的动画
+		/// </summary>
+		//Storyboard StoryboardSlowHide;
+
+		/// <summary>
+		/// 加载双层窗口的样式
+		/// </summary>
+		private void InitializeWindowStyle()
         {
             ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.UserControls;component/Styles/NTestWindowStyle.xaml", UriKind.Relative) };
             Resources.MergedDictionaries.Add(dic);
@@ -231,7 +235,6 @@ namespace nTestSystem.UserControls.Controls
                 return;
             }
         }
-
         #endregion
 
         #region 窗体属性

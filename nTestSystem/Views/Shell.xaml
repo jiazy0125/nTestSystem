@@ -8,6 +8,8 @@
 				   xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
 				   xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
 				   xmlns:local="clr-namespace:nTestSystem.Models"
+				   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+				   xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 				   xmlns:prism="http://www.codeplex.com/prism"
 				   mc:Ignorable="d"
 				   Icon="/Images/logo.png"
@@ -18,7 +20,13 @@
 				   WindowShadowSize="20"
 				   ResizeMode="CanResizeWithGrip"
 				   WindowStartupLocation="CenterScreen"
-				   prism:ViewModelLocator.AutoWireViewModel="True">
+				   prism:ViewModelLocator.AutoWireViewModel="True"
+				   >
+	<i:Interaction.Triggers>
+		<i:EventTrigger EventName="Loaded" >
+			<ei:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
 	<Grid>
 		<Grid.Background>
 			<ImageBrush ImageSource="/Images/Background/Background.jpg" Stretch="UniformToFill"></ImageBrush>
@@ -47,7 +55,7 @@
 					<Path
                         Width="22"
                         Height="22"
-                        Data="{StaticResource Icon_Title}"
+                        Data="{StaticResource Icon_Hot}"
                         Fill="{StaticResource ThemeColor2}"
                         Stretch="Uniform" />
 				</Border>
@@ -121,26 +129,17 @@
 				<ColumnDefinition Width="200" MinWidth="200"/>
 				<ColumnDefinition Width="*" MinWidth="800"/>
 			</Grid.ColumnDefinitions>
-			<Grid Background="{StaticResource LeftGridColor}">
+			<Grid Background="{DynamicResource LeftGridColor}">
 				<ScrollViewer Style="{StaticResource ScrollviewerStyle}">
 					<StackPanel>
 						<Expander Header="{DynamicResource Expander1}" IsExpanded="True">
-							<StackPanel x:Name="Expander1">
-								<ctrls:ImageRadioButton
-                                    Content="发现音乐"
-                                    GroupName="Menu"
-                                    Image="{StaticResource Icon_FindMusic}" IsEnabled="True"/>
-								<ctrls:ImageRadioButton
-                                    Content="发现音乐"
-                                    GroupName="Menu"
-                                    Image="{StaticResource Icon_FindMusic}"/>
-							</StackPanel>
+							<StackPanel prism:RegionManager.RegionName="Expander1Region"/>
 						</Expander>
 						<Expander Header="{DynamicResource Expander2}" x:Name="Expander2" IsExpanded="True"/>
 					</StackPanel>
 				</ScrollViewer>
 			</Grid>
-			<ItemsControl Grid.Column="1" prism:RegionManager.RegionName="ItemRegion"/>
+			<ItemsControl Grid.Column="1" prism:RegionManager.RegionName="ItemRegion" Background="{DynamicResource RightGridColor}"/>
 		</Grid>
 		<Border
             Grid.Row="2"

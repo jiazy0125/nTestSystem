@@ -1,6 +1,7 @@
-﻿<Application x:Class="nTestSystem.App"
+﻿<prism:PrismApplication x:Class="nTestSystem.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:prism="http://prismlibrary.com/"
              xmlns:local="clr-namespace:nTestSystem">
 	<Application.Resources>
 		<ResourceDictionary>
@@ -24,4 +25,4 @@
 		</ResourceDictionary>
 	</Application.Resources>
 
-</Application>
+</prism:PrismApplication>
