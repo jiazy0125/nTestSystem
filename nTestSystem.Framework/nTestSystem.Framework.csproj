@@ -74,6 +74,7 @@
     <Compile Include="Class\ExpanderResource.cs" />
     <Compile Include="Commons\EnumerationDefinition.cs" />
     <Compile Include="Commons\Result.cs" />
+    <Compile Include="Commons\ShellSwitcher.cs" />
     <Compile Include="Commons\StackPanelRegionAdapter.cs" />
     <Compile Include="Configurations\SlideMenuCollection.cs" />
     <Compile Include="Configurations\SlideMenuElement.cs" />

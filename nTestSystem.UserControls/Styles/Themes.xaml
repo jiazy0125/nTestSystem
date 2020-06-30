@@ -6,9 +6,10 @@
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Expander.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/NTestWindowStyle.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Path.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/RadioButton.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ResizeGrip.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ScrollViewer.xaml"/>
+		
+		
 
 		
 	</ResourceDictionary.MergedDictionaries>

@@ -9,13 +9,13 @@ using nTestSystem.UserControls.ViewModels;
 using System.Management.Instrumentation;
 using Prism.Events;
 
-namespace nTestSystem
+namespace nTestSystem.Views
 {
 	/// <summary>
 	/// Shell.xaml 的交互逻辑
 
 	/// </summary>
-	public partial class Shell
+	public partial class Shell: NTestWindow
     {
         public Shell()
         {

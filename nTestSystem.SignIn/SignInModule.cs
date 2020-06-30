@@ -17,12 +17,13 @@ namespace nTestSystem.SignIn
 		{
 			var regionManager = containerProvider.Resolve<IRegionManager>();
 			regionManager.RegisterViewWithRegion("SignInRegion", typeof(Views.SignInView));
+
 		}
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<Views.SignInView>();
-			ConfigurationManager.GetSection("");
+			
 		}
 	}
 }

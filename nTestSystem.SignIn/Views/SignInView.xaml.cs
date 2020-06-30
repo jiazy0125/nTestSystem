@@ -10,15 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using nTestSystem.UserControls.Controls;
 
 namespace nTestSystem.SignIn.Views
 {
 	/// <summary>
 	/// Interaction logic for SignInView.xaml
 	/// </summary>
-	public partial class SignInView : UserControl
+	public partial class SignInView:NTestWindow
 	{
 		public SignInView()
 		{

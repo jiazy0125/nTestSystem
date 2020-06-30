@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		bookmarks.html = bookmarks.html
 		Note.docx = Note.docx
+		Prism7.1.0.431_WPF_官方中文文档.docx = Prism7.1.0.431_WPF_官方中文文档.docx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nTestSystem.DataHelper", "nTestSystem.DataHelper\nTestSystem.DataHelper.csproj", "{2FF64225-1366-44D9-9EF1-6332E2988C84}"

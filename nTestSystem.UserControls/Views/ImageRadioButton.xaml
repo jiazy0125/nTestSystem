@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:adu="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
 			 xmlns:uc="clr-namespace:nTestSystem.UserControls.Controls"
              mc:Ignorable="d" 
              >
     <Grid>
-		<uc:ImageRadioButton GroupName="{Binding GroupName}" Content="{Binding Content}"
-							 Image="{Binding Image}" IsChecked="{Binding IsChecked}"/>
+		<adu:AduRadioButtonIcon GroupName="{Binding GroupName}" Content="{Binding Content}"
+							 Icon="{Binding Image}" IsChecked="{Binding IsChecked}"/>
 	</Grid>
 </UserControl>

@@ -2,8 +2,6 @@
 using Prism.Mvvm;
 using Prism.Regions;
 using nTestSystem.Framework.Configurations;
-using System.Collections.ObjectModel;
-using nTestSystem.Models;
 using nTestSystem.UserControls.EventAggregator;
 using Prism.Events;
 using Prism.Ioc;
@@ -11,25 +9,40 @@ using nTestSystem.UserControls.ViewModels;
 using nTestSystem.UserControls.Views;
 using System.Windows.Media;
 using System;
-using System.Windows;
+using Prism.Modularity;
 
-namespace nTestSystem
+namespace nTestSystem.ViewModels
 {
-	class ShellViewModel:BindableBase
+	class ShellViewModel: BindableBase
 	{
-		private readonly IRegionManager _rm;
 		private readonly IEventAggregator _ea;
 		private readonly IContainerExtension _ce;
+		private readonly IModuleCatalog _mc;
+
+		#region Properties
 		public string Label1 { get; set; } = "Test1";
 
-		public DelegateCommand<object> Load { get; set; }
-		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IContainerExtension container)
+		public IRegionManager RegionMannager { get; private set; }
+
+
+		#endregion
+
+		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IContainerExtension container, IModuleCatalog mc)
 		{
+			_mc = mc;
 			_ea = ea;
 			_ce = container;
-			_rm = regionManager;
+			RegionMannager = regionManager;
 			_ea.GetEvent<MessageSentEvent>().Subscribe(Navigate);
 		}
+
+		#region Command
+		public DelegateCommand<object> Load { get; set; }
+
+
+		#endregion
+
+		#region Execute
 		public void View_Loaded(object sender, EventArgs e)
 		{
 			LoadSlideMenus();
@@ -39,7 +52,7 @@ namespace nTestSystem
 		private void Navigate(string navigatePath)
 		{
 			if (navigatePath != null)
-				_rm.RequestNavigate("ItemRegion", navigatePath);
+				RegionMannager.RequestNavigate("ItemRegion", navigatePath);
 
 		}
 
@@ -47,7 +60,7 @@ namespace nTestSystem
 		private void AddViewItem(string regionName, string viewName, string content, Geometry image)
 		{
 			var view = _ce.Resolve<ImageRadioButton>();
-			IRegion region = _rm.Regions[regionName];
+			IRegion region = RegionMannager.Regions[regionName];
 			var vm = new ImageRadioButtonViewModel(_ea)
 			{
 				GroupName = "Menu",
@@ -71,6 +84,9 @@ namespace nTestSystem
 				}
 			}
 		}
+
+
+		#endregion
 
 	}
 }

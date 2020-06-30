@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:sys="clr-namespace:System;assembly=mscorlib">
+	<sys:String x:Key="Title">nTest System ver1.0.0.1</sys:String>
+
+	<!--界面菜单信息定义-->
+
+	<!--界面按钮及水印信息定义-->
+	<sys:String x:Key="Title1">nTest System</sys:String>
+	<sys:String x:Key="SignInTitle">登录</sys:String>
+	<sys:String x:Key="Expander1">主菜单</sys:String>
+	<sys:String x:Key="Expander2">工具箱</sys:String>
+	<sys:String x:Key="Expander3">工具箱1</sys:String>
+	<sys:String x:Key="Expander4">工具箱2</sys:String>
+	<sys:String x:Key="Expander5">工具箱3</sys:String>
+	<sys:String x:Key="UserNameHint">请输入用户名</sys:String>
+	<sys:String x:Key="PasswordHint">请输入密码</sys:String>
+	<sys:String x:Key="SavePassword">保存密码</sys:String>
+	<sys:String x:Key="LoginBtn">登    录</sys:String>
+	<sys:String x:Key="ConnectTitle">数据连接配置</sys:String>
+	<ImageSource x:Key="Icon1">C:\Users\zhanyj\source\repos\nTestSystem\nTestSystem\bin\Debug\Images\head.jpg
+	</ImageSource>
+
+
+
+
+	<!--错误信息定义-->
+	<sys:String x:Key="ConfigNotExist">找不到app.config文件</sys:String>
+
+</ResourceDictionary>
