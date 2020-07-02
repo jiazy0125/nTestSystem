@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace nTestSystem.Views
 {
 	/// <summary>
-	/// Interaction logic for Shell.xaml
+	/// Interaction logic for TestView.xaml
 	/// </summary>
-	public partial class Shell 
+	public partial class TestView : UserControl
 	{
-		public Shell()
+		public TestView()
 		{
 			InitializeComponent();
 		}

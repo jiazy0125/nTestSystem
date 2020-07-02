@@ -101,12 +101,13 @@ namespace nTestSystem
 		}
 		protected override Window CreateShell()
 		{
-			return Container.Resolve<ConnectionView>();
+			return Container.Resolve<Shell>();
 		}
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			 
+			containerRegistry.RegisterForNavigation<ConnectionView>();
+			containerRegistry.RegisterForNavigation<Views.SignInView>();
 		}
 
 

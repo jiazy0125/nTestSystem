@@ -15,14 +15,14 @@ namespace nTestSystem.SignIn
 	{
 		public void OnInitialized(IContainerProvider containerProvider)
 		{
-			var regionManager = containerProvider.Resolve<IRegionManager>();
-			regionManager.RegisterViewWithRegion("SignInRegion", typeof(Views.SignInView));
+			//var regionManager = containerProvider.Resolve<IRegionManager>();
+			//regionManager.RegisterViewWithRegion("SignInRegion", typeof(Views.SignInView));
 
 		}
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<Views.SignInView>();
+			//containerRegistry.RegisterForNavigation<Views.SignInView>();
 			
 		}
 	}

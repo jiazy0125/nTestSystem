@@ -9,49 +9,41 @@ using nTestSystem.Framework.Commons;
 using nTestSystem.Views;
 using System.Configuration;
 using System.Windows;
+using System.Collections.Specialized;
+using System.Collections.ObjectModel;
+using Prism.Events;
+using nTestSystem.Class;
 
 namespace nTestSystem.ViewModels
 {
-	class ConnectionViewModel: BindableBase
+	public class ConnectionViewModel: BindableBase
 	{
+
+		#region Fields
+
+		private readonly NameValueCollection _nc;
+		private readonly IEventAggregator _ea;
+
+		#endregion
 
 		#region Properties
 
-		private bool isFirstRun = false;
+		//数据库类型列表
+		public ObservableCollection<string> DBList { get; }
 
+		//已选择数据类型
+		public string DatabaseSelected { private get; set; }
 
+		//数据库连接字符串
 
-
-		//是否显示在任务栏
-		private bool showInTaskbar = false;
-		public bool ShowInTaskbar
-		{
-			get => showInTaskbar;
-			set => SetProperty(ref showInTaskbar, value);
-		}
-		//窗口状态
-		private WindowState windowState = WindowState.Minimized;
-		public WindowState WindowState
-		{
-			get => windowState;
-			set => SetProperty(ref windowState, value);
-		}
-		
-		//窗口可见
-		private Visibility visibility = Visibility.Hidden;
-
-		public Visibility Visibility
-		{
-			get => visibility;
-			set => SetProperty(ref visibility, value);
-		}
+		public string ConnectString { private get; set; }
 
 		#endregion
 
 		#region Command
 
 		//保存配置信息命令
-		public DelegateCommand SaveConnection { get; set; }
+		public DelegateCommand ApplySettings { get; set; }
 
 
 		#endregion
@@ -59,26 +51,37 @@ namespace nTestSystem.ViewModels
 		#region Execute
 		public void View_Loaded(object sender, EventArgs e)
 		{
-			if (!isFirstRun) ShellSwitcher.Switch<ConnectionView, Shell>();
+			//if (!isFirstRun) ShellSwitcher.Switch<ConnectionView, Shell>();
 		}
-
+		private void SaveToConfiguration()
+		{
+			//Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+			//if (!cfa.AppSettings.Settings.AllKeys.Contains("FirstRun"))
+			//{
+			//	cfa.AppSettings.Settings.Add("FirstRun", "True");
+			//}
+			//cfa.AppSettings.Settings["FirstRun"].Value="False";
+			//cfa.Save();
+			_ea.GetEvent<NavigateTransform>().Publish("");
+		}
 
 		#endregion
 
 
-		public ConnectionViewModel()
+		public ConnectionViewModel(IEventAggregator ea)
 		{
 
-			var first = ConfigurationManager.AppSettings["FirstRun"];
-			if (first == null || first?.ToLower() == "true") 
-			{
-				ShowInTaskbar = true;
-				WindowState = WindowState.Normal;
-				Visibility = Visibility.Visible;
-				isFirstRun = true;
-			}
+			_nc= (NameValueCollection)ConfigurationManager.GetSection("databaseList");
 
-			SaveConnection = new DelegateCommand(SaveToConfiguration);
+			DBList = new ObservableCollection<string>(_nc.AllKeys);
+
+			//var first = ConfigurationManager.AppSettings["FirstRun"];
+			//if (first == null || first?.ToLower() == "true") 
+			//{
+
+			//}
+			_ea = ea;
+			ApplySettings = new DelegateCommand(SaveToConfiguration);
 
 		}
 
@@ -86,16 +89,6 @@ namespace nTestSystem.ViewModels
 
 
 
-		private void SaveToConfiguration()
-		{
-			Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-			if (!cfa.AppSettings.Settings.AllKeys.Contains("FirstRun"))
-			{
-				cfa.AppSettings.Settings.Add("FirstRun", "True");
-			}
-			cfa.AppSettings.Settings["FirstRun"].Value="False";
-			cfa.Save();
-			ShellSwitcher.Switch<ConnectionView, Shell>();
-		}
+
 	}
 }

@@ -5,7 +5,7 @@
 
 	<!--界面菜单信息定义-->
 
-	<!--界面按钮及水印信息定义-->
+	<!--界面及水印信息定义-->
 	<sys:String x:Key="Title1">nTest System</sys:String>
 	<sys:String x:Key="SignInTitle">登录</sys:String>
 	<sys:String x:Key="Expander1">主菜单</sys:String>
@@ -17,7 +17,12 @@
 	<sys:String x:Key="PasswordHint">请输入密码</sys:String>
 	<sys:String x:Key="SavePassword">保存密码</sys:String>
 	<sys:String x:Key="LoginBtn">登    录</sys:String>
-	<sys:String x:Key="ConnectTitle">数据连接配置</sys:String>
+
+	<sys:String x:Key="DbTypeSelect">请选择数据库类型</sys:String>
+	<sys:String x:Key="DbConnectSetting">数据库连接配置</sys:String>
+	<sys:String x:Key="DbConnectSettingHint">请输入数据库连接字符串，不需要Provider</sys:String>
+
+	<sys:String x:Key="Example">例如：</sys:String>
 	<ImageSource x:Key="Icon1">C:\Users\zhanyj\source\repos\nTestSystem\nTestSystem\bin\Debug\Images\head.jpg
 	</ImageSource>
 

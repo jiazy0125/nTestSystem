@@ -68,6 +68,7 @@
 	<SolidColorBrush x:Key="TextColor3" Color="#888888" />
 	<SolidColorBrush x:Key="ThemeButtonColor" Color="#0C73C2" />
 	<SolidColorBrush x:Key="ThemeButtonColor2" Color="#1167A8" />
+	<SolidColorBrush x:Key="ThemeButtonColor3" Color="#2CD124" />
 
 	<!--  高亮背景色  -->
 	<SolidColorBrush x:Key="ThemeHighlightBackColor" Color="#E6E7EA" />
