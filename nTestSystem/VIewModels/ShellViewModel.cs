@@ -1,12 +1,9 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
-using nTestSystem.Framework.Configurations;
 using nTestSystem.UserControls.EventAggregator;
 using Prism.Events;
 using Prism.Ioc;
-using nTestSystem.UserControls.ViewModels;
-using nTestSystem.UserControls.Views;
 using System.Windows.Media;
 using System;
 using Prism.Modularity;
@@ -22,9 +19,10 @@ namespace nTestSystem.ViewModels
 		private readonly IEventAggregator _ea;
 		private readonly IContainerExtension _ce;
 		private readonly IModuleCatalog _mc;
+		private readonly IRegionManager _rm;
 		#region Properties
 
-		public IRegionManager RegionMannager { get; private set; }
+		//public IRegionManager RegionMannager { get; private set; }
 
 		//根据界面设置部分控件隐藏显示
 		private Visibility visibility = Visibility.Collapsed;
@@ -35,8 +33,7 @@ namespace nTestSystem.ViewModels
 		}
 
 
-		private string title; 
-			//Application.Current.TryFindResource("资源字典的KEY") as string;
+		private string title=Application.Current.TryFindResource("Title") as string;
 		public string Title
 		{
 			get => title;
@@ -49,14 +46,10 @@ namespace nTestSystem.ViewModels
 			_mc = mc;
 			_ea = ea;
 			_ce = container;
-			RegionMannager = regionManager;
+			_rm = regionManager;
 			_ea.GetEvent<MessageSentEvent>().Subscribe(Navigate);
-			_ea.GetEvent<NavigateTransform>().Subscribe(Navigate);
-			if (CheckFirstStart())
-				RegionMannager.RequestNavigate(RegionManage.ShellRegion, "ConnectionView");
-			else
-				RegionMannager.RequestNavigate(RegionManage.ShellRegion, "SignInView");
-
+			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
+			
 		}
 
 		#region Command
@@ -68,7 +61,10 @@ namespace nTestSystem.ViewModels
 		#region Execute
 		public void View_Loaded(object sender, EventArgs e)
 		{
-			LoadSlideMenus();
+			if (CheckFirstStart())			
+				Navigate("ConnectionView");			
+			else			
+				Navigate("SignInView");			
 		}
 
 
@@ -76,8 +72,11 @@ namespace nTestSystem.ViewModels
 		private void Navigate(string navigatePath)
 		{
 			if (navigatePath != null)
-				RegionMannager.RequestNavigate("ItemRegion", navigatePath);
-
+				_rm.RequestNavigate(RegionManage.ShellRegion, navigatePath, new Action<NavigationResult>(
+					t=> 
+					{
+						Title = t.Context.Parameters[RegionManage.TitleRegion] as string;
+					}));
 		}
 
 		//动态添加Slidemenu
@@ -104,7 +103,7 @@ namespace nTestSystem.ViewModels
 		//从appcongfig中读取SlideMenu列表
 		private void LoadSlideMenus()
 		{
-			RegionMannager.RequestNavigate(RegionManage.ShellRegion, "ConnectionView");
+			_rm.RequestNavigate(RegionManage.ShellRegion, "ConnectionView");
 
 
 
@@ -124,6 +123,7 @@ namespace nTestSystem.ViewModels
 		private bool CheckFirstStart()
 		{
 			Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+			//不存在该参数则添加并设置为首次启动
 			if (!cfa.AppSettings.Settings.AllKeys.Contains("FirstStart"))
 			{
 				cfa.AppSettings.Settings.Add("FirstStart", "True");
@@ -131,13 +131,12 @@ namespace nTestSystem.ViewModels
 			}
 			else
 			{
+				//存在则判断是否为首次启动
 				return ConfigurationManager.AppSettings["FirstStart"].Trim().ToLower() == "true";
 			}
-			//cfa.AppSettings.Settings["FirstStart"].Value = "False";
-			//cfa.Save();
-
 		}
 
+	
 		#endregion
 
 	}

@@ -3,10 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:nTestSystem.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             xmlns:prism="http://www.codeplex.com/prism"
+			 xmlns:adu="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin" 
+			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"			 
+             mc:Ignorable="d"  prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="450" d:DesignWidth="800"
+			 Height="450" Width="300" Background="Transparent">
+	<i:Interaction.Triggers>
+		<i:EventTrigger EventName="Loaded" >
+			<ei:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+	<Border BorderBrush="#60ffffff" BorderThickness="1">
+		<Grid Background="Transparent">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="40"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition >
+				<RowDefinition Height="40"></RowDefinition>
+			</Grid.RowDefinitions>
+			<StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="1">
+				<Border BorderBrush="#60ffffff" BorderThickness="0"  Width="92" Height="92" Margin="0">
+					<Border.Effect>
+						<DropShadowEffect BlurRadius="20" ShadowDepth="0" Color="#60ffffff"></DropShadowEffect>
+					</Border.Effect>
+					<Image Source="{StaticResource Icon1}"  Clip="{StaticResource ResourceKey=LoginHeader}" ></Image>
+				</Border>
+				<Border CornerRadius="3,3,0,0" BorderBrush="#60ffffff" BorderThickness="1,1,1,0" Background="Transparent" Width="200" Height="38" Margin="10,30,10,00">
+					<StackPanel Orientation="Horizontal">
+						<Path Width="22" Height="22" Data="{StaticResource  Icon_User}" Fill="{StaticResource ThemeColor2}" Stretch="Uniform" Margin="2"/>
+						<adu:MetroTextBox InputHint="{DynamicResource UserNameHint}" Height="30" Width="170"/>
+					</StackPanel>
+				</Border>
+				<Border CornerRadius="0,0,3,3"  BorderBrush="#60ffffff" BorderThickness="1" Background="Transparent" Width="200" Height="38">
+					<StackPanel Orientation="Horizontal">
+						<Path Width="22" Height="22" Data="{StaticResource  Icon_Cloud}" Fill="{StaticResource ThemeColor2}" Stretch="Uniform" Margin="2"/>
+						<adu:AduPasswordBox Watermark="{DynamicResource PasswordHint}" IsCanSeePassword="True" Height="26" Width="170"/>
+					</StackPanel>
+				</Border>
+				<adu:AduCheckBox Content="{DynamicResource SavePassword}" FontSize="14" IconWidth="16" IsChecked="False" HorizontalAlignment="Center" Margin="4"/>
+				<adu:AduFlatButton Margin="4" Content="{DynamicResource LoginBtn}" Type="Default" />
+			</StackPanel>
+		</Grid>
+	</Border>
 </UserControl>

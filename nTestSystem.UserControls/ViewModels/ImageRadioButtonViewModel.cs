@@ -59,7 +59,7 @@ namespace nTestSystem.UserControls.ViewModels
 		}
 		private void SendMessage()
 		{
-			_ea.GetEvent<MessageSentEvent>().Publish(ViewName);
+			_ea.GetEvent<NavigateEvent>().Publish(ViewName);
 		}
 	}
 }

@@ -16,10 +16,8 @@
 				   WindowShadowSize="15"
 				   ResizeMode="CanResizeWithGrip"
 				   WindowStartupLocation="CenterScreen" WindowState="Normal"
-				   prism:RegionManager.RegionManager="{Binding RegionMannager}"
 				   prism:ViewModelLocator.AutoWireViewModel="True"
 				   SizeToContent="WidthAndHeight">
-				   
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded" >
 			<ei:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
@@ -120,7 +118,7 @@
 										 SystemButtonSize="22"/>
 			</StackPanel>
 		</Grid>
-		<ItemsControl prism:RegionManager.RegionName="{x:Static c:RegionManage.ShellRegion}" Grid.Row="1"/>
+		<ContentControl prism:RegionManager.RegionName="{x:Static c:RegionManage.ShellRegion}" Grid.Row="1"/>
 		<ResizeGrip Grid.Row="1" Height="12" Width="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="{Binding Visibility}"/>
 	</Grid>
 </ctrls:NTestWindow>

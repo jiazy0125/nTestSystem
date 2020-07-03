@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Mvvm;
-using nTestSystem.Framework.Commons;
-using nTestSystem.Views;
 using System.Configuration;
-using System.Windows;
 using System.Collections.Specialized;
 using System.Collections.ObjectModel;
 using Prism.Events;
 using nTestSystem.Class;
+using nTestSystem.UserControls.EventAggregator;
+using Prism.Regions;
+using System.Windows;
 
 namespace nTestSystem.ViewModels
 {
-	public class ConnectionViewModel: BindableBase
+	public class ConnectionViewModel: BindableBase, INavigationAware
 	{
 
 		#region Fields
@@ -51,35 +47,46 @@ namespace nTestSystem.ViewModels
 		#region Execute
 		public void View_Loaded(object sender, EventArgs e)
 		{
-			//if (!isFirstRun) ShellSwitcher.Switch<ConnectionView, Shell>();
+			
 		}
 		private void SaveToConfiguration()
 		{
-			//Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-			//if (!cfa.AppSettings.Settings.AllKeys.Contains("FirstRun"))
-			//{
-			//	cfa.AppSettings.Settings.Add("FirstRun", "True");
-			//}
-			//cfa.AppSettings.Settings["FirstRun"].Value="False";
-			//cfa.Save();
-			_ea.GetEvent<NavigateTransform>().Publish("");
+			try
+			{
+
+				//Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+				//cfa.AppSettings.Settings["FirstStart"].Value = "False";
+				//cfa.AppSettings.Settings["DBHelperName"].Value = _nc[DatabaseSelected];
+				//cfa.AppSettings.Settings["Connection"].Value = ConnectString;
+				//cfa.Save();
+				_ea.GetEvent<NavigateEvent>().Publish("SignInView");
+			}
+			catch { }
+		}
+
+		public void OnNavigatedTo(NavigationContext navigationContext)
+		{
+			//设置当前标题
+			navigationContext.Parameters.Add(RegionManage.TitleRegion, Application.Current.TryFindResource("ConnectionSettingTitle") as string);
+		}
+
+		public bool IsNavigationTarget(NavigationContext navigationContext)
+		{
+			return true;
+		}
+
+		public void OnNavigatedFrom(NavigationContext navigationContext)
+		{
+
 		}
 
 		#endregion
 
-
 		public ConnectionViewModel(IEventAggregator ea)
 		{
-
+			//加载数据库类型列表
 			_nc= (NameValueCollection)ConfigurationManager.GetSection("databaseList");
-
 			DBList = new ObservableCollection<string>(_nc.AllKeys);
-
-			//var first = ConfigurationManager.AppSettings["FirstRun"];
-			//if (first == null || first?.ToLower() == "true") 
-			//{
-
-			//}
 			_ea = ea;
 			ApplySettings = new DelegateCommand(SaveToConfiguration);
 

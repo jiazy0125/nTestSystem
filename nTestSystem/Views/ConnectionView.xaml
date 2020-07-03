@@ -4,8 +4,7 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:adu="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"   
-			 xmlns:prism="http://www.codeplex.com/prism" 
-			 mc:Ignorable="d"
+			 xmlns:prism="http://www.codeplex.com/prism" mc:Ignorable="d"
 			 prism:ViewModelLocator.AutoWireViewModel="True">
 	<Grid >
 		<Grid.RowDefinitions>

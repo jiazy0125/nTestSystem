@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using nTestSystem.Framework.Commons;
-using nTestSystem.SignIn.Views;
 using nTestSystem.Views;
 using Prism;
 using Prism.Events;
@@ -107,7 +106,7 @@ namespace nTestSystem
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<ConnectionView>();
-			containerRegistry.RegisterForNavigation<Views.SignInView>();
+			containerRegistry.RegisterForNavigation<SignInView>();
 		}
 
 

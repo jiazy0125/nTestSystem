@@ -10,5 +10,7 @@ namespace nTestSystem.Class
 	{
 		public static string ShellRegion = "ShellRegion";
 
+		public static string TitleRegion = "TitleRegion";
+
 	}
 }
