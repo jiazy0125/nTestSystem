@@ -101,8 +101,8 @@ namespace nTestSystem.ViewModels
 			Visibility = b ? Visibility.Visible : Visibility.Collapsed;
 			SizeToContent = SizeToContent.Manual;
 			ResizeMode = ResizeMode.CanResizeWithGrip;
-			MinWidth = 1024;
-			MinHeight = 768;
+			MinWidth = 300;
+			MinHeight = 300;
 			Application.Current.MainWindow.CenterWindowOnScreen();
 			_ea.GetEvent<LoadedEvent>().Unsubscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Unsubscribe(Navigate);

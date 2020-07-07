@@ -7,10 +7,9 @@
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 			 xmlns:prism="http://www.codeplex.com/prism" 
-			 xmlns:adu="clr-namespace:AduSkin.Controls;assembly=AduSkin"
 			 prism:RegionManager.RegionManager="{Binding RegionManager}"
 			 prism:ViewModelLocator.AutoWireViewModel="True"
-             mc:Ignorable="d" >
+             mc:Ignorable="d">
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded" >
 			<ei:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
@@ -28,13 +27,13 @@
 			</Grid.ColumnDefinitions>
 			<Grid Background="{DynamicResource LeftGridColor}">
 				<ScrollViewer Style="{StaticResource ScrollviewerStyle}">
-					<StackPanel>
+					<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuRegion}">
 						<Expander Header="{DynamicResource SlideMenu1}" IsExpanded="True" Style="{StaticResource NoExpander}">
 							<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuRegion1}"/>
 						</Expander>
-						<Expander Header="{DynamicResource SlideMenu2}" x:Name="Expander2" IsExpanded="True">
+						<!--<Expander Header="{DynamicResource SlideMenu2}" IsExpanded="True">
 							<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuRegion2}"/>
-						</Expander>
+						</Expander>-->
 					</StackPanel>
 				</ScrollViewer>
 			</Grid>

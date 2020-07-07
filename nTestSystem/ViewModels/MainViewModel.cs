@@ -15,6 +15,8 @@ using nTestSystem.UserControls.Views;
 using nTestSystem.UserControls.ViewModels;
 using nTestSystem.Framework.Configurations;
 using nTestSystem.UserControls.EventAggregator;
+using System.Windows.Controls;
+using CommonServiceLocator;
 
 namespace nTestSystem.ViewModels
 {
@@ -53,7 +55,8 @@ namespace nTestSystem.ViewModels
 		{
 			Application.Current.MainWindow.CenterWindowOnScreen();
 			_ea.GetEvent<LoadedEvent>().Publish(true);
-			LoadSlideMenus();
+			//LoadSlideMenus();
+			AddViewItem(null, null, null, null);
 		}
 
 		public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -86,8 +89,34 @@ namespace nTestSystem.ViewModels
 
 		private void AddViewItem(string regionName, string viewName, string content, Geometry image)
 		{
+			//var view = _ce.Resolve<ImageRadioButton>();
+			//IRegion region = RegionManager.Regions[regionName];
+			//var vm = new ImageRadioButtonViewModel(_ea)
+			//{
+			//	GroupName = "Menu",
+			//	Content = content,
+			//	ViewName = viewName,
+			//	Image = image,
+			//	IsChecked = false,
+			//};
+			//view.DataContext = vm;
+			//region.Add(view);
+
+
+			var view1 = _ce.Resolve<Expander>();
+			view1.IsExpanded = true;
+			view1.SetResourceReference(HeaderedContentControl.HeaderProperty, "SlideMenu2");
+
+			RegionManager.RegisterViewWithRegion(RegionManage.SlideMenuRegion2, typeof(StackPanel));
+			var view2 = _ce.Resolve<StackPanel>();
+
+			//RegionManager.AddToRegion( RegionManage.SlideMenuRegion2,view2);
+			view1.Content= view2;
+			IRegion region1 = RegionManager.Regions[RegionManage.SlideMenuRegion];
+			region1.Add(view1);
+
 			var view = _ce.Resolve<ImageRadioButton>();
-			IRegion region = RegionManager.Regions[regionName];
+			IRegion region = RegionManager.Regions[RegionManage.SlideMenuRegion2];
 			var vm = new ImageRadioButtonViewModel(_ea)
 			{
 				GroupName = "Menu",
@@ -98,7 +127,6 @@ namespace nTestSystem.ViewModels
 			};
 			view.DataContext = vm;
 			region.Add(view);
-
 		}
 
 		private void Navigate(string navigatePath)

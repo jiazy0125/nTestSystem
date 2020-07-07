@@ -16,7 +16,7 @@ namespace nTestSystem.Class
 
 		public static string SubItemRegion = "SubItemRegion";
 
-
+		public static string SlideMenuRegion = "SlideMenuRegion";
 
 		public static string SlideMenuRegion1 = ConfigurationManager.AppSettings["SlideMenuRegion1"]; 
 		public static string SlideMenuRegion2 = ConfigurationManager.AppSettings["SlideMenuRegion2"]; 
