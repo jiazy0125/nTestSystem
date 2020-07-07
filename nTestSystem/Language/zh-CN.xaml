@@ -2,17 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:sys="clr-namespace:System;assembly=mscorlib">
 	<sys:String x:Key="Title">多平台测试系统</sys:String>
-
+	<sys:String x:Key="MainTitle">多平台测试系统</sys:String>
 	<!--界面菜单信息定义-->
 
 	<!--界面及水印信息定义-->
-
+	
 	<sys:String x:Key="SignInTitle">登录</sys:String>
-	<sys:String x:Key="Expander1">主菜单</sys:String>
-	<sys:String x:Key="Expander2">工具箱</sys:String>
-	<sys:String x:Key="Expander3">工具箱1</sys:String>
-	<sys:String x:Key="Expander4">工具箱2</sys:String>
-	<sys:String x:Key="Expander5">工具箱3</sys:String>
+	<sys:String x:Key="SlideMenu1">主菜单</sys:String>
+	<sys:String x:Key="SlideMenu2">工具箱</sys:String>
+	<sys:String x:Key="SlideMenu3">工具箱1</sys:String>
+	<sys:String x:Key="SlideMenu4">工具箱2</sys:String>
+	<sys:String x:Key="SlideMenu5">工具箱3</sys:String>
 	<sys:String x:Key="UserNameHint">请输入用户名</sys:String>
 	<sys:String x:Key="PasswordHint">请输入密码</sys:String>
 	<sys:String x:Key="SavePassword">保存密码</sys:String>

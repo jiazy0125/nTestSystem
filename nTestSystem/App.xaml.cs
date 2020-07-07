@@ -107,6 +107,7 @@ namespace nTestSystem
 		{
 			containerRegistry.RegisterForNavigation<ConnectionView>();
 			containerRegistry.RegisterForNavigation<SignInView>();
+			containerRegistry.RegisterForNavigation<MainView>();
 		}
 
 

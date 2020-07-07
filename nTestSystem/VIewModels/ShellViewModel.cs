@@ -11,6 +11,9 @@ using nTestSystem.Class;
 using System.Windows;
 using System.Configuration;
 using System.Linq;
+using System.Windows.Input;
+using CommonServiceLocator;
+using nTestSystem.Framework.Extensions;
 
 namespace nTestSystem.ViewModels
 {
@@ -39,6 +42,36 @@ namespace nTestSystem.ViewModels
 			get => title;
 			set => SetProperty(ref title, value);
 		}
+
+		private double minWidth = 100;
+		public double MinWidth
+		{
+			get => minWidth;
+			set => SetProperty(ref minWidth, value);
+		}
+
+		private double minHeight = 100;
+		public double MinHeight
+		{
+			get => minHeight;
+			set => SetProperty(ref minHeight, value);
+		}
+
+		private SizeToContent sizeToContent = SizeToContent.WidthAndHeight;
+		public SizeToContent SizeToContent
+		{
+			get => sizeToContent;
+			set => SetProperty(ref sizeToContent, value);
+		}
+
+		private ResizeMode resizeMode = ResizeMode.NoResize;
+		public ResizeMode ResizeMode
+		{
+			get => resizeMode;
+			set => SetProperty(ref resizeMode, value);
+		}
+
+
 		#endregion
 
 		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IContainerExtension container, IModuleCatalog mc)
@@ -47,7 +80,7 @@ namespace nTestSystem.ViewModels
 			_ea = ea;
 			_ce = container;
 			_rm = regionManager;
-			_ea.GetEvent<MessageSentEvent>().Subscribe(Navigate);
+			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
 			
 		}
@@ -59,12 +92,29 @@ namespace nTestSystem.ViewModels
 		#endregion
 
 		#region Execute
+
+		private void NavigationLoaded(bool b)
+		{
+			//初始化、登录界面采用自适应
+			//主界面时取消自适应，否则最大化窗口会有问题
+			//主界面时手动指定窗口最小区域值
+			Visibility = b ? Visibility.Visible : Visibility.Collapsed;
+			SizeToContent = SizeToContent.Manual;
+			ResizeMode = ResizeMode.CanResizeWithGrip;
+			MinWidth = 1024;
+			MinHeight = 768;
+			Application.Current.MainWindow.CenterWindowOnScreen();
+			_ea.GetEvent<LoadedEvent>().Unsubscribe(NavigationLoaded);
+			_ea.GetEvent<NavigateEvent>().Unsubscribe(Navigate);
+		}
+
+
 		public void View_Loaded(object sender, EventArgs e)
 		{
-			if (CheckFirstStart())			
-				Navigate("ConnectionView");			
-			else			
-				Navigate("SignInView");			
+			if (CheckFirstStart())
+				Navigate("ConnectionView");
+			else
+				Navigate("SignInView");
 		}
 
 
@@ -79,42 +129,6 @@ namespace nTestSystem.ViewModels
 					}));
 		}
 
-		//动态添加Slidemenu
-		private void AddViewItem(string regionName, string viewName, string content, Geometry image)
-		{
-			//var view = _ce.Resolve<ImageRadioButton>();
-			//IRegion region = RegionMannager.Regions[regionName];
-			//var vm = new ImageRadioButtonViewModel(_ea)
-			//{
-			//	GroupName = "Menu",
-			//	Content = content,
-			//	ViewName = viewName,
-			//	Image = image,
-			//	IsChecked = false,
-			//};
-			//view.DataContext = vm;
-			//region.Add(view);
-
-
-
-
-		}
-
-		//从appcongfig中读取SlideMenu列表
-		private void LoadSlideMenus()
-		{
-			_rm.RequestNavigate(RegionManage.ShellRegion, "ConnectionView");
-
-
-
-			//if (System.Configuration.ConfigurationManager.GetSection("menu-en") is SlideMenuSection config)
-			//{
-			//	foreach (SlideMenuElement temp in config.SlideMenus)
-			//	{
-			//		AddViewItem(temp.RegionName, temp.ViewName, temp.MenuName, temp.Icon);
-			//	}
-			//}
-		}
 
 		/// <summary>
 		/// 检查程序是否首次启动
@@ -135,9 +149,14 @@ namespace nTestSystem.ViewModels
 				return ConfigurationManager.AppSettings["FirstStart"].Trim().ToLower() == "true";
 			}
 		}
-
 	
 		#endregion
+
+	}
+
+
+	public class LoadedEvent : PubSubEvent<bool>
+	{
 
 	}
 }

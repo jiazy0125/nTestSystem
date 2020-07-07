@@ -9,6 +9,7 @@ using nTestSystem.Class;
 using nTestSystem.UserControls.EventAggregator;
 using Prism.Regions;
 using System.Windows;
+using nTestSystem.Framework.Extensions;
 
 namespace nTestSystem.ViewModels
 {
@@ -47,7 +48,7 @@ namespace nTestSystem.ViewModels
 		#region Execute
 		public void View_Loaded(object sender, EventArgs e)
 		{
-			
+			Application.Current.MainWindow.CenterWindowOnScreen();
 		}
 		private void SaveToConfiguration()
 		{

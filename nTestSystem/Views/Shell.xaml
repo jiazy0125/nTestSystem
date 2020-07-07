@@ -8,16 +8,11 @@
 				   xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 				   xmlns:prism="http://www.codeplex.com/prism"
 				   xmlns:c="clr-namespace:nTestSystem.Class"
-				   mc:Ignorable="d" MinHeight="250" MinWidth="200"
-				   Icon="/Images/logo.png"
+				   mc:Ignorable="d" MinWidth="{Binding MinWidth}" MinHeight="{Binding MinHeight}"
+				   Icon="/Images/logo.png" prism:ViewModelLocator.AutoWireViewModel="True"
 				   Title="{DynamicResource Title}"
-				   WindowShadowColor="#888888"
-				   WindowShadowOpacity="0.4"
-				   WindowShadowSize="15"
-				   ResizeMode="CanResizeWithGrip"
-				   WindowStartupLocation="CenterScreen" WindowState="Normal"
-				   prism:ViewModelLocator.AutoWireViewModel="True"
-				   SizeToContent="WidthAndHeight">
+				   WindowShadowColor="#888888" WindowShadowOpacity="0.4" WindowShadowSize="15" SizeToContent="{Binding SizeToContent}"
+				   ResizeMode="{Binding ResizeMode}" WindowStartupLocation="CenterScreen" WindowState="Normal" >
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded" >
 			<ei:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
@@ -118,7 +113,7 @@
 										 SystemButtonSize="22"/>
 			</StackPanel>
 		</Grid>
-		<ContentControl prism:RegionManager.RegionName="{x:Static c:RegionManage.ShellRegion}" Grid.Row="1"/>
+		<ContentControl x:Name="ContentControl" prism:RegionManager.RegionName="{x:Static c:RegionManage.ShellRegion}" Grid.Row="1"/>
 		<ResizeGrip Grid.Row="1" Height="12" Width="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="{Binding Visibility}"/>
 	</Grid>
 </ctrls:NTestWindow>

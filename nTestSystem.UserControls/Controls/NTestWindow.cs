@@ -12,6 +12,7 @@ using nTestSystem.UserControls.Win;
 using SystemCommands = nTestSystem.UserControls.Win.SystemCommands;
 using nTestSystem.UserControls.EventAggregator;
 using Prism.Events;
+using System.Windows.Forms;
 
 namespace nTestSystem.UserControls.Controls
 {
@@ -21,6 +22,11 @@ namespace nTestSystem.UserControls.Controls
         public NTestWindow()
         {
             InitializeWindowStyle();
+
+            //Screen currentMonitor = Screen.FromHandle(new WindowInteropHelper(this).Handle);
+            //Left = currentMonitor.WorkingArea.Left;
+            //Top = currentMonitor.WorkingArea.Top;
+            Topmost = true;
 
             //绑定窗体操作函数
             SourceInitialized += MainWindow_SourceInitialized;
@@ -166,8 +172,8 @@ namespace nTestSystem.UserControls.Controls
             RECT workingArea = monitorInfo.rcWork;
 
             //设置最大化的时候的坐标 
-            mmi.ptMaxPosition.x = workingArea.left;
-            mmi.ptMaxPosition.y = workingArea.top;
+            mmi.ptMaxPosition.x = 0;// workingArea.left;
+            mmi.ptMaxPosition.y = 0;// workingArea.top;
 
             if (source == null)
                 throw new Exception("Cannot get HwndSource instance.");
@@ -229,7 +235,8 @@ namespace nTestSystem.UserControls.Controls
         //窗体移动
         void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.OriginalSource is Grid || e.OriginalSource is Window || e.OriginalSource is Border)
+            //|| e.OriginalSource is Window || e.OriginalSource is Border
+            if (e.OriginalSource is Grid )
             {
                 NativeMethods.SendMessage(Handle, (int)WindowMessages.WM_NCLBUTTONDOWN, (IntPtr)HitTest.HTCAPTION, IntPtr.Zero);
                 return;

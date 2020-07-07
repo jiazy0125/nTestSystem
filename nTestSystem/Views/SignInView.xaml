@@ -31,18 +31,18 @@
 				</Border>
 				<Border CornerRadius="3,3,0,0" BorderBrush="#60ffffff" BorderThickness="1,1,1,0" Background="Transparent" Width="200" Height="38" Margin="10,30,10,00">
 					<StackPanel Orientation="Horizontal">
-						<Path Width="22" Height="22" Data="{StaticResource  Icon_User}" Fill="{StaticResource ThemeColor2}" Stretch="Uniform" Margin="2"/>
-						<adu:MetroTextBox InputHint="{DynamicResource UserNameHint}" Height="30" Width="170"/>
+						<Path Width="22" Height="22" Data="{StaticResource  Icon_User}" Fill="{StaticResource ThemeColor2}" Stretch="Uniform" Margin="4"/>
+						<adu:MetroTextBox InputHint="{DynamicResource UserNameHint}" Height="30" Width="166"/>
 					</StackPanel>
 				</Border>
 				<Border CornerRadius="0,0,3,3"  BorderBrush="#60ffffff" BorderThickness="1" Background="Transparent" Width="200" Height="38">
 					<StackPanel Orientation="Horizontal">
-						<Path Width="22" Height="22" Data="{StaticResource  Icon_Cloud}" Fill="{StaticResource ThemeColor2}" Stretch="Uniform" Margin="2"/>
-						<adu:AduPasswordBox Watermark="{DynamicResource PasswordHint}" IsCanSeePassword="True" Height="26" Width="170"/>
+						<Path Width="22" Height="22" Data="{StaticResource  Icon_Cloud}" Fill="{StaticResource ThemeColor2}" Stretch="Uniform" Margin="4"/>
+						<adu:AduPasswordBox Watermark="{DynamicResource PasswordHint}" IsCanSeePassword="True" Height="26" Width="166"/>
 					</StackPanel>
 				</Border>
 				<adu:AduCheckBox Content="{DynamicResource SavePassword}" FontSize="14" IconWidth="16" IsChecked="False" HorizontalAlignment="Center" Margin="4"/>
-				<adu:AduFlatButton Margin="4" Content="{DynamicResource LoginBtn}" Type="Default" />
+				<adu:AduFlatButton Margin="4" Content="{DynamicResource LoginBtn}" Type="Default" Command="{Binding SignIn}"/>
 			</StackPanel>
 		</Grid>
 	</Border>
