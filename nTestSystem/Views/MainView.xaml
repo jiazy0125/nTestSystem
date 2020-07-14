@@ -28,18 +28,15 @@
 			<Grid Background="{DynamicResource LeftGridColor}">
 				<ScrollViewer Style="{StaticResource ScrollviewerStyle}">
 					<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuRegion}">
-						<Expander Header="{DynamicResource SlideMenu1}" IsExpanded="True" Style="{StaticResource NoExpander}">
-							<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuRegion1}"/>
+						<Expander Header="{DynamicResource SlideMenuGroup0}" IsExpanded="True" Style="{StaticResource NoExpander}">
+							<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuMainRegion}"/>
 						</Expander>
-						<!--<Expander Header="{DynamicResource SlideMenu2}" IsExpanded="True">
-							<StackPanel prism:RegionManager.RegionName="{x:Static c:RegionManage.SlideMenuRegion2}"/>
-						</Expander>-->
 					</StackPanel>
 				</ScrollViewer>
 			</Grid>
 			<Grid Grid.Column="1">
 				<ScrollViewer Style="{StaticResource ScrollviewerStyle}">
-					<ItemsControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static c:RegionManage.SubItemRegion}" Background="{DynamicResource RightGridColor}"/>
+					<ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static c:RegionManage.SubItemRegion}" Background="{DynamicResource RightGridColor}"/>
 				</ScrollViewer>
 			</Grid>
 		</Grid>

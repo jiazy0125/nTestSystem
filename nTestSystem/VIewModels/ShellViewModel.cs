@@ -19,10 +19,15 @@ namespace nTestSystem.ViewModels
 {
 	class ShellViewModel: BindableBase
 	{
+		#region fields
+
 		private readonly IEventAggregator _ea;
 		private readonly IContainerExtension _ce;
 		private readonly IModuleCatalog _mc;
 		private readonly IRegionManager _rm;
+
+		#endregion
+
 		#region Properties
 
 		//public IRegionManager RegionMannager { get; private set; }
@@ -73,18 +78,7 @@ namespace nTestSystem.ViewModels
 
 
 		#endregion
-
-		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IContainerExtension container, IModuleCatalog mc)
-		{
-			_mc = mc;
-			_ea = ea;
-			_ce = container;
-			_rm = regionManager;
-			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
-			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
-			
-		}
-
+		
 		#region Command
 		public DelegateCommand<object> Load { get; set; }
 
@@ -101,13 +95,12 @@ namespace nTestSystem.ViewModels
 			Visibility = b ? Visibility.Visible : Visibility.Collapsed;
 			SizeToContent = SizeToContent.Manual;
 			ResizeMode = ResizeMode.CanResizeWithGrip;
-			MinWidth = 300;
-			MinHeight = 300;
+			MinWidth = 800;
+			MinHeight = 600;
 			Application.Current.MainWindow.CenterWindowOnScreen();
 			_ea.GetEvent<LoadedEvent>().Unsubscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Unsubscribe(Navigate);
 		}
-
 
 		public void View_Loaded(object sender, EventArgs e)
 		{
@@ -116,8 +109,6 @@ namespace nTestSystem.ViewModels
 			else
 				Navigate("SignInView");
 		}
-
-
 
 		private void Navigate(string navigatePath)
 		{
@@ -152,6 +143,16 @@ namespace nTestSystem.ViewModels
 	
 		#endregion
 
+		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IContainerExtension container, IModuleCatalog mc)
+		{
+			_mc = mc;
+			_ea = ea;
+			_ce = container;
+			_rm = regionManager;
+			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
+			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
+			
+		}
 	}
 
 

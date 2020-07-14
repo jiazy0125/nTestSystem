@@ -2,22 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls">
 	<!--  主窗体样式  -->
-	<Style x:Key="NTestWindow" TargetType="{x:Type ctrls:NTestWindow}">
+	<Style x:Key="MetroWindow" TargetType="{x:Type ctrls:MetroWindow}">
 		<Setter Property="AllowsTransparency" Value="True" />
 		<Setter Property="WindowStyle" Value="None" />
 		<Setter Property="BorderThickness" Value="10" />
 		<Setter Property="Effect">
 			<Setter.Value>
 				<DropShadowEffect
-                    BlurRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:NTestWindow}}, Path=WindowShadowSize}"
-                    Opacity="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:NTestWindow}}, Path=WindowShadowOpacity}"
+                    BlurRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}, Path=WindowShadowSize}"
+                    Opacity="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}, Path=WindowShadowOpacity}"
                     ShadowDepth="0"
-                    Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:NTestWindow}}, Path=WindowShadowColor}" />
+                    Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}, Path=WindowShadowColor}" />
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type ctrls:NTestWindow}">
+				<ControlTemplate TargetType="{x:Type ctrls:MetroWindow}">
 					<Border
                         Padding="{TemplateBinding Margin}"
                         Panel.ZIndex="0"

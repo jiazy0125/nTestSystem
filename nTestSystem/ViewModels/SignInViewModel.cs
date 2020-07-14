@@ -21,13 +21,10 @@ namespace nTestSystem.ViewModels
 
 		#endregion
 
-
 		#region Properties
 
 
 		#endregion
-
-
 
 		#region Command
 

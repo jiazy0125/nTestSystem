@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -16,10 +16,10 @@ using System.Windows.Forms;
 
 namespace nTestSystem.UserControls.Controls
 {
-	public partial class NTestWindow :Window
+	public partial class MetroWindow :Window
 	{
         #region 初始化
-        public NTestWindow()
+        public MetroWindow()
         {
             InitializeWindowStyle();
 
@@ -52,9 +52,9 @@ namespace nTestSystem.UserControls.Controls
 		/// </summary>
 		private void InitializeWindowStyle()
         {
-            ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.UserControls;component/Styles/NTestWindowStyle.xaml", UriKind.Relative) };
+            ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.UserControls;component/Styles/MetroWindowStyle.xaml", UriKind.Relative) };
             Resources.MergedDictionaries.Add(dic);
-            Style = (Style)dic["NTestWindow"];
+            Style = (Style)dic["MetroWindow"];
 
             //string packUriAnimation = @"/DMSkin.WPF;component/Themes/Animation.xaml";
             //ResourceDictionary dicAnimation = new ResourceDictionary { Source = new Uri(packUriAnimation, UriKind.Relative) };
@@ -252,7 +252,7 @@ namespace nTestSystem.UserControls.Controls
             set { SetValue(FullScreenProperty, value); }
         }
         public static readonly DependencyProperty FullScreenProperty =
-            DependencyProperty.Register("FullScreen", typeof(bool), typeof(NTestWindow), new PropertyMetadata(false));
+            DependencyProperty.Register("FullScreen", typeof(bool), typeof(MetroWindow), new PropertyMetadata(false));
 
         [Description("窗体阴影大小"), Category("Skin")]
         public double WindowShadowSize
@@ -261,7 +261,7 @@ namespace nTestSystem.UserControls.Controls
             set { SetValue(WindowShadowSizeProperty, value); }
         }
         public static readonly DependencyProperty WindowShadowSizeProperty =
-            DependencyProperty.Register("WindowShadowSize", typeof(double), typeof(NTestWindow), new PropertyMetadata(10.0));
+            DependencyProperty.Register("WindowShadowSize", typeof(double), typeof(MetroWindow), new PropertyMetadata(10.0));
 
         [Description("窗体阴影颜色"), Category("Skin")]
         public Color WindowShadowColor
@@ -270,7 +270,7 @@ namespace nTestSystem.UserControls.Controls
             set { SetValue(WindowShadowColorProperty, value); }
         }
         public static readonly DependencyProperty WindowShadowColorProperty =
-            DependencyProperty.Register("WindowShadowColor", typeof(Color), typeof(NTestWindow), new PropertyMetadata(Color.FromArgb(255, 200, 200, 200)));
+            DependencyProperty.Register("WindowShadowColor", typeof(Color), typeof(MetroWindow), new PropertyMetadata(Color.FromArgb(255, 200, 200, 200)));
 
         [Description("窗体阴影透明度"), Category("Skin")]
         public double WindowShadowOpacity
@@ -279,7 +279,7 @@ namespace nTestSystem.UserControls.Controls
             set { SetValue(WindowShadowOpacityProperty, value); }
         }
         public static readonly DependencyProperty WindowShadowOpacityProperty =
-            DependencyProperty.Register("WindowShadowOpacity", typeof(double), typeof(NTestWindow), new PropertyMetadata(1.0));
+            DependencyProperty.Register("WindowShadowOpacity", typeof(double), typeof(MetroWindow), new PropertyMetadata(1.0));
         #endregion
     }
 }

@@ -119,9 +119,6 @@
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shell1.xaml.cs">
-      <DependentUpon>Shell1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Class\TestDemo.cs" />
     <Compile Include="Views\SignInView.xaml.cs">
@@ -165,10 +162,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Shell.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Shell1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

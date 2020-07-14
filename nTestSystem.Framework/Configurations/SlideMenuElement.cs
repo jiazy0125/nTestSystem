@@ -25,11 +25,11 @@ namespace nTestSystem.Framework.Configurations
             set { base["menuName"] = value; }
         }
 
-        [ConfigurationProperty("regionName", IsRequired = true)]
-        public string RegionName
+        [ConfigurationProperty("groupName", IsRequired = false)]
+        public string GroupName
         {
-            get { return (string)base["regionName"]; }
-            set { base["regionName"] = value; }
+            get { return (string)base["groupName"]; }
+            set { base["groupName"] = value; }
         }
         [ConfigurationProperty("viewName", IsRequired = true)]
         public string ViewName

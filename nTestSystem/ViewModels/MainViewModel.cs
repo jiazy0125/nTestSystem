@@ -17,6 +17,7 @@ using nTestSystem.Framework.Configurations;
 using nTestSystem.UserControls.EventAggregator;
 using System.Windows.Controls;
 using CommonServiceLocator;
+using System.Configuration;
 
 namespace nTestSystem.ViewModels
 {
@@ -43,7 +44,6 @@ namespace nTestSystem.ViewModels
 
 		#endregion
 
-
 		#region Execute
 
 		/// <summary>
@@ -55,8 +55,7 @@ namespace nTestSystem.ViewModels
 		{
 			Application.Current.MainWindow.CenterWindowOnScreen();
 			_ea.GetEvent<LoadedEvent>().Publish(true);
-			//LoadSlideMenus();
-			AddViewItem(null, null, null, null);
+			LoadSlideMenus();
 		}
 
 		public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -75,60 +74,70 @@ namespace nTestSystem.ViewModels
 			navigationContext.Parameters.Add(RegionManage.TitleRegion, Application.Current.TryFindResource("MainTitle") as string);
 		}
 
-
+		/// <summary>
+		/// 加载左侧菜单按钮
+		/// </summary>
 		private void LoadSlideMenus()
 		{
-			if (System.Configuration.ConfigurationManager.GetSection("menu-en") is SlideMenuSection config)
+			string languageType= Properties.Settings.Default.Language.Trim();
+			if (ConfigurationManager.GetSection(languageType) is SlideMenuSection config)
 			{
+				var exps = new Dictionary<string, Expander>();
 				foreach (SlideMenuElement temp in config.SlideMenus)
 				{
-					AddViewItem(temp.RegionName, temp.ViewName, temp.MenuName, temp.Icon);
+					//AddViewItem(temp.GroupName, temp.ViewName, temp.MenuName, temp.Icon);
+					var view = _ce.Resolve<ImageRadioButton>();
+					var vm = new ImageRadioButtonViewModel(_ea)
+					{
+						GroupName = "Menu",
+						Content = temp.MenuName,
+						ViewName = temp.ViewName,
+						Image = temp.Icon,
+						IsChecked = false,
+					};
+					view.DataContext = vm;
+					//group name为空,默认将控件添加至主菜单下
+					if (temp.GroupName == "" || temp.GroupName is null)
+					{
+						//添加至主菜单视图下
+						IRegion region = RegionManager.Regions[RegionManage.SlideMenuMainRegion];
+						region.Add(view);
+					}
+					else
+					{
+						//若不为空，则查找是否存在对应group name的菜单
+						if (exps.ContainsKey(temp.GroupName))
+						{
+							((StackPanel)exps[temp.GroupName].Content).Children.Add(view);
+						}
+						else
+						{
+							//不存在group name，则新建并添加至词典
+							//stackpanel
+							var sp = _ce.Resolve<StackPanel>();
+							sp.Children.Add(view);
+							//expander
+							var exp = _ce.Resolve<Expander>();
+							exp.Content = sp;
+							exp.IsExpanded = true;
+							//绑定header
+							var str = Application.Current.TryFindResource(temp.GroupName) as string;
+							if (str is null || str == "") exp.Header = Application.Current.TryFindResource("UnTitled") as string;
+							//绑定至动态资源标签
+							else exp.SetResourceReference(HeaderedContentControl.HeaderProperty, temp.GroupName);
+							exps.Add(temp.GroupName, exp);
+						}
+					}
+
+				}
+				//将所有新添加View添加至SlideMenu中
+				foreach (KeyValuePair<string, Expander> kvp in exps)
+				{
+					RegionManager.Regions[RegionManage.SlideMenuRegion].Add(kvp.Value);
 				}
 			}
 		}
-
-		private void AddViewItem(string regionName, string viewName, string content, Geometry image)
-		{
-			//var view = _ce.Resolve<ImageRadioButton>();
-			//IRegion region = RegionManager.Regions[regionName];
-			//var vm = new ImageRadioButtonViewModel(_ea)
-			//{
-			//	GroupName = "Menu",
-			//	Content = content,
-			//	ViewName = viewName,
-			//	Image = image,
-			//	IsChecked = false,
-			//};
-			//view.DataContext = vm;
-			//region.Add(view);
-
-
-			var view1 = _ce.Resolve<Expander>();
-			view1.IsExpanded = true;
-			view1.SetResourceReference(HeaderedContentControl.HeaderProperty, "SlideMenu2");
-
-			RegionManager.RegisterViewWithRegion(RegionManage.SlideMenuRegion2, typeof(StackPanel));
-			var view2 = _ce.Resolve<StackPanel>();
-
-			//RegionManager.AddToRegion( RegionManage.SlideMenuRegion2,view2);
-			view1.Content= view2;
-			IRegion region1 = RegionManager.Regions[RegionManage.SlideMenuRegion];
-			region1.Add(view1);
-
-			var view = _ce.Resolve<ImageRadioButton>();
-			IRegion region = RegionManager.Regions[RegionManage.SlideMenuRegion2];
-			var vm = new ImageRadioButtonViewModel(_ea)
-			{
-				GroupName = "Menu",
-				Content = content,
-				ViewName = viewName,
-				Image = image,
-				IsChecked = false,
-			};
-			view.DataContext = vm;
-			region.Add(view);
-		}
-
+		//右侧工作区域导航切换
 		private void Navigate(string navigatePath)
 		{
 			if (navigatePath != null)

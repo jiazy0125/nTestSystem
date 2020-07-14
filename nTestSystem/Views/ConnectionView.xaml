@@ -3,9 +3,10 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:adu="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"   
+			 xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
 			 xmlns:prism="http://www.codeplex.com/prism" mc:Ignorable="d"
-			 prism:ViewModelLocator.AutoWireViewModel="True">
+			 prism:ViewModelLocator.AutoWireViewModel="True"
+			 FontFamily="Consolas">
 	<Grid >
 		<Grid.RowDefinitions>
 			<RowDefinition Height="10"/>
@@ -17,20 +18,19 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 		<StackPanel Grid.Row="1" Orientation="Vertical">
-			<adu:MetroTextBlock Text="{DynamicResource DbTypeSelect}" Margin="2" IsEnabled="False"/>
-			<adu:AduComboBox Background="{DynamicResource ThemeColor}" Margin="2" ItemsSource="{Binding DBList}" CornerRadius="2" Width="150" 
-							 SelectedValue="{Binding DatabaseSelected, Mode=OneWayToSource}" SelectedIndex="0" Height="30"
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{DynamicResource DbTypeSelect}" Margin="2" IsEnabled="False"/>
+			<ctrls:MetroComboBox Background="{DynamicResource ThemeColor}" Margin="2" ItemsSource="{Binding DBList}" CornerRadius="2" Width="150" 
+							 SelectedValue="{Binding DatabaseSelected, Mode=OneWayToSource}" SelectedIndex="0" Height="30" Foreground="White"
 							 HorizontalAlignment="Left"/>
-			<adu:MetroTextBlock Text="{DynamicResource DbConnectSetting}" Margin="2"/>
-			<adu:MetroTextBox InputHint="{DynamicResource DbConnectSettingHint}" Margin="2" Height="60" TextWrapping="Wrap" MultipleLine="True"
-							  adu:MetroScrollViewer.IsEnableInertia="True" Text="{Binding ConnectString,Mode=OneWayToSource}"/>
-			<adu:MetroTextBlock Text="{DynamicResource Example}" Margin="2" IsEnabled="False"/>
-			<adu:MetroTextBlock Text="Persist Security Info=True;User ID=EPROMUSER;Password=Epr0mUser1;Initial Catalog=OCP_Traks;Data Source=10.191.34.143" 
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{DynamicResource DbConnectSetting}" Margin="2"/>
+			<ctrls:MetroTextBox InputHint="{DynamicResource DbConnectSettingHint}" Margin="2" Height="60" TextWrapping="Wrap" MultipleLine="True"
+							  ctrls:MetroScrollViewer.IsEnableInertia="True" Text="{Binding ConnectString,Mode=OneWayToSource}"/>
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{DynamicResource Example}" Margin="2" IsEnabled="False"/>
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="Persist Security Info=True;User ID=EPROMUSER;Password=Epr0mUser1;Initial Catalog=OCP_Traks;Data Source=10.191.34.143" 
 								Margin="2" TextWrapping="Wrap" IsEnabled="False" MaxWidth="500"/>
 		</StackPanel>
-		
-		<adu:AduButtonIcon Content="Apply" Grid.Row="2" Grid.ColumnSpan="2" Icon="{StaticResource Apply}" Foreground="{DynamicResource ThemeButtonColor3}" IconTextMargin="15"
-						   IconHeight="18" IconWidth="22" FontSize="16" Margin="10" HorizontalAlignment="Right" Width="120" CornerRadius="6"
-						   Command="{Binding ApplySettings}"/>
+		<ctrls:FlatButton Grid.Row="2" Grid.ColumnSpan="2" Background="{DynamicResource ThemeColor}" Content="{DynamicResource Apply}"
+				Height="30" Command="{Binding ApplySettings}"
+				HorizontalAlignment="Right" Width="120" Margin="4" Foreground="White" BorderBrush="Transparent"/>
 	</Grid>
 </UserControl>

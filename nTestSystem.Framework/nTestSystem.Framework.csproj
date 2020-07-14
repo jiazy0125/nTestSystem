@@ -80,6 +80,7 @@
     <Compile Include="Configurations\SlideMenuCollection.cs" />
     <Compile Include="Configurations\SlideMenuElement.cs" />
     <Compile Include="Configurations\SlideMenuSection.cs" />
+    <Compile Include="Converters\ExpanderVisibilityConverters.cs" />
     <Compile Include="Extensions\GuidExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\WindowExtensions.cs" />
@@ -112,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

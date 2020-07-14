@@ -6,19 +6,20 @@
 	<!--界面菜单信息定义-->
 
 	<!--界面及水印信息定义-->
-	
+	<sys:String x:Key="UnTitled">未命名</sys:String>
 	<sys:String x:Key="SignInTitle">登录</sys:String>
-	<sys:String x:Key="SlideMenu1">主菜单</sys:String>
-	<sys:String x:Key="SlideMenu2">工具箱</sys:String>
+	<sys:String x:Key="SlideMenuGroup0">主菜单</sys:String>
+	<sys:String x:Key="SlideMenuGroup1">工具箱</sys:String>
 	<sys:String x:Key="SlideMenu3">工具箱1</sys:String>
 	<sys:String x:Key="SlideMenu4">工具箱2</sys:String>
 	<sys:String x:Key="SlideMenu5">工具箱3</sys:String>
 	<sys:String x:Key="UserNameHint">请输入用户名</sys:String>
 	<sys:String x:Key="PasswordHint">请输入密码</sys:String>
-	<sys:String x:Key="SavePassword">保存密码</sys:String>
+	<sys:String x:Key="SavePassword">自动登录</sys:String>
 	<sys:String x:Key="LoginBtn">登    录</sys:String>
 
 	<sys:String x:Key="ConnectionSettingTitle">数据连接配置</sys:String>
+	<sys:String x:Key="Apply">应用</sys:String>
 	<sys:String x:Key="DbTypeSelect">请选择数据库类型</sys:String>
 	<sys:String x:Key="DbConnectSetting">数据库连接配置</sys:String>
 	<sys:String x:Key="DbConnectSettingHint">请输入数据库连接字符串，不需要Provider</sys:String>

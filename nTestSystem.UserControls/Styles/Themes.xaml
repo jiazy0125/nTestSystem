@@ -3,15 +3,27 @@
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Colors.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ButtonStyle.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Expander.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/NTestWindowStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ExpanderStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroWindowStyle.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Path.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ResizeGrip.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ScrollViewer.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/RadioButtonStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/FlatButtonStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroComboBoxStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroTextBlockStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroTextBoxStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroPasswordBoxStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroCheckBoxStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroScrollViewerStyle.xaml"/>
 		
 		
+		<!--引用MaterialDesign库-->
+		<!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
 
-		
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -1,4 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<!--  全白 透明色  -->
@@ -69,6 +70,10 @@
 	<SolidColorBrush x:Key="ThemeButtonColor" Color="#0C73C2" />
 	<SolidColorBrush x:Key="ThemeButtonColor2" Color="#1167A8" />
 	<SolidColorBrush x:Key="ThemeButtonColor3" Color="#2CD124" />
+
+
+	<SolidColorBrush x:Key="CheckBoxOff" Color="#89000000" po:Freeze="True" />
+	<SolidColorBrush x:Key="CheckBoxDisabled" Color="#FFBDBDBD" po:Freeze="True" />
 
 	<!--  高亮背景色  -->
 	<SolidColorBrush x:Key="ThemeHighlightBackColor" Color="#E6E7EA" />
