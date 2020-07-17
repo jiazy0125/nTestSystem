@@ -78,7 +78,8 @@
 									</Grid.ColumnDefinitions>
 									<Image Grid.Column="0" Width="16" Height="16" Margin="6,6,0,6" Source="{TemplateBinding Icon}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 									<Grid x:Name="hideInputHint" Opacity="0" Grid.Column="1">
-										<TextBlock Style="{StaticResource MetroTextBlock}" x:Name="inputHint" Margin="6,5,5,5" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding InputHint}" Padding="{TemplateBinding Padding}" HorizontalAlignment="Left" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Opacity="0" IsHitTestVisible="False"/>
+										<TextBlock Style="{StaticResource MetroTextBlock}" x:Name="inputHint" Margin="6,5,5,5" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding InputHint}" 
+												   Padding="{TemplateBinding Padding}" HorizontalAlignment="Left" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Opacity="0" IsHitTestVisible="False"/>
 									</Grid>
 									<ScrollViewer Grid.Column="1" x:Name="PART_ContentHost" Margin="5" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 
@@ -103,7 +104,7 @@
 							<Setter Property="Opacity" TargetName="content" Value="0.5"/>
 							<Setter Property="Opacity" TargetName="title" Value="0.35"/>
 							<Setter Property="Background" TargetName="back" Value="#FFFAFAFA"/>
-							<Setter Property="Opacity" TargetName="inputHint" Value="0.5"/>
+							<Setter Property="Opacity" TargetName="inputHint" Value="0"/>
 						</Trigger>
 						<Trigger Property="IsMouseOver" Value="true">
 							<Setter Property="Opacity" TargetName="border" Value="0"/>
@@ -113,10 +114,10 @@
 
 							<Setter Property="Background" TargetName="back" Value="{Binding MouseMoveBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
 						</Trigger>
-						<Trigger Property="IsPassWordBox" Value="true">
+						<!--<Trigger Property="IsPassWordBox" Value="true">
 							<Setter Property="Visibility" TargetName="PART_ContentHost" Value="Hidden"/>
 							<Setter Property="InputMethod.PreferredImeState" Value="Off"/>
-						</Trigger>
+						</Trigger>-->
 						<Trigger Property="MultipleLine" Value="true">
 							<Setter Property="AcceptsReturn" Value="true"/>
 							<Setter Property="TextWrapping" Value="Wrap"/>
@@ -147,7 +148,7 @@
 								<Condition Property="IsEnabled" Value="true"/>
 								<Condition Property="IsKeyboardFocused" Value="false"/>
 							</MultiTrigger.Conditions>
-							<Setter Property="Opacity" TargetName="inputHint" Value="0.25"/>
+							<Setter Property="Opacity" TargetName="inputHint" Value="0.8"/>
 						</MultiTrigger>
 						<Trigger Property="State" Value="true">
 							<Setter Property="Visibility" TargetName="border" Value="Hidden"/>

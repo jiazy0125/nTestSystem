@@ -25,9 +25,9 @@
 	<sys:String x:Key="DbConnectSettingHint">请输入数据库连接字符串，不需要Provider</sys:String>
 
 	<sys:String x:Key="Example">例如：</sys:String>
-	<ImageSource x:Key="Icon1">C:\Users\zhanyj\source\repos\nTestSystem\nTestSystem\bin\Debug\Images\head.jpg
-	</ImageSource>
-
+	<ImageSource x:Key="Icon1">C:\Users\zhanyj\source\repos\nTestSystem\nTestSystem\bin\Debug\Images\head.jpg</ImageSource>
+	<ImageSource x:Key="SignIngBG">C:\Users\zhanyj\Tools\BingWallpaper1.jpg</ImageSource>
+	<ImageSource x:Key="BG">C:\Users\zhanyj\Tools\BG.jpg</ImageSource>
 
 
 

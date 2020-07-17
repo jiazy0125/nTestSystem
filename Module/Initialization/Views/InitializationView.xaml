@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Initialization.Views.InitializationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
+			 xmlns:keys="clr-namespace:Initialization.Properties"
+             xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
+			 xmlns:prism="http://www.codeplex.com/prism" mc:Ignorable="d"
+			 prism:ViewModelLocator.AutoWireViewModel="True" Background="White"
+			 >
+	<UserControl.Resources>
+		<!--引用底层Framework主题-->
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Themes.xaml"/>
+	</UserControl.Resources>
+	<Grid >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="10"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<StackPanel Grid.Row="1" Orientation="Vertical">
+			<TextBlock Style="{StaticResource MetroTextBlock}" Margin="2" IsEnabled="False"
+					   Text="{ext:Resource {x:Static keys:ResKeys.DatabaseTypeTitle}, DefaultValue='Select Database Type'}" />
+			<ctrls:MetroComboBox Background="{DynamicResource ThemeColor}" Margin="2" ItemsSource="{Binding DBList}" CornerRadius="2" Width="150" 
+							 SelectedValue="{Binding DatabaseSelected, Mode=OneWayToSource}" SelectedIndex="0" Height="30" Foreground="White"
+							 HorizontalAlignment="Left" IsEditable="False" IsReadOnly="True" />
+			<TextBlock Style="{StaticResource MetroTextBlock}" Margin="2"
+					   Text="{ext:Resource {x:Static keys:ResKeys.ConnectionStringTitle}, DefaultValue='Connection String'}" />
+			<ctrls:MetroTextBox InputHint="{ext:Resource {x:Static keys:ResKeys.ConnectionWatermark}, DefaultValue='Please enter the database connection string, no Provider is required'}" 
+								Margin="2" Height="60" TextWrapping="Wrap" MultipleLine="True"
+							    ctrls:MetroScrollViewer.IsEnableInertia="True" Text="{Binding ConnectString,Mode=OneWayToSource}" />
+			<TextBlock Style="{StaticResource MetroTextBlock}" Margin="2" IsEnabled="False"
+					   Text="{ext:Resource {x:Static keys:ResKeys.ExampleTilte}, DefaultValue=Example:}" />
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{ext:Resource {x:Static keys:ResKeys.ExampleText}}" 
+								Margin="2" TextWrapping="Wrap" IsEnabled="False" MaxWidth="500"/>
+		</StackPanel>
+		<ctrls:FlatButton Grid.Row="2" Grid.ColumnSpan="2" Background="{DynamicResource ThemeColor}" 
+						  Content="{ext:Resource {x:Static keys:ResKeys.ApplyButton}, DefaultValue=Apply}"
+						  Height="30" Command="{Binding ApplySettings}"
+						  HorizontalAlignment="Right" Width="120" Margin="4" Foreground="White" BorderBrush="Transparent"/>
+	</Grid>
+</UserControl>

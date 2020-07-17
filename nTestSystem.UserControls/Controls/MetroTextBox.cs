@@ -19,7 +19,6 @@ namespace nTestSystem.UserControls.Controls
         public static readonly DependencyProperty IconProperty = ElementBase.Property<MetroTextBox, ImageSource>("IconProperty", null);
         public static readonly DependencyProperty StateProperty = ElementBase.Property<MetroTextBox, string>("StateProperty", "");
         public static readonly DependencyProperty MultipleLineProperty = ElementBase.Property<MetroTextBox, bool>("MultipleLineProperty", false);
-        public static readonly DependencyProperty IsPassWordBoxProperty = ElementBase.Property<MetroTextBox, bool>("IsPassWordBoxProperty", false);
         public static readonly DependencyProperty CornerRadiusProperty = ElementBase.Property<MetroTextBox, CornerRadius>("CornerRadiusProperty");
 
         public static RoutedUICommand ButtonClickCommand = ElementBase.Command<MetroTextBox>("ButtonClickCommand");
@@ -34,7 +33,6 @@ namespace nTestSystem.UserControls.Controls
         public ImageSource Icon { get { return (ImageSource)GetValue(IconProperty); } set { SetValue(IconProperty, value); } }
         public string State { get { return (string)GetValue(StateProperty); } set { SetValue(StateProperty, value); } }
         public bool MultipleLine { get { return (bool)GetValue(MultipleLineProperty); } set { SetValue(MultipleLineProperty, value); } }
-        public bool IsPassWordBox { get { return (bool)GetValue(IsPassWordBoxProperty); } set { SetValue(IsPassWordBoxProperty, value); } }
         public CornerRadius CornerRadius { get { return (CornerRadius)GetValue(CornerRadiusProperty); } set { SetValue(CornerRadiusProperty, value); } }
 
 

@@ -96,6 +96,7 @@
     <Compile Include="Controls\MetroComboBox.cs" />
     <Compile Include="Controls\FlatButton.cs" />
     <Compile Include="Controls\ImageRadioButton.cs" />
+    <Compile Include="Controls\MetroImage.cs" />
     <Compile Include="Controls\MetroPasswordBox.cs" />
     <Compile Include="Controls\MetroScrollViewer.cs" />
     <Compile Include="Controls\MetroTextBox.cs" />
@@ -127,6 +128,10 @@
     <Compile Include="Win\Native.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Styles\MetroImageStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\MetroScrollViewerStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

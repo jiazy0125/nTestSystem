@@ -40,12 +40,9 @@
 				</ScrollViewer>
 			</Grid>
 		</Grid>
-		<Border
-            Grid.Row="1"
-            Background="{StaticResource BottomGridColor}"
-            BorderBrush="{StaticResource SplitterColor}"
-            BorderThickness="0,1,0,0">
+		<Border Grid.Row="1" Background="{StaticResource BottomGridColor}" BorderBrush="{StaticResource SplitterColor}" BorderThickness="0,1,0,0">
 			<Grid>
+				
 			</Grid>
 		</Border>
 	</Grid>

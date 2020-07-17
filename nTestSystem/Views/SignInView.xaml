@@ -5,13 +5,16 @@
 			 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
 			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"			 
              mc:Ignorable="d"  prism:ViewModelLocator.AutoWireViewModel="True"
-			 Height="450" Width="350" Background="White">
+			 Height="500" Width="350" Background="White" >
 	<i:Interaction.Triggers>
 		<i:EventTrigger EventName="Loaded" >
 			<ei:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
 		</i:EventTrigger>
 	</i:Interaction.Triggers>
-	<Border BorderBrush="#60ffffff" BorderThickness="1">
+	<Border BorderBrush="#60ffffff" BorderThickness="0">
+		<Border.Background>
+			<ImageBrush ImageSource="{DynamicResource SignIngBG}" Opacity="0.5" Stretch="UniformToFill"/>
+		</Border.Background>
 		<Grid Background="Transparent">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="40"></RowDefinition>
@@ -35,7 +38,7 @@
 					<StackPanel Orientation="Horizontal">
 						<Path Width="22" Height="22" Data="{StaticResource  Icon_locked}" Fill="Black" Stretch="Uniform" Margin="4"/>
 						<ctrls:MetroPasswordBox Watermark="{DynamicResource PasswordHint}" IsCanSeePassword="True" Height="30" 
-											BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" Margin="0,3" Width="215"/>
+												BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" Margin="0,3" Width="215"/>
 					</StackPanel>
 				</Border>
 				

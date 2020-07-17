@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test2" xml:space="preserve">
-    <value>This is test</value>
+  <data name="ApplyButton" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="ConnectionStringTitle" xml:space="preserve">
+    <value>连接字符串</value>
+  </data>
+  <data name="ConnectionWatermark" xml:space="preserve">
+    <value>请输入数据库连接字符串, 不需要Provider字段</value>
+  </data>
+  <data name="DatabaseTypeTitle" xml:space="preserve">
+    <value>选择数据库类型</value>
+  </data>
+  <data name="ExampleText" xml:space="preserve">
+    <value>Persist Security Info=True;User ID=user;Password=1234;Initial Catalog=OCP_Traks;Data Source=10.191.34.143</value>
+  </data>
+  <data name="ExampleTilte" xml:space="preserve">
+    <value>例如:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>数据库连接配置</value>
   </data>
 </root>

@@ -1,5 +1,4 @@
-﻿using nTestSystem.Framework.Class;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace nTestSystem.Views
+namespace Initialization.Views
 {
 	/// <summary>
-	/// Interaction logic for Shell.xaml
+	/// Interaction logic for InitializationView.xaml
 	/// </summary>
-	public partial class Shell 
+	public partial class InitializationView : UserControl
 	{
-		public Shell()
+		public InitializationView()
 		{
 			InitializeComponent();
-
 		}
 	}
 }

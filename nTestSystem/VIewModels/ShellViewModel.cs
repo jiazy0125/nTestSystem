@@ -4,16 +4,15 @@ using Prism.Regions;
 using nTestSystem.UserControls.EventAggregator;
 using Prism.Events;
 using Prism.Ioc;
-using System.Windows.Media;
 using System;
 using Prism.Modularity;
 using nTestSystem.Class;
 using System.Windows;
 using System.Configuration;
 using System.Linq;
-using System.Windows.Input;
-using CommonServiceLocator;
 using nTestSystem.Framework.Extensions;
+using System.Globalization;
+using nTestSystem.Framework.Commons;
 
 namespace nTestSystem.ViewModels
 {
@@ -82,6 +81,8 @@ namespace nTestSystem.ViewModels
 		#region Command
 		public DelegateCommand<object> Load { get; set; }
 
+		public DelegateCommand ChangedToCN {get; }
+		public DelegateCommand ChangedToEn { get; }
 
 		#endregion
 
@@ -151,7 +152,9 @@ namespace nTestSystem.ViewModels
 			_rm = regionManager;
 			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
-			
+			ResourceManager.Instance.Add(Properties.Resources.ResourceManager);
+			ChangedToCN = new DelegateCommand(() => { ResourceManager.Instance.CurrentUICulture =new CultureInfo("zh-CN"); });
+			ChangedToEn = new DelegateCommand(() => { ResourceManager.Instance.CurrentUICulture = new CultureInfo("en-US"); });
 		}
 	}
 

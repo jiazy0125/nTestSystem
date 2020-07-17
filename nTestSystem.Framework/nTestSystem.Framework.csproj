@@ -73,7 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\SystemAttribute.cs" />
-    <Compile Include="Class\ExpanderResource.cs" />
+    <Compile Include="Commons\ExpanderResource.cs" />
+    <Compile Include="Commons\ResourceManager.cs" />
+    <Compile Include="Commons\Resource.cs" />
     <Compile Include="Commons\EnumerationDefinition.cs" />
     <Compile Include="Commons\Result.cs" />
     <Compile Include="Commons\StackPanelRegionAdapter.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Converters\ExpanderVisibilityConverters.cs" />
     <Compile Include="Extensions\GuidExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\ResourceExtension.cs" />
+    <Compile Include="Extensions\ResourceStringExtension.cs" />
     <Compile Include="Extensions\WindowExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -112,6 +116,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Class\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

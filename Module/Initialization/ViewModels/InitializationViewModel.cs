@@ -1,22 +1,19 @@
-﻿using System;
-using Prism.Commands;
-using Prism.Mvvm;
-using System.Configuration;
-using System.Collections.Specialized;
-using System.Collections.ObjectModel;
-using Prism.Events;
-using nTestSystem.Class;
+﻿using nTestSystem.Framework.Extensions;
 using nTestSystem.UserControls.EventAggregator;
+using Prism.Commands;
+using Prism.Events;
+using Prism.Mvvm;
 using Prism.Regions;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Windows;
-using nTestSystem.Framework.Extensions;
-using nTestSystem.Framework.Commons;
 
-namespace nTestSystem.ViewModels
+namespace Initialization.ViewModels
 {
-	public class ConnectionViewModel: BindableBase, INavigationAware
+	class InitializationViewModel: BindableBase, INavigationAware
 	{
-
 		#region Fields
 
 		private readonly NameValueCollection _nc;
@@ -70,7 +67,7 @@ namespace nTestSystem.ViewModels
 		{
 
 			//设置当前标题
-			navigationContext.Parameters.Add(RegionManage.TitleRegion, Application.Current.TryFindResource("ConnectionSettingTitle") as string);
+			navigationContext.Parameters.Add(RegionManage.TitleRegion, Properties.Resources.Title);
 		}
 
 		public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -88,17 +85,11 @@ namespace nTestSystem.ViewModels
 		public ConnectionViewModel(IEventAggregator ea)
 		{
 			//加载数据库类型列表
-			_nc= (NameValueCollection)ConfigurationManager.GetSection("databaseList");
+			_nc = (NameValueCollection)ConfigurationManager.GetSection("databaseList");
 			DBList = new ObservableCollection<string>(_nc.AllKeys);
 			_ea = ea;
 			ApplySettings = new DelegateCommand(SaveToConfiguration);
 
 		}
-
-
-
-
-
-
 	}
 }
