@@ -10,7 +10,7 @@ using Prism.Regions;
 using nTestSystem.Class;
 using Prism.Commands;
 using Prism.Events;
-using nTestSystem.UserControls.EventAggregator;
+using nTestSystem.Aggregator;
 
 namespace nTestSystem.ViewModels
 {

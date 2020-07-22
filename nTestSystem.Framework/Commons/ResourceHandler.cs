@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Resources;
 using System.Windows;
+using Prism.Events;
 
 namespace nTestSystem.Framework.Commons
 {
@@ -22,17 +23,21 @@ namespace nTestSystem.Framework.Commons
         }
     }
 
-    public class ResourceManager : INotifyPropertyChanged
+    public class ResourceHandler : INotifyPropertyChanged
     {
-        public static ResourceManager Instance { get; } = new ResourceManager();
+        public delegate void CultureInfoChange();
+        public static ResourceHandler Instance { get; } = new ResourceHandler();
 
-        private readonly ConcurrentDictionary<string, System.Resources.ResourceManager> _resourceManagerStorage = new ConcurrentDictionary<string, System.Resources.ResourceManager>();
+        private readonly ConcurrentDictionary<string, ResourceManager> _resourceManagerStorage = new ConcurrentDictionary<string, ResourceManager>();
+        
         private CultureInfo _currentUICulture;
 
         public event EventHandler<CurrentUICultureChangedEventArgs> CurrentUICultureChanged;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ResourceManager() { }
+        public CultureInfoChange CulturetInfoChanged;
+
+        private ResourceHandler() { }
 
         public CultureInfo CurrentUICulture
         {
@@ -43,10 +48,12 @@ namespace nTestSystem.Framework.Commons
 
                 OnCurrentUICultureChanged(_currentUICulture, _currentUICulture = value);
                 OnPropertyChanged(nameof(CurrentUICulture));
+                CulturetInfoChanged?.Invoke();
+
             }
         }
 
-        public void Add(System.Resources.ResourceManager resourceManager)
+        public void Add(ResourceManager resourceManager)
         {
             if (_resourceManagerStorage.ContainsKey(resourceManager.BaseName))
                 throw new ArgumentException($"The ResourceManager named {resourceManager.BaseName} already exists, cannot be added repeatedly. ", nameof(resourceManager));
@@ -58,7 +65,7 @@ namespace nTestSystem.Framework.Commons
             GetCurrentResourceManager(key.TypeInTargetAssembly.FullName)?
                 .GetObject(key.ResourceId.ToString(), CurrentUICulture) ?? null;
 
-        private System.Resources.ResourceManager GetCurrentResourceManager(string key) =>
+        private ResourceManager GetCurrentResourceManager(string key) =>
             _resourceManagerStorage.TryGetValue(key, out var value) ? value : null;
 
         protected virtual void OnCurrentUICultureChanged(CultureInfo oldCulture, CultureInfo newCulture)

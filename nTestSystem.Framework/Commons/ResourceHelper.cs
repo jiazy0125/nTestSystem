@@ -9,14 +9,14 @@ using System.Windows;
 namespace nTestSystem.Framework.Commons
 {
 
-    public class Resource : INotifyPropertyChanged
+    public class ResourceHelper : INotifyPropertyChanged
     {
         private readonly ComponentResourceKey _key;
         private readonly object _defValue;
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public Resource(ComponentResourceKey key, object owner = null, object defaultValue=null)
+        public ResourceHelper(ComponentResourceKey key, object owner = null, object defaultValue=null)
         {
             _key = key;
             _defValue = defaultValue;
@@ -36,17 +36,17 @@ namespace nTestSystem.Framework.Commons
             }
         }
 
-        public object Value => ResourceManager.Instance.Get(_key) ?? _defValue;
+        public object Value => ResourceHandler.Instance.Get(_key) ?? _defValue;
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             OnCurrentUICultureChanged(sender, null);
-            ResourceManager.Instance.CurrentUICultureChanged += OnCurrentUICultureChanged;
+            ResourceHandler.Instance.CurrentUICultureChanged += OnCurrentUICultureChanged;
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-            ResourceManager.Instance.CurrentUICultureChanged -= OnCurrentUICultureChanged;
+            ResourceHandler.Instance.CurrentUICultureChanged -= OnCurrentUICultureChanged;
         }
 
         private void OnCurrentUICultureChanged(object sender, CurrentUICultureChangedEventArgs e)
@@ -56,6 +56,6 @@ namespace nTestSystem.Framework.Commons
 
         public override string ToString() => Value?.ToString() ?? string.Empty;
 
-        public static implicit operator Resource(ComponentResourceKey resourceKey) => new Resource(resourceKey);
+        public static implicit operator ResourceHelper(ComponentResourceKey resourceKey) => new ResourceHelper(resourceKey);
     }
 }

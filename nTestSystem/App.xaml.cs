@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using nTestSystem.Framework.Class;
 using nTestSystem.Framework.Commons;
+using nTestSystem.Framework.Configurations;
 using nTestSystem.Views;
 using Prism;
 using Prism.Events;
@@ -30,7 +32,8 @@ namespace nTestSystem
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			base.OnStartup(e);
-
+			ResourceHandler.Instance.Add(nTestSystem.Resources.Resources.ResourceManager);
+			ResourceHandler.Instance.CurrentUICulture = new CultureInfo(AppSettingHelper.ReadKey("Language", "en-US"));
 
 		}
 
@@ -58,9 +61,9 @@ namespace nTestSystem
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<ConnectionView>();
-			containerRegistry.RegisterForNavigation<SignInView>();
-			containerRegistry.RegisterForNavigation<MainView>();
+			//containerRegistry.RegisterForNavigation<ConnectionView>();
+			//containerRegistry.RegisterForNavigation<SignInView>();
+			//containerRegistry.RegisterForNavigation<MainView>();
 		}
 
 

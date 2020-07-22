@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Initialization.Properties {
+namespace Initialization.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Initialization.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Initialization.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Initialization.Resources.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -115,7 +115,7 @@ namespace Initialization.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Database Connection Setting.
+        ///   Looks up a localized string similar to Data Connection Setting.
         /// </summary>
         internal static string Title {
             get {

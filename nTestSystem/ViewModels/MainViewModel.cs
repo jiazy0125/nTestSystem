@@ -14,7 +14,7 @@ using System.Windows.Media;
 using nTestSystem.UserControls.Views;
 using nTestSystem.UserControls.ViewModels;
 using nTestSystem.Framework.Configurations;
-using nTestSystem.UserControls.EventAggregator;
+using nTestSystem.Aggregator;
 using System.Windows.Controls;
 using CommonServiceLocator;
 using System.Configuration;
@@ -79,8 +79,7 @@ namespace nTestSystem.ViewModels
 		/// </summary>
 		private void LoadSlideMenus()
 		{
-			string languageType= Properties.Settings.Default.Language.Trim();
-			if (ConfigurationManager.GetSection(languageType) is SlideMenuSection config)
+			if (ConfigurationManager.GetSection(AppSettingHelper.ReadKey("Language")) is SlideMenuSection config)
 			{
 				var exps = new Dictionary<string, Expander>();
 				foreach (SlideMenuElement temp in config.SlideMenus)

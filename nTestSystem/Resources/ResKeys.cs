@@ -10,10 +10,11 @@
 using System.Windows;
 
 
-namespace nTestSystem.Properties
+namespace nTestSystem.Resources
 {
 	public static class ResKeys
 	{
 		public static readonly ComponentResourceKey Test2 = new ComponentResourceKey(typeof(Resources), nameof(Test2));
+		public static readonly ComponentResourceKey Title = new ComponentResourceKey(typeof(Resources), nameof(Title));
 	}
 }

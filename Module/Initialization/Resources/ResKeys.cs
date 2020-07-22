@@ -10,7 +10,7 @@
 using System.Windows;
 
 
-namespace Initialization.Properties
+namespace Initialization.Resources
 {
 	public static class ResKeys
 	{

@@ -1,7 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
-using nTestSystem.UserControls.EventAggregator;
+using nTestSystem.Aggregator;
 using Prism.Events;
 using Prism.Ioc;
 using System;
@@ -11,8 +11,11 @@ using System.Windows;
 using System.Configuration;
 using System.Linq;
 using nTestSystem.Framework.Extensions;
+using nTestSystem.Framework.Configurations;
 using System.Globalization;
 using nTestSystem.Framework.Commons;
+using nTestSystem.Resources;
+using System.Runtime.CompilerServices;
 
 namespace nTestSystem.ViewModels
 {
@@ -40,11 +43,12 @@ namespace nTestSystem.ViewModels
 		}
 
 
-		private string title=Application.Current.TryFindResource("Title") as string;
+		private string title= ResourceHandler.Instance.Get(ResKeys.Title) as string;
 		public string Title
 		{
 			get => title;
 			set => SetProperty(ref title, value);
+			
 		}
 
 		private double minWidth = 100;
@@ -76,6 +80,7 @@ namespace nTestSystem.ViewModels
 		}
 
 
+
 		#endregion
 		
 		#region Command
@@ -105,41 +110,26 @@ namespace nTestSystem.ViewModels
 
 		public void View_Loaded(object sender, EventArgs e)
 		{
-			if (CheckFirstStart())
-				Navigate("ConnectionView");
+			//不存在该参数则添加并设置为首次启动
+			//存在则判断是否为首次启动
+			if (AppSettingHelper.ReadKey("FirstStart", "true") == "true")
+			{
+				var aa = AppSettingHelper.ReadKey("Initialization");
+				Navigate(aa);
+			}
 			else
-				Navigate("SignInView");
+				Navigate(AppSettingHelper.ReadKey("SignIn"));
 		}
 
 		private void Navigate(string navigatePath)
 		{
 			if (navigatePath != null)
-				_rm.RequestNavigate(RegionManage.ShellRegion, navigatePath, new Action<NavigationResult>(
-					t=> 
-					{
-						Title = t.Context.Parameters[RegionManage.TitleRegion] as string;
-					}));
+				_rm.RequestNavigate(RegionManage.ShellRegion, navigatePath);
 		}
 
-
-		/// <summary>
-		/// 检查程序是否首次启动
-		/// </summary>
-		/// <returns></returns>
-		private bool CheckFirstStart()
+		private void TitleChanged(string title)
 		{
-			Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-			//不存在该参数则添加并设置为首次启动
-			if (!cfa.AppSettings.Settings.AllKeys.Contains("FirstStart"))
-			{
-				cfa.AppSettings.Settings.Add("FirstStart", "True");
-				return true;
-			}
-			else
-			{
-				//存在则判断是否为首次启动
-				return ConfigurationManager.AppSettings["FirstStart"].Trim().ToLower() == "true";
-			}
+			Title = title;
 		}
 	
 		#endregion
@@ -152,15 +142,15 @@ namespace nTestSystem.ViewModels
 			_rm = regionManager;
 			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
-			ResourceManager.Instance.Add(Properties.Resources.ResourceManager);
-			ChangedToCN = new DelegateCommand(() => { ResourceManager.Instance.CurrentUICulture =new CultureInfo("zh-CN"); });
-			ChangedToEn = new DelegateCommand(() => { ResourceManager.Instance.CurrentUICulture = new CultureInfo("en-US"); });
+			_ea.GetEvent<TitleChangedEvent>().Subscribe(TitleChanged);
+
+			ChangedToCN = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture =new CultureInfo("zh-CN"); });
+			ChangedToEn = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("en-US"); });
+
+			
 		}
 	}
 
 
-	public class LoadedEvent : PubSubEvent<bool>
-	{
 
-	}
 }

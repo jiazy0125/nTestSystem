@@ -13,7 +13,7 @@ namespace nTestSystem.Framework.Extensions
 	[ContentProperty(nameof(Args))]
     [MarkupExtensionReturnType(typeof(object))]
     // ReSharper disable once InconsistentNaming
-    public partial class ResourceStringExtension : MultiBindingExtensionBase
+    public partial class ResourceHelperStringExtension : MultiBindingExtensionBase
     {
         private int _keyIndex;
         private ComponentResourceKey _key;
@@ -35,9 +35,9 @@ namespace nTestSystem.Framework.Extensions
 
         private class MultiValueConverter : IMultiValueConverter
         {
-            private readonly ResourceStringExtension _owner;
+            private readonly ResourceHelperStringExtension _owner;
 
-            public MultiValueConverter(ResourceStringExtension owner) => _owner = owner;
+            public MultiValueConverter(ResourceHelperStringExtension owner) => _owner = owner;
 
             public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
             {
@@ -51,8 +51,8 @@ namespace nTestSystem.Framework.Extensions
                         : values.Single();
                 }
 
-                throw new ArgumentException($"The {nameof(ResourceStringExtension)} does not support {keyValue?.GetType()} type, " +
-                                            $"please try to use {nameof(ResourceExtension)}");
+                throw new ArgumentException($"The {nameof(ResourceHelperStringExtension)} does not support {keyValue?.GetType()} type, " +
+                                            $"please try to use {nameof(ResourceHelperExtension)}");
             }
 
             public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
@@ -79,11 +79,11 @@ namespace nTestSystem.Framework.Extensions
             }
         }
 
-        private readonly ResourceStringExtension _owner;
+        private readonly ResourceHelperStringExtension _owner;
 
         internal List<ArgTuple> Indexes = new List<ArgTuple>();
 
-        public ArgCollection(ResourceStringExtension owner) => _owner = owner;
+        public ArgCollection(ResourceHelperStringExtension owner) => _owner = owner;
 
         protected override void InsertItem(int index, object item)
         {

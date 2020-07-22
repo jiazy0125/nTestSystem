@@ -107,12 +107,12 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\ResKeys.cs">
+    <Compile Include="Resources\ResKeys.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ResKeys.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Resources\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -126,12 +126,11 @@
     <Compile Include="Views\InitializationView.xaml.cs">
       <DependentUpon>InitializationView.xaml</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
-    <None Include="app.config" />
+    <EmbeddedResource Include="Resources\Resources.zh-CN.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,7 +138,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\ResKeys.tt">
+    <Content Include="Resources\ResKeys.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ResKeys.cs</LastGenOutput>
     </Content>
@@ -151,6 +150,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\nTestSystem.Aggregator\nTestSystem.Aggregator.csproj">
+      <Project>{c10cb04f-f658-45b5-90ff-698f89b3f24e}</Project>
+      <Name>nTestSystem.Aggregator</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\..\nTestSystem.Framework\nTestSystem.Framework.csproj">
       <Project>{31046853-b5b2-457d-9aee-5df597c1b8de}</Project>
       <Name>nTestSystem.Framework</Name>

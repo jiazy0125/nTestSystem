@@ -1,5 +1,6 @@
 ﻿using nTestSystem.Framework.Extensions;
-using nTestSystem.UserControls.EventAggregator;
+using nTestSystem.Framework.Configurations;
+using nTestSystem.Aggregator;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -9,6 +10,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Windows;
+using nTestSystem.Framework.Commons;
+using Initialization.Resources;
 
 namespace Initialization.ViewModels
 {
@@ -40,34 +43,48 @@ namespace Initialization.ViewModels
 		//保存配置信息命令
 		public DelegateCommand ApplySettings { get; set; }
 
-
 		#endregion
 
 		#region Execute
-		public void View_Loaded(object sender, EventArgs e)
+		
+		/// <summary>
+		/// 区域信息变化时处理函数,未绑定属性不会自动根据区域切换语言
+		/// </summary>
+		private void CultureChanged()
 		{
-			Application.Current.MainWindow.CenterWindowOnScreen();
+			//通知标题更改对应语言
+			_ea.GetEvent<TitleChangedEvent>().Publish(ResourceHandler.Instance.Get(ResKeys.Title) as string);
+			//居中屏幕
+			//Application.Current.MainWindow.CenterWindowOnScreen();
 		}
+		/// <summary>
+		/// 应用按钮Click事件
+		/// </summary>
 		private void SaveToConfiguration()
 		{
 			try
 			{
-
-				//Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-				//cfa.AppSettings.Settings["FirstStart"].Value = "False";
-				//cfa.AppSettings.Settings["DBHelperName"].Value = _nc[DatabaseSelected];
-				//cfa.AppSettings.Settings["Connection"].Value = ConnectString;
-				//cfa.Save();
-				_ea.GetEvent<NavigateEvent>().Publish("SignInView");
+				//初始化完成,置位首次启动标志
+				AppSettingHelper.WriteKey("FirstStart", "false");
+				//保存数据库类型
+				AppSettingHelper.WriteKey("DBHelperName", _nc[DatabaseSelected]);
+				//保存数据库连接字符串
+				AppSettingHelper.WriteKey("Connection", ConnectString);
+				//通知更改导航
+				_ea.GetEvent<NavigateEvent>().Publish(AppSettingHelper.ReadKey("SignIn"));
 			}
 			catch { }
 		}
 
 		public void OnNavigatedTo(NavigationContext navigationContext)
 		{
+			//第一次导航需要通知标题更改
+			CultureChanged();
+			//居中
+			Application.Current.MainWindow.CenterWindowOnScreen();
+			//注册区域更改委托
+			ResourceHandler.Instance.CulturetInfoChanged += CultureChanged;
 
-			//设置当前标题
-			navigationContext.Parameters.Add(RegionManage.TitleRegion, Properties.Resources.Title);
 		}
 
 		public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -77,13 +94,17 @@ namespace Initialization.ViewModels
 
 		public void OnNavigatedFrom(NavigationContext navigationContext)
 		{
-
+			//导航离开时,取消注册区域更改委托
+			ResourceHandler.Instance.CulturetInfoChanged -= CultureChanged;
 		}
 
 		#endregion
 
-		public ConnectionViewModel(IEventAggregator ea)
+		public InitializationViewModel(IEventAggregator ea)
 		{
+			//加载资源管理器
+			ResourceHandler.Instance.Add(Resources.Resources.ResourceManager);
+
 			//加载数据库类型列表
 			_nc = (NameValueCollection)ConfigurationManager.GetSection("databaseList");
 			DBList = new ObservableCollection<string>(_nc.AllKeys);

@@ -7,7 +7,7 @@
 				   xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
 				   xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 				   xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
-				   xmlns:keys="clr-namespace:nTestSystem.Properties"
+				   xmlns:keys="clr-namespace:nTestSystem.Resources"
 				   xmlns:prism="http://www.codeplex.com/prism"
 				   xmlns:c="clr-namespace:nTestSystem.Class"
 				   mc:Ignorable="d" MinWidth="{Binding MinWidth}" MinHeight="{Binding MinHeight}"
@@ -125,7 +125,7 @@
 		<StackPanel Grid.Row="2" Orientation="Horizontal">
 			<Button Content="CN" Width="100" Height="35" Command="{Binding ChangedToCN}"/>
 			<Button Content="EN" Width="100" Height="35" Command="{Binding ChangedToEn}"/>
-			<TextBlock Text="{ext:Resource {x:Static keys:ResKeys.Test2}, DefaultValue=Unloaded}"/>
+			<TextBlock Text="{ext:ResourceHelper {x:Static keys:ResKeys.Test2}, DefaultValue=Unloaded}"/>
 		</StackPanel>
 	</Grid>
 </ctrls:MetroWindow>

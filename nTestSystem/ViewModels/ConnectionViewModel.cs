@@ -6,11 +6,11 @@ using System.Collections.Specialized;
 using System.Collections.ObjectModel;
 using Prism.Events;
 using nTestSystem.Class;
-using nTestSystem.UserControls.EventAggregator;
 using Prism.Regions;
 using System.Windows;
 using nTestSystem.Framework.Extensions;
 using nTestSystem.Framework.Commons;
+using nTestSystem.Aggregator;
 
 namespace nTestSystem.ViewModels
 {

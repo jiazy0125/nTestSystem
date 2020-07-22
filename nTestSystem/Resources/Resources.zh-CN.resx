@@ -120,4 +120,7 @@
   <data name="Test2" xml:space="preserve">
     <value>这是一个测试</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>多平台综合测试系统</value>
+  </data>
 </root>

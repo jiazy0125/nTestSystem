@@ -9,7 +9,7 @@ namespace nTestSystem.Framework.Extensions
 {
 
 	[MarkupExtensionReturnType(typeof(object))]
-    public class ResourceExtension : MarkupExtension
+    public class ResourceHelperExtension : MarkupExtension
     {
         private static readonly ResourceConverter resourceConverter = new ResourceConverter();
 
@@ -18,7 +18,7 @@ namespace nTestSystem.Framework.Extensions
 
         public object DefaultValue { get; set; }
 
-        public ResourceExtension(ComponentResourceKey key) => Key = key;
+        public ResourceHelperExtension(ComponentResourceKey key) => Key = key;
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
@@ -31,9 +31,9 @@ namespace nTestSystem.Framework.Extensions
 
             if (provideValueTarget.TargetObject?.GetType().FullName == "System.Windows.SharedDp") return this;
 
-            return new Binding(nameof(Resource.Value))
+            return new Binding(nameof(ResourceHelper.Value))
             {
-                Source = new Resource(Key, provideValueTarget.TargetObject, DefaultValue),
+                Source = new ResourceHelper(Key, provideValueTarget.TargetObject, DefaultValue),
                 Mode = BindingMode.OneWay,
                 Converter = resourceConverter
             }.ProvideValue(serviceProvider);
