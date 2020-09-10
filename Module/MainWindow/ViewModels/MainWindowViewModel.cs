@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,19 @@ namespace MainWindow.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string _message;
-        public string Message
-        {
-            get { return _message; }
-            set { SetProperty(ref _message, value); }
-        }
+        public static string SlideMenuRegion  = "SlideMenuRegion";
+        public static string SlideMenuMainRegion  = "SlideMenuMainRegion";
+        public static string SubItemRegion = "SubItemRegion";
 
-        public MainWindowViewModel()
+
+        public IRegionManager RegionManager { get; }
+
+
+
+        public MainWindowViewModel(IRegionManager rm)
         {
-            Message = "View A from your Prism Module";
+            RegionManager = rm;
+           
         }
     }
 }

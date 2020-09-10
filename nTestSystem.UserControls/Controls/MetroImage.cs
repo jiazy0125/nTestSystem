@@ -1,16 +1,11 @@
 ﻿using nTestSystem.UserControls.Class;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace nTestSystem.UserControls.Controls
 {
-    public class MetroImage : ContentControl
+	public class MetroImage : ContentControl
     {
         public static readonly DependencyProperty SourceProperty = ElementBase.Property<MetroImage, ImageSource>("SourceProperty");
         public static readonly DependencyProperty StretchProperty = ElementBase.Property<MetroImage, Stretch>("StretchProperty");

@@ -8,9 +8,8 @@ using Prism.Events;
 using nTestSystem.Class;
 using Prism.Regions;
 using System.Windows;
-using nTestSystem.Framework.Extensions;
-using nTestSystem.Framework.Commons;
 using nTestSystem.Aggregator;
+using nTestSystem.Framework.Extensions;
 
 namespace nTestSystem.ViewModels
 {

@@ -103,7 +103,7 @@ namespace Initialization.ViewModels
 		public InitializationViewModel(IEventAggregator ea)
 		{
 			//加载资源管理器
-			ResourceHandler.Instance.Add(Resources.Resources.ResourceManager);
+			ResourceHandler.Instance.Add(Resource.ResourceManager);
 
 			//加载数据库类型列表
 			_nc = (NameValueCollection)ConfigurationManager.GetSection("databaseList");

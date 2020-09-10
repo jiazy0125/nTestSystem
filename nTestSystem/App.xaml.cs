@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Globalization;
+﻿using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using nTestSystem.Framework.Class;
 using nTestSystem.Framework.Commons;
 using nTestSystem.Framework.Configurations;
+using nTestSystem.Resources;
 using nTestSystem.Views;
-using Prism;
-using Prism.Events;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -32,7 +24,7 @@ namespace nTestSystem
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			base.OnStartup(e);
-			ResourceHandler.Instance.Add(nTestSystem.Resources.Resources.ResourceManager);
+			ResourceHandler.Instance.Add(Resource.ResourceManager);
 			ResourceHandler.Instance.CurrentUICulture = new CultureInfo(AppSettingHelper.ReadKey("Language", "en-US"));
 
 		}

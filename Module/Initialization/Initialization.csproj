@@ -112,10 +112,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResKeys.tt</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Resources.Designer.cs">
+    <Compile Include="Resources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,11 +126,11 @@
     <Compile Include="Views\InitializationView.xaml.cs">
       <DependentUpon>InitializationView.xaml</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Resources\Resources.resx">
+    <EmbeddedResource Include="Resources\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\Resource.zh-CN.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

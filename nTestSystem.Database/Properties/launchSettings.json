@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "nTestSystem.DatabaseHelper": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

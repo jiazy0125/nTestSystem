@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace nTestSystem.Framework.Commons
+﻿namespace nTestSystem.Framework.Commons
 {
-    /// <summary>
-    /// Custom data return type
-    /// (自定义数据返回类型)
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+	/// <summary>
+	/// Custom data return type
+	/// (自定义数据返回类型)
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	public class Result<T>
 	{
 

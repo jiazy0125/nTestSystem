@@ -14,7 +14,7 @@ namespace nTestSystem.Resources
 {
 	public static class ResKeys
 	{
-		public static readonly ComponentResourceKey Test2 = new ComponentResourceKey(typeof(Resources), nameof(Test2));
-		public static readonly ComponentResourceKey Title = new ComponentResourceKey(typeof(Resources), nameof(Title));
+		public static readonly ComponentResourceKey Test2 = new ComponentResourceKey(typeof(Resource), nameof(Test2));
+		public static readonly ComponentResourceKey Title = new ComponentResourceKey(typeof(Resource), nameof(Title));
 	}
 }

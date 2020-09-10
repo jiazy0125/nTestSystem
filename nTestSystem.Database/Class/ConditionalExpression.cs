@@ -1,10 +1,6 @@
-﻿using System;
+﻿using nTestSystem.Framework.Commons;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using nTestSystem.Framework.Commons;
 
 namespace nTestSystem.DatabaseHelper
 {

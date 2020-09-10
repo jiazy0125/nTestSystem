@@ -20,7 +20,7 @@
 using System.Windows;
 
 <#
-    const string ResourceFileName = "Resources.resx";
+    const string ResourceFileName = "Resource.resx";
 #>
 
 namespace <#=System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("NamespaceHint").ToString()#>

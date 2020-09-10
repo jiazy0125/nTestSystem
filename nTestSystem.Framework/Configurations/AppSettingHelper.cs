@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Configuration;
+using System.Linq;
 
 namespace nTestSystem.Framework.Configurations
 {

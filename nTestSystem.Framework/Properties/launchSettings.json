@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "nTestSystem.Framework": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

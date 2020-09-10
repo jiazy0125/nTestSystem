@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using nTestSystem.UserControls.Class;
 
 namespace nTestSystem.UserControls.Controls
 {
-    public class FlatButton : Button
+	public class FlatButton : Button
     {
         public static readonly DependencyProperty TypeProperty = DependencyProperty.Register("Type"
             , typeof(FlatButtonSkin), typeof(FlatButton));

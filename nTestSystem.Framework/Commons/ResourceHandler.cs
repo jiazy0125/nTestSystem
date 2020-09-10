@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Resources;
 using System.Windows;
-using Prism.Events;
+using System;
 
 namespace nTestSystem.Framework.Commons
 {

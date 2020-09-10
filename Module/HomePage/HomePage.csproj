@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>HomePage</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Resources\ResKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResKey.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="nTestSystem.Aggregator" Version="1.0.0.1" />
+    <PackageReference Include="nTestSystem.DataHelper" />
+    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.1" />
+    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.2" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" /> 
+    
+    
+    
+    
+    
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" /> 
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\ResKey.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ResKey.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\Modules\&quot; /Y /S&#xD;&#xA;&#xD;&#xA; xcopy &quot;$(TargetDir)zh-CN\*$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\zh-CN\&quot; /Y /S" />
+  </Target>
+</Project>

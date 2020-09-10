@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Animation;
 
 namespace nTestSystem.UserControls.Class
 {
-    /// <summary>
-    ///     包含一些常用的动画辅助方法
-    /// </summary>
-    public class AnimationHelper
+	/// <summary>
+	///     包含一些常用的动画辅助方法
+	/// </summary>
+	public class AnimationHelper
     {
         /// <summary>
         ///     创建一个Thickness动画

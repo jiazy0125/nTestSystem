@@ -18,12 +18,6 @@
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroScrollViewerStyle.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroImageStyle.xaml"/>	
 		
-		<!--引用MaterialDesign库-->
-		<!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />-->
-
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

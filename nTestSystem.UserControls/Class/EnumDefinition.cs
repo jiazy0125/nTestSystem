@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
 
 namespace nTestSystem.UserControls.Class
 {
 
-    public enum FlatButtonSkin
+	public enum FlatButtonSkin
     {
         Yes,
         No,
@@ -21,6 +18,5 @@ namespace nTestSystem.UserControls.Class
         error,
         warning,
     }
-
-    
+  
 }

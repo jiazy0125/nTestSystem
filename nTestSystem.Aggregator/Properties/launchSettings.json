@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "nTestSystem.Aggregator": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

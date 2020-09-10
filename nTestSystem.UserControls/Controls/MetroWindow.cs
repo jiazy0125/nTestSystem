@@ -10,8 +10,6 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using nTestSystem.UserControls.Win;
 using SystemCommands = nTestSystem.UserControls.Win.SystemCommands;
-using Prism.Events;
-using System.Windows.Forms;
 
 namespace nTestSystem.UserControls.Controls
 {
