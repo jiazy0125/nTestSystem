@@ -4,5 +4,15 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
 
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="del /q &quot;$(ProjectDir)bin\$(Configuration)\*.nupkg&quot;&#xD;&#xA;del /q &quot;$(ProjectDir)bin\$(Configuration)\*.snupkg&quot;" />
+  </Target>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="dotnet pack --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg&#xD;&#xA;dotnet nuget push &quot;**/*.nupkg&quot; -k oy2mhgmjsmg4mipwizgqborqoflivrjudhhx2ay7lt2p5e -s https://api.nuget.org/v3/index.json" />
+  </Target>
 </Project>

@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-
-    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
 
@@ -21,10 +19,23 @@
 
 
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+
+
+
+
+
+
+
+
+
+    <PackageReference Update="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="del /q &quot;$(ProjectDir)bin\$(Configuration)\*.nupkg&quot;&#xD;&#xA;del /q &quot;$(ProjectDir)bin\$(Configuration)\*.snupkg&quot;" />
+  </Target>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet pack --no-build --output &quot;$(SolutionDir).NuGet.pkg&quot;" />
+    <Exec Command="dotnet pack --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg&#xD;&#xA;dotnet nuget push &quot;**/*.nupkg&quot; -k oy2mhgmjsmg4mipwizgqborqoflivrjudhhx2ay7lt2p5e -s https://api.nuget.org/v3/index.json" />
   </Target>
 
 </Project>

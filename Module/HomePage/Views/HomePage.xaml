@@ -4,6 +4,6 @@
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-		<Button Content="test"/>
+		<Button Content="test" Click="Button_Click"/>
 	</Grid>
 </UserControl>

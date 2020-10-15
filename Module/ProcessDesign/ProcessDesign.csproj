@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ProcessDesign</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="nTestSystem.Aggregator" />
+    <PackageReference Include="nTestSystem.DataHelper" />
+    <PackageReference Include="nTestSystem.Framework" />
+    <PackageReference Include="nTestSystem.UserControls" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+    <Compile Update="Resources\ResKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResKey.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <EmbeddedResource Update="Resources\Resource.resx">
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <None Update="Resources\ResKey.tt">
+      <LastGenOutput>ResKey.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+    <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.5" />
+    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\Modules\&quot; /Y /S&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)zh-CN\*$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\zh-CN\&quot; /Y /S" />
+  </Target>
+</Project>

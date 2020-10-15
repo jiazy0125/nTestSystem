@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="InstrumentManage.Views.InstrBtn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"  
+			 xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
+			 xmlns:keys="clr-namespace:InstrumentManage.Resources"
+			 xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+	<Grid>
+		<ctrls:ImageRadioButton GroupName="Menu" Content="{ext:ResourceHelper {x:Static keys:ResKeys.InstrBtnLabel}, DefaultValue=Instrument}" 
+								Image="{Binding Icon}" IsChecked="{Binding IsChecked}"/>
+	</Grid>
+</UserControl>

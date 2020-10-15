@@ -7,26 +7,11 @@ using System.Linq;
 
 namespace HomePage.ViewModels
 {
-	public class HomePageViewModel : BindableBase, INavigationAware
+	public class HomePageViewModel : BindableBase
 	{
 		public HomePageViewModel()
 		{
 
-		}
-
-		public bool IsNavigationTarget(NavigationContext navigationContext)
-		{
-			return true;
-		}
-
-		public void OnNavigatedFrom(NavigationContext navigationContext)
-		{
-			 
-		}
-
-		public void OnNavigatedTo(NavigationContext navigationContext)
-		{
-			 
 		}
 	}
 }

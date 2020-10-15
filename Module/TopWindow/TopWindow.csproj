@@ -14,7 +14,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
     <PackageReference Include="nTestSystem.Aggregator" />
-    <PackageReference Include="nTestSystem.DatabaseHelper" />
     <PackageReference Include="nTestSystem.DataHelper" />
     <PackageReference Include="nTestSystem.Framework" />
     <PackageReference Include="nTestSystem.UserControls" />
@@ -37,14 +36,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ResKeys.cs</LastGenOutput>
     </None>
-
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
     <PackageReference Update="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
     <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.1" />
     <PackageReference Update="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
-    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.4" />
-    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.1" />
-    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.2" />
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.5" />
+    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />

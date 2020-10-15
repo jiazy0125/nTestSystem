@@ -1,15 +1,16 @@
-﻿using nTestSystem.Aggregator;
-using nTestSystem.DataHelper.Class;
+﻿using nTestSystem.Framework.Configurations;
 using nTestSystem.Framework.Extensions;
-using Prism.Commands;
-using Prism.Events;
-using Prism.Mvvm;
-using Prism.Regions;
-using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using nTestSystem.Aggregator;
 using System.Configuration;
+using Prism.Commands;
 using System.Windows;
+using Prism.Events;
+using Prism.Mvvm;
+using System;
+
+
 
 namespace DataConnection.ViewModels
 {
@@ -48,39 +49,22 @@ namespace DataConnection.ViewModels
 		public void View_Loaded(object sender, EventArgs e)
 		{
 			Application.Current.MainWindow.CenterWindowOnScreen();
-			_ea.GetEvent<TitleChangedEvent>().Publish(Resources.Resource.ApplyBtn);
 		}
+		/// <summary>
+		/// 存储当前数据连接配置
+		/// </summary>
 		private void SaveToConfiguration()
 		{
 			try
 			{
-
-				Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-				cfa.AppSettings.Settings["FirstStart"].Value = "False";
-				cfa.AppSettings.Settings["DBHelperName"].Value = _nc[DatabaseSelected];
-				cfa.AppSettings.Settings["Connection"].Value = ConnectString;
-				cfa.Save();
+				AppSettingHelper.WriteKey("FirstStart", "False");
+				AppSettingHelper.WriteKey("DBHelperName", _nc[DatabaseSelected]);
+				AppSettingHelper.WriteKey("Connection", ConnectString);
 				_ea.GetEvent<NavigateEvent>().Publish("TopWindow");
 			}
 			catch { }
 		}
 
-		public void OnNavigatedTo(NavigationContext navigationContext)
-		{
-
-			//设置当前标题
-			//navigationContext.Parameters.Add(RegionManage.TitleRegion, Application.Current.TryFindResource("ConnectionSettingTitle") as string);
-		}
-
-		public bool IsNavigationTarget(NavigationContext navigationContext)
-		{
-			return true;
-		}
-
-		public void OnNavigatedFrom(NavigationContext navigationContext)
-		{
-
-		}
 
 		#endregion
 

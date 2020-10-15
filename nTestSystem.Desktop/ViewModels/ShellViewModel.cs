@@ -1,18 +1,14 @@
 ﻿using nTestSystem.Aggregator;
 using nTestSystem.DataHelper.Class;
-using nTestSystem.Desktop.Class;
 using nTestSystem.Desktop.Resources;
 using nTestSystem.Framework.Commons;
 using nTestSystem.Framework.Configurations;
 using nTestSystem.Framework.Extensions;
 using Prism.Commands;
 using Prism.Events;
-using Prism.Ioc;
-using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
 using System;
-using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows;
 
@@ -125,10 +121,6 @@ namespace nTestSystem.Desktop.ViewModels
 				_rm.RequestNavigate(RegionManage.ShellRegion, navigatePath);
 		}
 
-		private void TitleChanged(string title)
-		{
-			Title = title;
-		}
 
 		#endregion
 
@@ -138,7 +130,6 @@ namespace nTestSystem.Desktop.ViewModels
 			_rm = regionManager;
 			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
-			_ea.GetEvent<TitleChangedEvent>().Subscribe(TitleChanged);
 
 			ChangedToCN = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("zh-CN"); });
 			ChangedToEn = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("en-US"); });

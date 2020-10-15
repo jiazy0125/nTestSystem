@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Settings</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="nTestSystem.Aggregator" />
+    <PackageReference Include="nTestSystem.DataHelper" />
+    <PackageReference Include="nTestSystem.Framework" />
+    <PackageReference Include="nTestSystem.UserControls" />
+    <PackageReference Include="Prism.Core" />
+    <PackageReference Include="Prism.Wpf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+    <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.1" />
+    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.5" />
+    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.1" />
+    <PackageReference Update="Prism.Core" Version="7.2.0.1422" />
+    <PackageReference Update="Prism.Wpf" Version="7.2.0.1422" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\Modules\&quot; /Y /S&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)zh-CN\*$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\zh-CN\&quot; /Y /S" />
+  </Target>
+</Project>

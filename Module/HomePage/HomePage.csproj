@@ -12,18 +12,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="nTestSystem.Aggregator" Version="1.0.0.1" />
+    <PackageReference Include="nTestSystem.Aggregator" />
     <PackageReference Include="nTestSystem.DataHelper" />
-    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.1" />
-    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.2" />
+    <PackageReference Include="nTestSystem.Framework" />
+    <PackageReference Include="nTestSystem.UserControls" />
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" /> 
-    
-    
-    
-    
-    
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" /> 
-    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.4" />
+    <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.1" /> 
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.1" /> 
+    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.5" /> 
+    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\Resource.Designer.cs">

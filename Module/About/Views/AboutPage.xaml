@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="About.Views.AboutPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"      
+			 xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
+			 xmlns:keys="clr-namespace:About.Resources"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+		<TextBlock Text="{ext:ResourceHelper {x:Static keys:ResKeys.AboutInfo}, DefaultValue=''}"/>
+	</Grid>
+</UserControl>
