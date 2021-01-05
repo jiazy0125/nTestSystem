@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		bookmarks.html = bookmarks.html
 		Note.docx = Note.docx
 		Prism7.1.0.431_WPF_官方中文文档.docx = Prism7.1.0.431_WPF_官方中文文档.docx
+		PrismTemplatePack.vsix = PrismTemplatePack.vsix
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nTestSystem.DataHelper", "nTestSystem.DataHelper\nTestSystem.DataHelper.csproj", "{2FF64225-1366-44D9-9EF1-6332E2988C84}"
@@ -44,7 +45,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstrumentManage", "Module\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "About", "Module\About\About.csproj", "{BEE0E6C3-57FC-4EF9-90D8-98B1CDC34D86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignIn", "Module\SignIn\SignIn.csproj", "{8466F805-DF90-4DA0-853B-E8E447306C37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignIn", "Module\SignIn\SignIn.csproj", "{95BB1552-8075-42B1-8D1F-1F11881B57C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -112,10 +113,10 @@ Global
 		{BEE0E6C3-57FC-4EF9-90D8-98B1CDC34D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE0E6C3-57FC-4EF9-90D8-98B1CDC34D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEE0E6C3-57FC-4EF9-90D8-98B1CDC34D86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8466F805-DF90-4DA0-853B-E8E447306C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8466F805-DF90-4DA0-853B-E8E447306C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8466F805-DF90-4DA0-853B-E8E447306C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8466F805-DF90-4DA0-853B-E8E447306C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95BB1552-8075-42B1-8D1F-1F11881B57C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BB1552-8075-42B1-8D1F-1F11881B57C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BB1552-8075-42B1-8D1F-1F11881B57C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BB1552-8075-42B1-8D1F-1F11881B57C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,7 +136,7 @@ Global
 		{AB0C5D5E-0147-4806-AE35-5390B2AEE545} = {63FF9BD3-BDDD-485B-8048-0B1F8523B7E2}
 		{48696B13-D484-4B9B-839D-CE94215AB7D6} = {63FF9BD3-BDDD-485B-8048-0B1F8523B7E2}
 		{BEE0E6C3-57FC-4EF9-90D8-98B1CDC34D86} = {63FF9BD3-BDDD-485B-8048-0B1F8523B7E2}
-		{8466F805-DF90-4DA0-853B-E8E447306C37} = {63FF9BD3-BDDD-485B-8048-0B1F8523B7E2}
+		{95BB1552-8075-42B1-8D1F-1F11881B57C0} = {63FF9BD3-BDDD-485B-8048-0B1F8523B7E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {131E3A3B-922B-4AEC-9286-BBB18AFC9B54}

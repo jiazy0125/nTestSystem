@@ -2,27 +2,51 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Settings</AssemblyName>
+    <AssemblyName>SignIn</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="nTestSystem.Aggregator" />
-    <PackageReference Include="nTestSystem.DataHelper" />
-    <PackageReference Include="nTestSystem.Framework" />
-    <PackageReference Include="nTestSystem.UserControls" />
-    <PackageReference Include="Prism.Core" />
-    <PackageReference Include="Prism.Wpf" />
+    <None Remove="Views\head.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
-    <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.1" />
-    <PackageReference Update="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
-    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.1" />
-    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.5" />
-    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.1" />
-    <PackageReference Update="Prism.Core" Version="7.2.0.1422" />
-    <PackageReference Update="Prism.Wpf" Version="7.2.0.1422" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
+    <PackageReference Include="nTestSystem.Aggregator" Version="1.0.0.2" />
+    <PackageReference Include="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
+    <PackageReference Include="nTestSystem.DataHelper" Version="1.0.0.3" />
+    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.5" />
+    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.1" />
+    <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\head.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\ResKeys.cs">
+      <DependentUpon>ResKeys.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Resource.resx">
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\ResKeys.tt">
+      <LastGenOutput>ResKeys.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\Modules\&quot; /Y /S&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)zh-CN\*$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\zh-CN\&quot; /Y /S" />
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetName)$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\Modules\&quot; /Y /S&#xD;&#xA;&#xD;&#xA; xcopy &quot;$(TargetDir)zh-CN\*$(TargetExt)&quot; &quot;$(SolutionDir)nTestSystem.Desktop\bin\$(Configuration)\netcoreapp3.1\zh-CN\&quot; /Y /S" />
   </Target>
 </Project>

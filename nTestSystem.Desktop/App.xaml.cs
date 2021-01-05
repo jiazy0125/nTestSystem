@@ -20,8 +20,7 @@ namespace nTestSystem.Desktop
 		protected override void OnStartup(StartupEventArgs e)
 		{
 			base.OnStartup(e);
-			ResourceHandler.Instance.Add(Resource.ResourceManager);
-			ResourceHandler.Instance.CurrentUICulture = new CultureInfo(AppSettingHelper.ReadKey("Language", "en-US"));
+
 
 		}
 

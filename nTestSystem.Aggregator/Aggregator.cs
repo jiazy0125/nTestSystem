@@ -1,4 +1,5 @@
-﻿using Prism.Events;
+﻿using nTestSystem.DataHelper.Class;
+using Prism.Events;
 
 namespace nTestSystem.Aggregator
 {
@@ -11,5 +12,6 @@ namespace nTestSystem.Aggregator
 
     public class TitleChangedEvent : PubSubEvent<string> { }
 
+    public class UserInfoTransmit : PubSubEvent<UserInfoModel> { }
 
 }

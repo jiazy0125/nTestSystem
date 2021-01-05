@@ -28,6 +28,16 @@
 
 
 
+    <PackageReference Update="System.Configuration.ConfigurationManager" Version="5.0.0" />
+
+
+
+
+
+
+
+
+
     <PackageReference Update="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 

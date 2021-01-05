@@ -14,7 +14,7 @@
 				   Title="{DynamicResource Title}"
 				   WindowShadowColor="#888888" WindowShadowOpacity="0.4" WindowShadowSize="15" SizeToContent="{Binding SizeToContent}"
 				   ResizeMode="{Binding ResizeMode}" WindowStartupLocation="CenterScreen" WindowState="Normal" 
-				   FontFamily="微软雅黑" d:DesignWidth="513" d:DesignHeight="253.96">
+				   FontFamily="微软雅黑" d:DesignWidth="513" d:DesignHeight="254">
 	<Behaviors:Interaction.Triggers>
 		<Behaviors:EventTrigger EventName="Loaded" >
 			<Behaviors:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />
@@ -27,7 +27,7 @@
 			<RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 		<Grid.Background>
-			<ImageBrush ImageSource="{DynamicResource BG}" Opacity="0.5" Stretch="UniformToFill"/>
+			<ImageBrush ImageSource="/Views/Background.jpg" Opacity="0.5" Stretch="UniformToFill"/>
 		</Grid.Background>
 		<Grid Background="{DynamicResource ThemeColor}">
 			<Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                     Text="{Binding Title}" />
 			</WrapPanel>
 			<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,16,0" Grid.Column="2">
-				<ctrls:NormalButton Margin="10,0,15,0" Visibility="{Binding Visibility}"
+				<ctrls:NormalButton Margin="10,0,15,0" Visibility="{Binding Visibility}" Command="{Binding SignInClick}"
                     Background="{DynamicResource TransparentColor}"
                     BorderThickness="0"
                     Cursor="Hand">
@@ -73,7 +73,7 @@
                             Margin="5,0,0,0"
                             VerticalAlignment="Center"
                             Foreground="White"   
-                            Text="Sign In" />
+                            Text="{Binding SignInLabel}" />
 						<Path
                             Width="10"
                             Height="10"

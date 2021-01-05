@@ -11,6 +11,7 @@ using Prism.Regions;
 using System;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Media;
 
 namespace nTestSystem.Desktop.ViewModels
 {
@@ -72,15 +73,29 @@ namespace nTestSystem.Desktop.ViewModels
 			set => SetProperty(ref resizeMode, value);
 		}
 
+		private string signInLabel;
+		public string SignInLabel
+		{
+			get => signInLabel;
+			set => SetProperty(ref signInLabel, value);
+		}
 
+		private ImageSource headImg;
 
+		public ImageSource HeadImg
+		{
+			get => headImg;
+			set => SetProperty(ref headImg, value);
+		}
 		#endregion
 
 		#region Command
-		public DelegateCommand<object> Load { get; set; }
 
 		public DelegateCommand ChangedToCN { get; }
 		public DelegateCommand ChangedToEn { get; }
+
+		//signin click event handler
+		public DelegateCommand SignInClick { get; }
 
 		#endregion
 
@@ -120,16 +135,31 @@ namespace nTestSystem.Desktop.ViewModels
 			if (navigatePath != null)
 				_rm.RequestNavigate(RegionManage.ShellRegion, navigatePath);
 		}
-
-
+		//更新登录用户信息
+		private void UserInfoUpdate(UserInfoModel uim)
+		{
+			SignInLabel = uim.Name;
+			HeadImg = uim.HeadImg;
+		}
 		#endregion
 
 		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea)
 		{
+
 			_ea = ea;
 			_rm = regionManager;
 			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
+			_ea.GetEvent<UserInfoTransmit>().Subscribe(UserInfoUpdate);
+
+			ResourceHandler.Instance.Add(Resource.ResourceManager);
+			ResourceHandler.Instance.CurrentUICulture = new CultureInfo(AppSettingHelper.ReadKey("Language", "en-US"));
+
+
+
+			SignInClick = new DelegateCommand(() => { MessageBox.Show("Yes"); });
+
+			SignInLabel = ResourceHandler.Instance.Get(ResKeys.SignInLabel) as string;
 
 			ChangedToCN = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("zh-CN"); });
 			ChangedToEn = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("en-US"); });

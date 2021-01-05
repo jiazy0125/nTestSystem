@@ -3,10 +3,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="nTestSystem.DataHelper" />
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
     
     
@@ -15,13 +16,27 @@
     
      
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+    
+    
+    
+    
+    
+     
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.3" />
+    
+    
+    
+    
+    
+     
+    <PackageReference Update="Prism.Core" Version="8.0.0.1909" />
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="del /q &quot;$(ProjectDir)bin\$(Configuration)\*.nupkg&quot;&#xD;&#xA;del /q &quot;$(ProjectDir)bin\$(Configuration)\*.snupkg&quot;" />
   </Target>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet pack --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg&#xD;&#xA;dotnet nuget push &quot;**/*.nupkg&quot; -k oy2mhgmjsmg4mipwizgqborqoflivrjudhhx2ay7lt2p5e -s https://api.nuget.org/v3/index.json" />
+    <Exec Command="dotnet pack --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg&#xD;&#xA;dotnet nuget push &quot;**/*.nupkg&quot; -k oy2p5hcdcywzmvidyxnaazm2glvuoyhe5clelaqmnmlwsm -s https://api.nuget.org/v3/index.json" />
   </Target>
 
 </Project>

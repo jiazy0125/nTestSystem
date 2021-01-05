@@ -16,6 +16,10 @@
     <PackageReference Include="WpfScreenHelper" Version="1.0.0" />
 
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+
+    <PackageReference Update="Prism.Core" Version="8.0.0.1909" />
+
+    <PackageReference Update="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
