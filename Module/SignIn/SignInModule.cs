@@ -15,7 +15,7 @@ namespace SignIn
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterForNavigation<Views.SignIn>();
+			containerRegistry.RegisterDialog<Views.SignIn,ViewModels.SignInViewModel>("SignIn");//注册自定义对话框窗体
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:cvt="clr-namespace:nTestSystem.UserControls.Converters">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Colors.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/ButtonStyle.xaml"/>
@@ -19,5 +20,7 @@
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroImageStyle.xaml"/>	
 		
 	</ResourceDictionary.MergedDictionaries>
+	<cvt:StringToImageConverter x:Key="StringToImage"/>
+
 
 </ResourceDictionary>

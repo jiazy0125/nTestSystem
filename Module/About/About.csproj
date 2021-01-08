@@ -30,9 +30,9 @@
     </None>  
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />   
     <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.2" />   
-    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.3" />   
-    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.5" />   
-    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.1" />   
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.7" />   
+    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.7" />   
+    <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.2" />   
     <PackageReference Update="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
   <ItemGroup>

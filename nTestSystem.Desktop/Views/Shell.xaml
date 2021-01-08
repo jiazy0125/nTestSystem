@@ -11,10 +11,10 @@
 				   xmlns:c="clr-namespace:nTestSystem.DataHelper.Class;assembly=nTestSystem.DataHelper"
 				   mc:Ignorable="d" MinWidth="{Binding MinWidth}" MinHeight="{Binding MinHeight}"
 				   Icon="/Views/logo.png" prism:ViewModelLocator.AutoWireViewModel="True"
-				   Title="{DynamicResource Title}"
+				   Title="{DynamicResource Title}" 
 				   WindowShadowColor="#888888" WindowShadowOpacity="0.4" WindowShadowSize="15" SizeToContent="{Binding SizeToContent}"
 				   ResizeMode="{Binding ResizeMode}" WindowStartupLocation="CenterScreen" WindowState="Normal" 
-				   FontFamily="微软雅黑" d:DesignWidth="513" d:DesignHeight="254">
+				   FontFamily="微软雅黑" Topmost="False" >
 	<Behaviors:Interaction.Triggers>
 		<Behaviors:EventTrigger EventName="Loaded" >
 			<Behaviors:CallMethodAction MethodName="View_Loaded" TargetObject="{Binding}" />

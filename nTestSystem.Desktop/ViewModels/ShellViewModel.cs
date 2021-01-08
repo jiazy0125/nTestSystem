@@ -8,6 +8,7 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace nTestSystem.Desktop.ViewModels
 
 		private readonly IEventAggregator _ea;
 		private readonly IRegionManager _rm;
-
+		private readonly IDialogService _ds;
 		#endregion
 
 		#region Properties
@@ -109,8 +110,8 @@ namespace nTestSystem.Desktop.ViewModels
 			Visibility = b ? Visibility.Visible : Visibility.Collapsed;
 			SizeToContent = SizeToContent.Manual;
 			ResizeMode = ResizeMode.CanResizeWithGrip;
-			MinWidth = 800;
-			MinHeight = 600;
+			MinWidth = 1024;
+			MinHeight = 768;
 			Application.Current.MainWindow.CenterWindowOnScreen();
 			_ea.GetEvent<LoadedEvent>().Unsubscribe(NavigationLoaded);
 			_ea.GetEvent<NavigateEvent>().Unsubscribe(Navigate);
@@ -139,13 +140,15 @@ namespace nTestSystem.Desktop.ViewModels
 		private void UserInfoUpdate(UserInfoModel uim)
 		{
 			SignInLabel = uim.Name;
-			HeadImg = uim.HeadImg;
+			HeadImg = uim.HeadSource;
 		}
+
+	
 		#endregion
 
-		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea)
+		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IDialogService dialogService)
 		{
-
+			_ds = dialogService;
 			_ea = ea;
 			_rm = regionManager;
 			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
@@ -157,7 +160,7 @@ namespace nTestSystem.Desktop.ViewModels
 
 
 
-			SignInClick = new DelegateCommand(() => { MessageBox.Show("Yes"); });
+			SignInClick = new DelegateCommand(() => { _ds.ShowDialog("SignIn"); });
 
 			SignInLabel = ResourceHandler.Instance.Get(ResKeys.SignInLabel) as string;
 

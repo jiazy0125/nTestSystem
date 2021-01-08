@@ -8,13 +8,14 @@
     <None Remove="Views\head.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
     <PackageReference Include="nTestSystem.Aggregator" Version="1.0.0.2" />
     <PackageReference Include="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
-    <PackageReference Include="nTestSystem.DataHelper" Version="1.0.0.3" />
-    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.5" />
-    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.1" />
+    <PackageReference Include="nTestSystem.DataHelper" Version="1.0.0.7" />
+    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.7" />
+    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.2" />
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\head.jpg" />

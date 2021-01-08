@@ -48,6 +48,7 @@ namespace nTestSystem.Desktop
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
+			containerRegistry.RegisterDialogWindow<DialogWindow>();//注册自定义对话框窗体
 		}
 
 

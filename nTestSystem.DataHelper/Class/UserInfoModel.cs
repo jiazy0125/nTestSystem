@@ -2,23 +2,61 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Media;
+using System.Drawing;
+using Prism.Mvvm;
 
 namespace nTestSystem.DataHelper.Class
 {
-	public class UserInfoModel
+	public class UserInfoModel: BindableBase
 	{
+		private string name;
+		public string Name 
+		{
+			get => name;
+			set => SetProperty(ref name, value); 
+		}
 
-		public string Name { get; set; }
+		private string password;
+		public string Password 
+		{
+			get => password;
+			set => SetProperty(ref password, value); 
+		}
 
-		public ImageSource HeadImg { get; set; }
+		private ImageSource headSource;
+		public ImageSource HeadSource 
+		{
+			get => headSource;
+			set => SetProperty(ref headSource, value);
+		}
 
-		public AuthorityLevel Authority { get; set; }
+		private AuthorityLevel autLevel = AuthorityLevel.Guest;
+		public AuthorityLevel Authority 
+		{
+			get => autLevel;
+			set => SetProperty(ref autLevel, value);
+		}
 
-		public DateTime LastLogon { get; set; }
+		public string lastlogon;
+		public string LastLogon 
+		{
+			get => lastlogon;
+			set => SetProperty(ref lastlogon, value);
+		}
 
-		public DateTime Logon { get; set; }
+		private string logon;
+		public string Logon 
+		{
+			get => logon;
+			set => SetProperty(ref logon, value);
+		}
 
-		public string Location { get; set; }
+		public string location;
+		public string Location 
+		{
+			get => location;
+			set => SetProperty(ref location, value);
+		}
 
 		
 
