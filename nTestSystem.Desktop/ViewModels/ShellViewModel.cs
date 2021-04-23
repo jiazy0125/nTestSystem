@@ -1,9 +1,10 @@
 ﻿using nTestSystem.Aggregator;
 using nTestSystem.DataHelper.Class;
 using nTestSystem.Desktop.Resources;
-using nTestSystem.Framework.Commons;
+using nTestSystem.Resource;
 using nTestSystem.Framework.Configurations;
 using nTestSystem.Framework.Extensions;
+using nTestSystem.DataHelper.Models;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -12,7 +13,7 @@ using Prism.Services.Dialogs;
 using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Media;
+using System.Windows.Input;
 
 namespace nTestSystem.Desktop.ViewModels
 {
@@ -28,6 +29,8 @@ namespace nTestSystem.Desktop.ViewModels
 		#region Properties
 
 		//public IRegionManager RegionMannager { get; private set; }
+
+		public ProfileInfo Profile { get; private set; } = new ProfileInfo();
 
 		//根据界面设置部分控件隐藏显示
 		private Visibility visibility = Visibility.Collapsed;
@@ -74,19 +77,11 @@ namespace nTestSystem.Desktop.ViewModels
 			set => SetProperty(ref resizeMode, value);
 		}
 
-		private string signInLabel;
-		public string SignInLabel
+		private double contentHeight ;
+		public double ContentHeight
 		{
-			get => signInLabel;
-			set => SetProperty(ref signInLabel, value);
-		}
-
-		private ImageSource headImg;
-
-		public ImageSource HeadImg
-		{
-			get => headImg;
-			set => SetProperty(ref headImg, value);
+			get => contentHeight;
+			set => SetProperty(ref contentHeight, value);
 		}
 		#endregion
 
@@ -96,7 +91,7 @@ namespace nTestSystem.Desktop.ViewModels
 		public DelegateCommand ChangedToEn { get; }
 
 		//signin click event handler
-		public DelegateCommand SignInClick { get; }
+		public DelegateCommand<object> SignInClick { get; }
 
 		#endregion
 
@@ -137,32 +132,59 @@ namespace nTestSystem.Desktop.ViewModels
 				_rm.RequestNavigate(RegionManage.ShellRegion, navigatePath);
 		}
 		//更新登录用户信息
-		private void UserInfoUpdate(UserInfoModel uim)
+		private void UserInfoUpdate(ProfileInfo _profile)
 		{
-			SignInLabel = uim.Name;
-			HeadImg = uim.HeadSource;
+			Profile.CopyFrom(_profile, true);
 		}
 
-	
+		private void ResourceChanged(bool b)
+		{
+			if (!Profile.Logged && b)
+			{
+				Profile.Name = ResourceHandler.Instance.Get(ResKeys.SignInLabel) as string;			
+			}		
+		}
+
+		private void EventSubscribe()
+		{
+			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
+			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
+			_ea.GetEvent<ProfileUpdate>().Subscribe(UserInfoUpdate);
+			_ea.GetEvent<ResourceChanged>().Subscribe(ResourceChanged);
+		}
+
+
+
+
 		#endregion
 
 		public ShellViewModel(IRegionManager regionManager, IEventAggregator ea, IDialogService dialogService)
 		{
+			ResourceHandler.EventAggregator = ea;
 			_ds = dialogService;
 			_ea = ea;
 			_rm = regionManager;
-			_ea.GetEvent<LoadedEvent>().Subscribe(NavigationLoaded);
-			_ea.GetEvent<NavigateEvent>().Subscribe(Navigate);
-			_ea.GetEvent<UserInfoTransmit>().Subscribe(UserInfoUpdate);
-
-			ResourceHandler.Instance.Add(Resource.ResourceManager);
-			ResourceHandler.Instance.CurrentUICulture = new CultureInfo(AppSettingHelper.ReadKey("Language", "en-US"));
+			EventSubscribe();
 
 
 
-			SignInClick = new DelegateCommand(() => { _ds.ShowDialog("SignIn"); });
+			SignInClick = new DelegateCommand<object>((obj) => 
+			{
+				//prompt sign in dialog if not logged
+				if (!Profile.Logged)
+					_ds.ShowDialog("SignIn");
+				//prompt detail dialog if logged
+				else if (Profile.Logged)
+				{
+					//鼠标位置显示个人资料弹窗
+				Point pp = Mouse.GetPosition(obj as FrameworkElement);
+				Point ppp = (obj as FrameworkElement).PointToScreen(pp);
+				_ds.ShowDialog("ProfilePage", new DialogParameters($"msg={ppp.Y},{ppp.X}"), null);
+				}
 
-			SignInLabel = ResourceHandler.Instance.Get(ResKeys.SignInLabel) as string;
+			});
+
+			
 
 			ChangedToCN = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("zh-CN"); });
 			ChangedToEn = new DelegateCommand(() => { ResourceHandler.Instance.CurrentUICulture = new CultureInfo("en-US"); });

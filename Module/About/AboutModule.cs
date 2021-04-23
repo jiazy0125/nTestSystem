@@ -1,6 +1,6 @@
 ﻿using About.Views;
 using nTestSystem.DataHelper.Class;
-using nTestSystem.Framework.Commons;
+using nTestSystem.Resource;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

@@ -9,13 +9,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
-    <PackageReference Include="nTestSystem.Aggregator" Version="1.0.0.2" />
-    <PackageReference Include="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
-    <PackageReference Include="nTestSystem.DataHelper" Version="1.0.0.7" />
-    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.7" />
-    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.2" />
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\nTestSystem.Aggregator\nTestSystem.Aggregator.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.DataHelper\nTestSystem.DataHelper.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.Framework\nTestSystem.Framework.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.Resource\nTestSystem.Resource.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.UserControls\nTestSystem.UserControls.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\head.jpg" />

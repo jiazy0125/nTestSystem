@@ -11,37 +11,6 @@ namespace nTestSystem.Framework.Extensions
 	/// </summary>
 	public static class ObjectExtensions
 	{
-
-        /// <summary>
-        /// int索引值转化为ColumnFlags标志位
-        /// </summary>
-        /// <param name="sqlCommand"></param>
-        /// <param name="column">字段索引</param>
-        /// <returns></returns>
-        public static ColumnFlags ToFlag<T>(this T obj) where T : IComparable<int>
-        {
-            var column = (int)(object)obj;
-            return (ColumnFlags)(1 << column);
-        }
-        /// <summary>
-        /// 多个int索引值转化为ColumnFlags标志位
-        /// </summary>
-        /// <param name="sqlCommand"></param>
-        /// <param name="columns">多个字段索引</param>
-        /// <returns></returns>
-        public static ColumnFlags ToFlags<T>(this T obj) where T : IEnumerable<int>
-        {
-            var columns = (int[])(object)obj;
-            var cf = (ColumnFlags)0;
-
-            if (columns == null | columns?.Length == 0) return (ColumnFlags)(-1);
-            foreach (var ci in columns)
-            {
-                cf |= (ColumnFlags)(1 << ci);
-            }          
-            return cf;        
-        }
-
         /// <summary>
         /// MD5加密
         /// </summary>

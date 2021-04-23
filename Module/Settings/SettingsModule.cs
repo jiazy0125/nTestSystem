@@ -2,7 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using nTestSystem.Framework.Commons;
+using nTestSystem.Resource;
 using nTestSystem.DataHelper.Class;
 
 namespace Settings
@@ -13,6 +13,7 @@ namespace Settings
 		{
 			var regionManager = containerProvider.Resolve<IRegionManager>();
 			regionManager.RegisterViewWithRegion(RegionManage.SystemMenuRegion, typeof(SettingBtn));
+			regionManager.RegisterViewWithRegion(RegionManage.GeneralSettingRegion, typeof(GeneralPage));
 			ResourceHandler.Instance.Add(Resources.Resource.ResourceManager);
 		}
 

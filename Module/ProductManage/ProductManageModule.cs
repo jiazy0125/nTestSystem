@@ -3,7 +3,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using nTestSystem.DataHelper.Class;
-using nTestSystem.Framework.Commons;
+using nTestSystem.Resource;
 
 namespace ProductManage
 {

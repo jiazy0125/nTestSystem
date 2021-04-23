@@ -9,10 +9,10 @@
 		<Setter Property="Effect">
 			<Setter.Value>
 				<DropShadowEffect
-                    BlurRadius="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}, Path=WindowShadowSize}"
-                    Opacity="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}, Path=WindowShadowOpacity}"
+                    BlurRadius="{Binding WindowShadowSize, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}}"
+                    Opacity="{Binding WindowShadowOpacity, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}}"
                     ShadowDepth="0"
-                    Color="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}, Path=WindowShadowColor}" />
+                    Color="{Binding WindowShadowColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ctrls:MetroWindow}}}" />
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Template">

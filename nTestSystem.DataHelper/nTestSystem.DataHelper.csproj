@@ -3,28 +3,26 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>1.0.0.7</Version>
+    <Version>1.0.0.12</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nTestSystem.DatabaseHelper" />
-    <PackageReference Include="nTestSystem.Framework" />
-    <PackageReference Include="Prism.Core" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
-    <PackageReference Include="System.Drawing.Common" />
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
-    <PackageReference Update="nTestSystem.DatabaseHelper" Version="1.0.0.1" />
-    <PackageReference Update="nTestSystem.Framework" Version="1.0.0.7" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
     <PackageReference Update="Prism.Core" Version="8.0.0.1909" />
-    <PackageReference Update="System.Data.SqlClient" Version="4.8.2" />
-    <PackageReference Update="System.Drawing.Common" Version="5.0.0" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="del /q &quot;$(ProjectDir)bin\$(Configuration)\*.nupkg&quot;&#xD;&#xA;del /q &quot;$(ProjectDir)bin\$(Configuration)\*.snupkg&quot;" />
-  </Target>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet pack --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg&#xD;&#xA;dotnet nuget push &quot;**/*.nupkg&quot; -k oy2mnpnj5k5njnqpvkmql65zspr7sqhuxi74ec7vxftgny -s https://api.nuget.org/v3/index.json" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\nTestSystem.Framework\nTestSystem.Framework.csproj" />
+  </ItemGroup>
+
+
 
 </Project>

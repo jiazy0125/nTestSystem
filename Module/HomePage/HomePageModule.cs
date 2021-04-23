@@ -1,9 +1,9 @@
 ﻿using HomePage.Views;
-using nTestSystem.Framework.Commons;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 using nTestSystem.DataHelper.Class;
+using nTestSystem.Resource;
 
 namespace HomePage
 {

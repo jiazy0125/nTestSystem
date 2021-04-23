@@ -1,14 +1,15 @@
 ﻿using Prism.Ioc;
-using nTestSystem.Desktop.Views;
-using System.Windows;
-using nTestSystem.Framework.Commons;
-using nTestSystem.Desktop.Resources;
-using System.Globalization;
-using nTestSystem.Framework.Configurations;
-using Prism.Modularity;
 using System.IO;
 using Prism.Regions;
+using System.Windows;
+using Prism.Modularity;
+using System.Diagnostics;
 using System.Windows.Controls;
+using nTestSystem.Desktop.Views;
+using nTestSystem.Framework.Commons;
+using nTestSystem.Resource;
+using System.Globalization;
+using nTestSystem.Framework.Configurations;
 
 namespace nTestSystem.Desktop
 {
@@ -21,7 +22,13 @@ namespace nTestSystem.Desktop
 		{
 			base.OnStartup(e);
 
+#if DEBUG
+			//Resolving harmless binding errors in WPF
+			PresentationTraceSources.DataBindingSource.Switch.Level = SourceLevels.Critical;
+#endif
 
+			ResourceHandler.Instance.Add(Desktop.Resources.Resource.ResourceManager);
+			ResourceHandler.Instance.CurrentUICulture = new CultureInfo(AppSettingHelper.ReadKey("Language", "en-US"));
 		}
 
 		//prism函数
@@ -48,7 +55,7 @@ namespace nTestSystem.Desktop
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
-			containerRegistry.RegisterDialogWindow<DialogWindow>();//注册自定义对话框窗体
+
 		}
 
 

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
@@ -14,7 +12,7 @@ namespace nTestSystem.UserControls.Converters
             string path = (string)value;
             if (!string.IsNullOrEmpty(path))
             {
-                return new BitmapImage(new Uri(path, UriKind.Absolute));
+                return new BitmapImage(new Uri(path, UriKind.Relative));
             }
             else
             {

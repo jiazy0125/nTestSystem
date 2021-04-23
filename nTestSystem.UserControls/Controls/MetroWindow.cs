@@ -13,7 +13,7 @@ using SystemCommands = nTestSystem.UserControls.Win.SystemCommands;
 
 namespace nTestSystem.UserControls.Controls
 {
-	public partial class MetroWindow :Window
+	public class MetroWindow :Window
 	{
         #region 初始化
         public MetroWindow()
@@ -49,17 +49,17 @@ namespace nTestSystem.UserControls.Controls
 		/// </summary>
 		private void InitializeWindowStyle()
         {
-            ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.UserControls;component/Styles/MetroWindowStyle.xaml", UriKind.Relative) };
-            Resources.MergedDictionaries.Add(dic);
-            Style = (Style)dic["MetroWindow"];
+			ResourceDictionary dic = new ResourceDictionary { Source = new Uri(@"/nTestSystem.UserControls;component/Styles/MetroWindowStyle.xaml", UriKind.Relative) };
+			Resources.MergedDictionaries.Add(dic);
+			Style = (Style)dic["MetroWindow"];
 
-            //string packUriAnimation = @"/DMSkin.WPF;component/Themes/Animation.xaml";
-            //ResourceDictionary dicAnimation = new ResourceDictionary { Source = new Uri(packUriAnimation, UriKind.Relative) };
-            //Resources.MergedDictionaries.Add(dicAnimation);
+			//string packUriAnimation = @"/DMSkin.WPF;component/Themes/Animation.xaml";
+			//ResourceDictionary dicAnimation = new ResourceDictionary { Source = new Uri(packUriAnimation, UriKind.Relative) };
+			//Resources.MergedDictionaries.Add(dicAnimation);
 
-            //StoryboardSlowShow = (Storyboard)FindResource("SlowShow");
-            //StoryboardSlowHide = (Storyboard)FindResource("SlowHide");
-        }
+			//StoryboardSlowShow = (Storyboard)FindResource("SlowShow");
+			//StoryboardSlowHide = (Storyboard)FindResource("SlowHide");
+		}
         #endregion
 
         #region XAML动画
@@ -278,5 +278,10 @@ namespace nTestSystem.UserControls.Controls
         public static readonly DependencyProperty WindowShadowOpacityProperty =
             DependencyProperty.Register("WindowShadowOpacity", typeof(double), typeof(MetroWindow), new PropertyMetadata(1.0));
         #endregion
+    }
+
+    public static class MetroWindowProperty
+    { 
+    
     }
 }

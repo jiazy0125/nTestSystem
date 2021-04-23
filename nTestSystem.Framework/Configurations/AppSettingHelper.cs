@@ -69,7 +69,9 @@ namespace nTestSystem.Framework.Configurations
 				if (replacedExist)
 					cfa.AppSettings.Settings[key].Value = value;
 			}
-			cfa.Save();
+			cfa.Save(ConfigurationSaveMode.Modified,true);
+			ConfigurationManager.RefreshSection("appSettings");
+			
 
 		}
 

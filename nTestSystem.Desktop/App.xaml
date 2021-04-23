@@ -1,6 +1,7 @@
 ﻿<prism:PrismApplication x:Class="nTestSystem.Desktop.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
              xmlns:local="clr-namespace:nTestSystem.Desktop"
              xmlns:prism="http://prismlibrary.com/" >
 	<Application.Resources>
@@ -11,10 +12,9 @@
 				<!--引用底层Framework主题-->
 				<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/Themes.xaml"/>
 
-
 			</ResourceDictionary.MergedDictionaries>
 
-
+			
 		</ResourceDictionary>
 
 	</Application.Resources>

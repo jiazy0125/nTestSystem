@@ -14,6 +14,10 @@ namespace Settings.Resources
 {
 	public static class ResKeys
 	{
+		public static readonly ComponentResourceKey DebugLabel = new ComponentResourceKey(typeof(Resource), nameof(DebugLabel));
+		public static readonly ComponentResourceKey GeneralLabel = new ComponentResourceKey(typeof(Resource), nameof(GeneralLabel));
 		public static readonly ComponentResourceKey SettingBtnLabel = new ComponentResourceKey(typeof(Resource), nameof(SettingBtnLabel));
+		public static readonly ComponentResourceKey StartUpLabel = new ComponentResourceKey(typeof(Resource), nameof(StartUpLabel));
+		public static readonly ComponentResourceKey ThemeLabel = new ComponentResourceKey(typeof(Resource), nameof(ThemeLabel));
 	}
 }

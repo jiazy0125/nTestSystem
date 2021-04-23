@@ -70,6 +70,24 @@ namespace SignIn.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name or password can not be empty!.
+        /// </summary>
+        internal static string EmptyWarning {
+            get {
+                return ResourceManager.GetString("EmptyWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name or password error.
+        /// </summary>
+        internal static string ErrorInput {
+            get {
+                return ResourceManager.GetString("ErrorInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forget Password.
         /// </summary>
         internal static string Forget {

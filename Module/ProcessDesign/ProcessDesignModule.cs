@@ -2,7 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using nTestSystem.Framework.Commons;
+using nTestSystem.Resource;
 using nTestSystem.DataHelper.Class;
 
 namespace ProcessDesign

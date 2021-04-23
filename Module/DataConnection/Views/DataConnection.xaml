@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"  Background="White"
 			 xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
-			 xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
+			 xmlns:res="clr-namespace:nTestSystem.Resource;assembly=nTestSystem.Resource"
 			 xmlns:keys="clr-namespace:DataConnection.Resources"
              prism:ViewModelLocator.AutoWireViewModel="True">
 	<UserControl.Resources>
@@ -24,28 +24,28 @@
 		<GridSplitter Grid.Column="1" Width="1" Grid.RowSpan="2" HorizontalAlignment="Center" IsEnabled="False" Margin="2"/>
 		<GridSplitter Grid.Row="2" Margin="2" Height="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" IsEnabled="False"/>
 		<StackPanel Grid.Row="1" Orientation="Vertical">
-			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{ext:ResourceHelper {x:Static keys:ResKeys.DatabaseTypeLabel}, DefaultValue='Select Database Type'}" 
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{res:ResourceHelper {x:Static keys:ResKeys.DatabaseTypeLabel}, DefaultValue='Select Database Type'}" 
 					   Margin="2" IsEnabled="False"/>
 			<ctrls:MetroComboBox Background="{DynamicResource ThemeColor}" Margin="2" ItemsSource="{Binding DBList}" CornerRadius="2" Width="150" 
 							 SelectedValue="{Binding DatabaseSelected, Mode=OneWayToSource}" SelectedIndex="0" Height="30" Foreground="White"
 							 HorizontalAlignment="Left" IsEditable="False" IsReadOnly="True" />
-			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{ext:ResourceHelper {x:Static keys:ResKeys.DatabaseTypeLabel}, DefaultValue='Database Connection String'}" 
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{res:ResourceHelper {x:Static keys:ResKeys.DatabaseTypeLabel}, DefaultValue='Database Connection String'}" 
 					   Margin="2"/>
 			<ctrls:MetroTextBox InputHint="{DynamicResource DbConnectSettingHint}" Margin="2" Height="60" TextWrapping="Wrap" MultipleLine="True"
 							  ctrls:MetroScrollViewer.IsEnableInertia="True" Text="{Binding ConnectString,Mode=OneWayToSource}" />
-			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{ext:ResourceHelper {x:Static keys:ResKeys.ExampleLabel}, DefaultValue='e.g. :'}"
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{res:ResourceHelper {x:Static keys:ResKeys.ExampleLabel}, DefaultValue='e.g. :'}"
 					   Margin="2" IsEnabled="False"/>
 			<TextBlock Style="{StaticResource MetroTextBlock}" Text="Persist Security Info=True;User ID=***;Password=***;Initial Catalog=OCP_Traks;Data Source=10.191.34.143" 
 								Margin="2" TextWrapping="Wrap" IsEnabled="False" MaxWidth="500"/>
 		</StackPanel>
 		<StackPanel Grid.Row="1" Grid.Column="2">
-			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{ext:ResourceHelper {x:Static keys:ResKeys.LocationLabel}, DefaultValue='Data Location'}" 
+			<TextBlock Style="{StaticResource MetroTextBlock}" Text="{res:ResourceHelper {x:Static keys:ResKeys.LocationLabel}, DefaultValue='Data Location'}" 
 					   Margin="2" IsEnabled="False"/>
 
 		</StackPanel>
 
 		<ctrls:FlatButton Grid.Row="3" Grid.ColumnSpan="3" Background="{DynamicResource ThemeColor}" 
-						  Content="{ext:ResourceHelper {x:Static keys:ResKeys.ApplyBtn}, DefaultValue=Apply}"
+						  Content="{res:ResourceHelper {x:Static keys:ResKeys.ApplyBtn}, DefaultValue=Apply}"
 						  Height="30" Command="{Binding ApplySettings}"
 						  HorizontalAlignment="Right" Width="120" Margin="4" Foreground="White" BorderBrush="Transparent"/>
 	</Grid>

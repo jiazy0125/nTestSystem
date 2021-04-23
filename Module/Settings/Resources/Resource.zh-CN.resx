@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DebugLabel" xml:space="preserve">
+    <value>调试</value>
+  </data>
+  <data name="GeneralLabel" xml:space="preserve">
+    <value>常规</value>
+  </data>
   <data name="SettingBtnLabel" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="StartUpLabel" xml:space="preserve">
+    <value>第一次启动</value>
+  </data>
+  <data name="ThemeLabel" xml:space="preserve">
+    <value>主题</value>
   </data>
 </root>

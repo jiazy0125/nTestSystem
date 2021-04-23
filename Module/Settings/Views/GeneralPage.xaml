@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Settings.Views.GeneralPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True"
+			 xmlns:res="clr-namespace:nTestSystem.Resource;assembly=nTestSystem.Resource"
+			 xmlns:keys="clr-namespace:Settings.Resources"
+			 xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls" Background="White">
+    <Grid Margin="4">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<ctrls:MetroCheckBox Content="{res:ResourceHelper {x:Static keys:ResKeys.StartUpLabel}, DefaultValue='Is first startup'}" IsChecked="{Binding StartUp}"/>
+	</Grid>
+</UserControl>

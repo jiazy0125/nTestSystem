@@ -5,14 +5,13 @@
 				   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 				   xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
 				   xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
-				   xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
+				   xmlns:res="clr-namespace:nTestSystem.Resource;assembly=nTestSystem.Resource"
 				   xmlns:keys="clr-namespace:nTestSystem.Desktop.Resources"
 				   xmlns:prism="http://www.codeplex.com/prism"
-				   xmlns:c="clr-namespace:nTestSystem.DataHelper.Class;assembly=nTestSystem.DataHelper"
+				   xmlns:c="clr-namespace:nTestSystem.DataHelper.Class;assembly=nTestSystem.DataHelper" 
 				   mc:Ignorable="d" MinWidth="{Binding MinWidth}" MinHeight="{Binding MinHeight}"
-				   Icon="/Views/logo.png" prism:ViewModelLocator.AutoWireViewModel="True"
-				   Title="{DynamicResource Title}" 
-				   WindowShadowColor="#888888" WindowShadowOpacity="0.4" WindowShadowSize="15" SizeToContent="{Binding SizeToContent}"
+				   Icon="/Views/logo.png" prism:ViewModelLocator.AutoWireViewModel="True"			   
+				   WindowShadowColor="Red" WindowShadowOpacity="0.5" WindowShadowSize="15" SizeToContent="{Binding SizeToContent}"
 				   ResizeMode="{Binding ResizeMode}" WindowStartupLocation="CenterScreen" WindowState="Normal" 
 				   FontFamily="微软雅黑" Topmost="False" >
 	<Behaviors:Interaction.Triggers>
@@ -59,21 +58,21 @@
                     Text="{Binding Title}" />
 			</WrapPanel>
 			<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,16,0" Grid.Column="2">
-				<ctrls:NormalButton Margin="10,0,15,0" Visibility="{Binding Visibility}" Command="{Binding SignInClick}"
+				<ctrls:NormalButton Margin="10,0,15,0" Visibility="{Binding Visibility}"
                     Background="{DynamicResource TransparentColor}"
                     BorderThickness="0"
                     Cursor="Hand">
 					<WrapPanel>
 						<Ellipse Width="25" Height="25">
 							<Ellipse.Fill>
-								<ImageBrush ImageSource="/Views/head.jpg" RenderOptions.BitmapScalingMode="Fant" />
+								<ImageBrush ImageSource="{Binding Profile.Photo,Converter={StaticResource StringToImage}}" RenderOptions.BitmapScalingMode="Fant" />
 							</Ellipse.Fill>
 						</Ellipse>
 						<TextBlock
                             Margin="5,0,0,0"
                             VerticalAlignment="Center"
                             Foreground="White"   
-                            Text="{Binding SignInLabel}" />
+                            Text="{Binding Profile.Name}" />
 						<Path
                             Width="10"
                             Height="10"
@@ -82,6 +81,11 @@
                             Fill="White"
                             Stretch="Uniform" />
 					</WrapPanel>
+					<Behaviors:Interaction.Triggers>
+						<Behaviors:EventTrigger EventName="Click">
+							<prism:InvokeCommandAction Command="{Binding SignInClick}"  TriggerParameterPath="Source"/>
+						</Behaviors:EventTrigger>
+					</Behaviors:Interaction.Triggers>
 				</ctrls:NormalButton>
 				<ctrls:SystemButton Margin="10,0,0,0" Cursor="Hand"
 									SystemButtonForeground="#EEC1C1"
@@ -119,7 +123,7 @@
 										 SystemButtonSize="22"/>
 			</StackPanel>
 		</Grid>
-		<ContentControl x:Name="ContentControl" prism:RegionManager.RegionName="{x:Static c:RegionManage.ShellRegion}" Grid.Row="1"/>
+		<ContentControl x:Name="ContentControl" prism:RegionManager.RegionName="{x:Static c:RegionManage.ShellRegion}" Grid.Row="1" />
 		<ResizeGrip Grid.Row="1" Height="12" Width="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="{Binding Visibility}"/>
 		<StackPanel Grid.Row="2" Orientation="Horizontal">
 			<Button Content="CN" Width="100" Height="35" Command="{Binding ChangedToCN}"/>

@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DebugLabel" xml:space="preserve">
+    <value>Debugging</value>
+  </data>
+  <data name="GeneralLabel" xml:space="preserve">
+    <value>General</value>
+  </data>
   <data name="SettingBtnLabel" xml:space="preserve">
     <value>Setting</value>
+  </data>
+  <data name="StartUpLabel" xml:space="preserve">
+    <value>Is fisrt startup</value>
+  </data>
+  <data name="ThemeLabel" xml:space="preserve">
+    <value>Theme</value>
   </data>
 </root>

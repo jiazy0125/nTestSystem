@@ -22,6 +22,11 @@ namespace nTestSystem.DataHelper.Class
 
 		public static string ToolMenuRegion = "ToolMenuRegion";
 
+		public static string GeneralSettingRegion = "GeneralSetting";
+
+		public static string ThemeSettingRegion = "ThemeSetting";
+
+		public static string DebuggingSettingRegion = "DebuggingSetting";
 
 	}
 }

@@ -120,6 +120,12 @@
   <data name="AutoLabel" xml:space="preserve">
     <value>自动登录</value>
   </data>
+  <data name="EmptyWarning" xml:space="preserve">
+    <value>用户名或密码不能为空</value>
+  </data>
+  <data name="ErrorInput" xml:space="preserve">
+    <value>用户名或密码错误</value>
+  </data>
   <data name="Forget" xml:space="preserve">
     <value>忘记密码</value>
   </data>

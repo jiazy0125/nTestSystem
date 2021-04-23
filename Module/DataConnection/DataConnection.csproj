@@ -5,14 +5,13 @@
     <AssemblyName>DataConnection</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="nTestSystem.Aggregator" />
-    <PackageReference Include="nTestSystem.DataHelper" />
-    <PackageReference Include="nTestSystem.Framework" />
-    <PackageReference Include="nTestSystem.UserControls" />
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+    <ProjectReference Include="..\..\nTestSystem.Framework\nTestSystem.Framework.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.Resource\nTestSystem.Resource.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.UserControls\nTestSystem.UserControls.csproj" />
     <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
-    <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.2" />
-    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.7" />
+    <PackageReference Update="nTestSystem.Aggregator" Version="1.0.0.4" />
+    <PackageReference Update="nTestSystem.DataHelper" Version="1.0.0.12" />
     <PackageReference Update="nTestSystem.Framework" Version="1.0.0.7" /> 
     <PackageReference Update="nTestSystem.UserControls" Version="1.0.0.2" /> 
     <PackageReference Update="Prism.Wpf" Version="8.0.0.1909" />

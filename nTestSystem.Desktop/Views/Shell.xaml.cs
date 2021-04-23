@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Prism.Events;
+using System.Windows;
 
 namespace nTestSystem.Desktop.Views
 {

@@ -120,6 +120,12 @@
   <data name="AutoLabel" xml:space="preserve">
     <value>Auto-Login</value>
   </data>
+  <data name="EmptyWarning" xml:space="preserve">
+    <value>Name or password can not be empty!</value>
+  </data>
+  <data name="ErrorInput" xml:space="preserve">
+    <value>Name or password error</value>
+  </data>
   <data name="Forget" xml:space="preserve">
     <value>Forget Password</value>
   </data>

@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>nTestSystem.Desktop</AssemblyName>
+    <StartupObject>nTestSystem.Desktop.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Views\Background.jpg" />
@@ -11,13 +12,20 @@
     <None Remove="Views\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
-    <PackageReference Include="nTestSystem.Aggregator" Version="1.0.0.2" />
-    <PackageReference Include="nTestSystem.DataHelper" Version="1.0.0.7" />
-    <PackageReference Include="nTestSystem.Framework" Version="1.0.0.7" />
-    <PackageReference Include="nTestSystem.UserControls" Version="1.0.0.2" />
     <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
     <PackageReference Include="WpfScreenHelper" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nTestSystem.Aggregator\nTestSystem.Aggregator.csproj" />
+    <ProjectReference Include="..\nTestSystem.DataHelper\nTestSystem.DataHelper.csproj" />
+    <ProjectReference Include="..\nTestSystem.Framework\nTestSystem.Framework.csproj" />
+    <ProjectReference Include="..\nTestSystem.Resource\nTestSystem.Resource.csproj" />
+    <ProjectReference Include="..\nTestSystem.UserControls\nTestSystem.UserControls.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Background.jpg" />
@@ -43,6 +51,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Update="info.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\ResKeys.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ResKeys.cs</LastGenOutput>

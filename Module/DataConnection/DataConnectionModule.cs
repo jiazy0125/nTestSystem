@@ -1,8 +1,6 @@
-﻿using DataConnection.Views;
-using nTestSystem.Framework.Commons;
+﻿using nTestSystem.Resource;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
 
 namespace DataConnection
 {

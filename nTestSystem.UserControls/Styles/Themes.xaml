@@ -17,8 +17,11 @@
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroPasswordBoxStyle.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroCheckBoxStyle.xaml"/>
 		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroScrollViewerStyle.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroImageStyle.xaml"/>	
-		
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroImageStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/MetroWindowStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/NavigationPanelStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/GroupBoxNormalStyle.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/nTestSystem.UserControls;component/Styles/SegmentControlSytle.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 	<cvt:StringToImageConverter x:Key="StringToImage"/>
 

@@ -20,13 +20,4 @@
 
     <PackageReference Update="System.Drawing.Common" Version="5.0.0" />
   </ItemGroup>
-
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="del /q &quot;$(ProjectDir)bin\$(Configuration)\*.nupkg&quot;&#xD;&#xA;del /q &quot;$(ProjectDir)bin\$(Configuration)\*.snupkg&quot;" />
-  </Target>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet pack --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg&#xD;&#xA;dotnet nuget push &quot;**/*.nupkg&quot; -k oy2mnpnj5k5njnqpvkmql65zspr7sqhuxi74ec7vxftgny -s https://api.nuget.org/v3/index.json" />
-  </Target>
-
-
 </Project>

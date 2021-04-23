@@ -61,11 +61,47 @@ namespace Settings.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debugging.
+        /// </summary>
+        internal static string DebugLabel {
+            get {
+                return ResourceManager.GetString("DebugLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string GeneralLabel {
+            get {
+                return ResourceManager.GetString("GeneralLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setting.
         /// </summary>
         internal static string SettingBtnLabel {
             get {
                 return ResourceManager.GetString("SettingBtnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is fisrt startup.
+        /// </summary>
+        internal static string StartUpLabel {
+            get {
+                return ResourceManager.GetString("StartUpLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        internal static string ThemeLabel {
+            get {
+                return ResourceManager.GetString("ThemeLabel", resourceCulture);
             }
         }
     }

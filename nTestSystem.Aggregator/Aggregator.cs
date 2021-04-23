@@ -1,6 +1,6 @@
 ﻿using nTestSystem.DataHelper.Class;
+using nTestSystem.DataHelper.Models;
 using Prism.Events;
-using System.Collections.Generic;
 
 namespace nTestSystem.Aggregator
 {
@@ -11,10 +11,8 @@ namespace nTestSystem.Aggregator
 
     public class NavigateEvent : PubSubEvent<string> { }
 
-    public class TitleChangedEvent : PubSubEvent<string> { }
+    public class ProfileUpdate : PubSubEvent<ProfileInfo> { }
 
-    public class UserInfoTransmit : PubSubEvent<UserInfoModel> { }
-    
-    public class ValueUpdate : PubSubEvent<KeyValue> { }
+    public class ResourceChanged : PubSubEvent<bool> { }
     
 }

@@ -2,12 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:prism="http://prismlibrary.com/"  
-			 xmlns:ext="clr-namespace:nTestSystem.Framework.Extensions;assembly=nTestSystem.Framework"
+			 xmlns:res="clr-namespace:nTestSystem.Resource;assembly=nTestSystem.Resource"
 			 xmlns:keys="clr-namespace:Settings.Resources"
 			 xmlns:ctrls="clr-namespace:nTestSystem.UserControls.Controls;assembly=nTestSystem.UserControls"
              prism:ViewModelLocator.AutoWireViewModel="True">
 	<Grid>
-		<ctrls:ImageRadioButton GroupName="Menu" Content="{ext:ResourceHelper {x:Static keys:ResKeys.SettingBtnLabel}, DefaultValue=Setting}" 
+		<ctrls:ImageRadioButton GroupName="Menu" Content="{res:ResourceHelper {x:Static keys:ResKeys.SettingBtnLabel}, DefaultValue=Setting}" 
 								Image="{Binding Icon}" IsChecked="{Binding IsChecked}"/>
 	</Grid>
 </UserControl>
