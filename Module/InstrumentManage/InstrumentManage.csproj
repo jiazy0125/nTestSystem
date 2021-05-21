@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
     <ProjectReference Include="..\..\nTestSystem.Aggregator\nTestSystem.Aggregator.csproj" />
+    <ProjectReference Include="..\..\nTestSystem.Communication\nTestSystem.Communication.csproj" />
     <ProjectReference Include="..\..\nTestSystem.DataHelper\nTestSystem.DataHelper.csproj" />
     <ProjectReference Include="..\..\nTestSystem.Framework\nTestSystem.Framework.csproj" />
     <ProjectReference Include="..\..\nTestSystem.Resource\nTestSystem.Resource.csproj" />

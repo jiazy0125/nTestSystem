@@ -61,11 +61,56 @@ namespace InstrumentManage.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string DelBtnLabel {
+            get {
+                return ResourceManager.GetString("DelBtnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Instrument Manage.
         /// </summary>
         internal static string InstrBtnLabel {
             get {
                 return ResourceManager.GetString("InstrBtnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        internal static string NewBtnLabel {
+            get {
+                return ResourceManager.GetString("NewBtnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        internal static string ReadBtnLabel {
+            get {
+                return ResourceManager.GetString("ReadBtnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hexadecimal display.
+        /// </summary>
+        internal static string ShowHexLabel {
+            get {
+                return ResourceManager.GetString("ShowHexLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write.
+        /// </summary>
+        internal static string WriteBtnLabel {
+            get {
+                return ResourceManager.GetString("WriteBtnLabel", resourceCulture);
             }
         }
     }

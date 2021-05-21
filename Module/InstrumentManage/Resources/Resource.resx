@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DelBtnLabel" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="InstrBtnLabel" xml:space="preserve">
     <value>Instrument Manage</value>
+  </data>
+  <data name="NewBtnLabel" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="ReadBtnLabel" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="ShowHexLabel" xml:space="preserve">
+    <value>Hexadecimal display</value>
+  </data>
+  <data name="WriteBtnLabel" xml:space="preserve">
+    <value>Write</value>
   </data>
 </root>

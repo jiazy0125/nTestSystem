@@ -14,6 +14,11 @@ namespace InstrumentManage.Resources
 {
 	public static class ResKeys
 	{
+		public static readonly ComponentResourceKey DelBtnLabel = new ComponentResourceKey(typeof(Resource), nameof(DelBtnLabel));
 		public static readonly ComponentResourceKey InstrBtnLabel = new ComponentResourceKey(typeof(Resource), nameof(InstrBtnLabel));
+		public static readonly ComponentResourceKey NewBtnLabel = new ComponentResourceKey(typeof(Resource), nameof(NewBtnLabel));
+		public static readonly ComponentResourceKey ReadBtnLabel = new ComponentResourceKey(typeof(Resource), nameof(ReadBtnLabel));
+		public static readonly ComponentResourceKey ShowHexLabel = new ComponentResourceKey(typeof(Resource), nameof(ShowHexLabel));
+		public static readonly ComponentResourceKey WriteBtnLabel = new ComponentResourceKey(typeof(Resource), nameof(WriteBtnLabel));
 	}
 }

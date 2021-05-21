@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>1.0.0.2</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreCompat.LibUsbDotNet" Version="2.2.8-r102" />
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+    <PackageReference Include="Prism.Unity" Version="8.0.0.1909" />
+    <PackageReference Include="System.IO.Ports" Version="6.0.0-preview.3.21201.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Ivi.Visa">
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Ivi.Visa\5.8.0.0__a128c98f1d7717c1\Ivi.Visa.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Visa">
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\NationalInstruments.Visa\v4.0_17.0.0.0__2eaa5af0834e221d\NationalInstruments.Visa.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

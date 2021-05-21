@@ -14,6 +14,8 @@
 	<SolidColorBrush x:Key="ThemeColor" Color="#C62F2F" />
 	<!--  第二主题色  -->
 	<SolidColorBrush x:Key="ThemeColor2" Color="Red" />
+	<!--  第三主题色  -->
+	<SolidColorBrush x:Key="ThemeColor3" Color="White" />
 	<!--第一边框颜色-->
 	<SolidColorBrush x:Key="ThemeBrush" Color="#C62F2F" />
 	<!--第二边框颜色-->
@@ -49,11 +51,15 @@
 	<SolidColorBrush x:Key="NorAIBGBursh">#20ffffff</SolidColorBrush>
 
 	<!--默认字体色-->
-	<SolidColorBrush x:Key="NorFGBursh">#fff</SolidColorBrush>
+	<SolidColorBrush x:Key="FontBursh" Color="White"></SolidColorBrush>
+	<!--第二字体色-->
+	<SolidColorBrush x:Key="FontBursh2" Color="Black"></SolidColorBrush>
+	<!--第三字体色-->
+	<SolidColorBrush x:Key="FontBursh3" Color="Red"></SolidColorBrush>
 	<!--默认选中字体色-->
-	<SolidColorBrush x:Key="NorSelectFGBursh">#000</SolidColorBrush>
+	<SolidColorBrush x:Key="FontSelectFGBursh">#000</SolidColorBrush>
 	<!--默认悬浮字体色-->
-	<SolidColorBrush x:Key="NorHoverFGBursh">#80ffffff</SolidColorBrush>
+	<SolidColorBrush x:Key="FontHoverFGBursh">#80ffffff</SolidColorBrush>
 
 	<!--默认字体色-->
 	<FontSizeConverter x:Key="NorFontSize" ></FontSizeConverter>
@@ -75,7 +81,7 @@
 	<SolidColorBrush x:Key="BottomGridColor" Color="#F6F6F8" />
 	<!--分割条颜色-->
 	<SolidColorBrush x:Key="SplitterColor" Color="#E1E1E2" />
-
+	<!--#E1E1E2"-->
 	<SolidColorBrush x:Key="TextColor" Color="#5C5C5C"/>
 	<SolidColorBrush x:Key="TextColor1" Color="#333333" />
 	<SolidColorBrush x:Key="TextColor2" Color="#555555" />
